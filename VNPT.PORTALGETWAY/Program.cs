@@ -18,13 +18,10 @@ builder.Services.AddCors(options =>
         });
 });
 var app = builder.Build();
-app.MapGet("/", () => "Success VNPT.PORTALGETWAY server!");
 app.UseCors("CorsPolicy");
 app.UseStaticFiles();
 app.UseDefaultFiles();
 app.UseRouting();
-
 app.UseOcelot();
-
 app.Run();
  

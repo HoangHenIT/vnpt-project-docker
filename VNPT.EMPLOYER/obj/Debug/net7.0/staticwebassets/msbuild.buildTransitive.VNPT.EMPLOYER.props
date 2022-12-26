@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\VNPT.EMPLOYER.props" />
+</Project>

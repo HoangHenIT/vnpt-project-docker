@@ -1,0 +1,12 @@
+E:\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.deps.json
+E:\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.dll
+E:\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.pdb
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.AssemblyReference.cache
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfoInputs.cache
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfo.cs
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.CoreCompileInputs.cache
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.dll
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\refint\ClassLibrary.dll
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.pdb
+E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ref\ClassLibrary.dll

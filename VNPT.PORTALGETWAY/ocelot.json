@@ -11,6 +11,18 @@
         }
       ],
       "DownstreamPathTemplate": "/api/auth/{catchAll}"
+    },
+    {
+      "UpstreamPathTemplate": "/api/employer/{catchAll}",
+      "UpstreamHttpMethod": [ "Options", "Get", "Post", "Put", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9002
+        }
+      ],
+      "DownstreamPathTemplate": "/api/employer/{catchAll}"
     }
 
   ],
