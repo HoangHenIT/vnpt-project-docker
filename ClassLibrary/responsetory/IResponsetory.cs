@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.responsitory
 {
-    public interface IResponsitory<T> where T : class
+    public interface IResponsetory<T> where T : class
     {
         IEnumerable<T> getAll();
         T getById(object id);

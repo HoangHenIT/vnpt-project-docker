@@ -4,7 +4,7 @@ using ClassLibrary.responsitory;
 
 namespace VNPT.EMPLOYER.services.impl
 {
-    public class EmployerImpl: Responsitory<Employers>, IEmployer
+    public class EmployerImpl: Responsetory<Employers>, IEmployer
     {
         public EmployerImpl(DataContext context) : base(context)
         {

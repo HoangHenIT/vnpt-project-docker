@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "gvkEmBnCkcjeFQ0G9pPYeHUJLeNKhNUFW76CKf9DL8yZa6CcQqbW1/stmyCQnd/Y5lMJ4DVvFAJbw8ffJnhDWg==",
+  "dgSpecHash": "CkMmrXk4rY6DOT0sNEnOtjMdrbqfNwN55tlg+iJb+W5sbfrwdcMEwFhI/YP6CyO6geCbdsi4dB73E7ztG+HQyw==",
   "success": true,
   "projectFilePath": "E:\\vnpt-project-docker\\VNPT.EMPLOYER\\VNPT.EMPLOYER.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hoang\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.1\\microsoft.aspnetcore.authentication.jwtbearer.7.0.1.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.1\\microsoft.aspnetcore.openapi.7.0.1.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

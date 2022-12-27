@@ -70,3 +70,4 @@ E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\refint\VNPT.EMPLOYER.dll
 E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.pdb
 E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.genruntimeconfig.cache
 E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\ref\VNPT.EMPLOYER.dll
+E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

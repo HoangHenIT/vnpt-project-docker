@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.responsitory
 {
-    public class Responsitory<T>: IResponsitory<T> where T : class
+    public class Responsetory<T>: IResponsetory<T> where T : class
     {
         protected readonly DataContext m_context;
         protected DbSet<T> m_table = null;
-        public Responsitory(DataContext context)
+        public Responsetory(DataContext context)
         {
             m_context = context;
             m_table = m_context.Set<T>();
