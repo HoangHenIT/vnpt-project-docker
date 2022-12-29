@@ -29,9 +29,9 @@ var tokenValidationParameters = new TokenValidationParameters
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = "TestKey";
+    options.DefaultAuthenticateScheme = "KeyAuthenticate";
 })
- .AddJwtBearer("TestKey", x =>
+ .AddJwtBearer("KeyAuthenticate", x =>
  {
      x.RequireHttpsMetadata = false;
      x.TokenValidationParameters = tokenValidationParameters;

@@ -5,5 +5,6 @@ namespace VNPT.AUTH.services.roles
 {
     public interface IRoler : IResponsetory<Roles>
     {
+        Boolean checkRole(Roles role);
     }
 }

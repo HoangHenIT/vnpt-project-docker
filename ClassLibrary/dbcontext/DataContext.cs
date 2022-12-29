@@ -11,7 +11,7 @@ namespace ClassLibrary.connectdb
     public class DataContext: DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
-
+        //public DbSet<TableDatabase> Tablegen { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Employers> Employers { get; set; }
 

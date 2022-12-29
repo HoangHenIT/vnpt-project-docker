@@ -2,6 +2,8 @@ using ClassLibrary.auth;
 using ClassLibrary.connectdb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using VNPT.AUTH.services.auth;
 using VNPT.AUTH.services.auth.impl;
 using VNPT.AUTH.services.roles;
@@ -9,7 +11,32 @@ using VNPT.AUTH.services.roles.impl;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+// Adding Authentication
+var audienceConfig = configuration.GetSection("Audience");
+var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(audienceConfig["Secret"]));
+var tokenValidationParameters = new TokenValidationParameters
+{
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = signingKey,
+    ValidateIssuer = true,
+    ValidIssuer = audienceConfig["Issuer"],
+    ValidateAudience = true,
+    ValidAudience = audienceConfig["Aud"],
+    ValidateLifetime = true,
+    ClockSkew = TimeSpan.Zero,
+    RequireExpirationTime = true,
+};
 
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "KeyAuthenticate";
+})
+ .AddJwtBearer("KeyAuthenticate", x =>
+ {
+     x.RequireHttpsMetadata = false;
+     x.TokenValidationParameters = tokenValidationParameters;
+ });
 // Add services to the container.
 
 builder.Services.AddControllers();
