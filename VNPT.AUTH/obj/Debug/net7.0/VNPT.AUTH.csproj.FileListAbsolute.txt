@@ -72,3 +72,5 @@ E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\refint\VNPT.AUTH.dll
 E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\VNPT.AUTH.pdb
 E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\VNPT.AUTH.genruntimeconfig.cache
 E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\ref\VNPT.AUTH.dll
+E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.Extensions.Caching.Redis.dll
+E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\StackExchange.Redis.StrongName.dll

@@ -5,6 +5,7 @@ namespace VNPT.EMPLOYER.services
 {
     public interface IEmployer :IResponsetory<Employers>
     {
-        dynamic getAllEmployer();
+        Boolean checkeEmployer(Employers employers);
+
     }
 }
