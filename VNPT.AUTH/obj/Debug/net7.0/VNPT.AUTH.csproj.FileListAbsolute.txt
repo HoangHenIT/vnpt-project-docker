@@ -15,6 +15,7 @@ E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.Extensions.Caching.Redis.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.Identity.Client.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
@@ -26,6 +27,7 @@ E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.OpenApi.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\StackExchange.Redis.StrongName.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -72,5 +74,3 @@ E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\refint\VNPT.AUTH.dll
 E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\VNPT.AUTH.pdb
 E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\VNPT.AUTH.genruntimeconfig.cache
 E:\vnpt-project-docker\VNPT.AUTH\obj\Debug\net7.0\ref\VNPT.AUTH.dll
-E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\Microsoft.Extensions.Caching.Redis.dll
-E:\vnpt-project-docker\VNPT.AUTH\bin\Debug\net7.0\StackExchange.Redis.StrongName.dll

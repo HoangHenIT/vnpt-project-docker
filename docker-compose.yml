@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  vnpt.portalgetway:
+    image: ${DOCKER_REGISTRY-}vnptportalgetway
+    build:
+      context: .
+      dockerfile: VNPT.PORTALGETWAY\Dockerfile
+    ports:
+       - "9000:80"
+  vnpt.auth:
+    image: ${DOCKER_REGISTRY-}vnptauth
+    build:
+      context: .
+      dockerfile: VNPT.AUTH\Dockerfile
+    ports:
+       - "9001:80"
+  vnpt.employer:
+    image: ${DOCKER_REGISTRY-}vnptemployer
+    build:
+      context: .
+      dockerfile: VNPT.EMPLOYER\Dockerfile
+    ports:
+       - "9002:80"

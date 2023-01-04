@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CkMmrXk4rY6DOT0sNEnOtjMdrbqfNwN55tlg+iJb+W5sbfrwdcMEwFhI/YP6CyO6geCbdsi4dB73E7ztG+HQyw==",
+  "dgSpecHash": "0dCOAc5ggWHrREEi933lh//Xg6g7rSQR6kO/sn6NewgfD6DTMUlcglBo1AdgZuBfZV0yCKHyfKEpN++LTDpQTw==",
   "success": true,
   "projectFilePath": "E:\\vnpt-project-docker\\VNPT.EMPLOYER\\VNPT.EMPLOYER.csproj",
   "expectedPackageFiles": [
@@ -39,6 +39,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

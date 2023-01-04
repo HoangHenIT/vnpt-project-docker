@@ -18,7 +18,7 @@ namespace VNPT.AUTH.Controllers
             m_auth = _auth;
         }
         [AllowAnonymous]
-        [HttpGet("login")]
+        [HttpPost("login")]
         public DataRespond login(Employers employers)
         {
             return m_auth.login(employers);

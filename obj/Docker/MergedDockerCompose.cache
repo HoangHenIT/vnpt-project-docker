@@ -1,0 +1,18 @@
+name: dockercompose12742053274669573451
+services:
+  vnpt.portalgetway:
+    build:
+      context: E:\vnpt-project-docker
+      dockerfile: VNPT.PORTALGETWAY\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: vnptportalgetway
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose12742053274669573451_default
