@@ -15,6 +15,7 @@ namespace VNPT.EMPLOYER.services.impl
         {
             return getAll().Where(m => m.email == employers.email).Select( n => new
             {
+                
                 employer_id = n.employer_id,
                 full_name = n.full_name,
                 email = n.email,

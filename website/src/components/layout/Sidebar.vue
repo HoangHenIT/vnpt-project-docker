@@ -1,0 +1,205 @@
+<template>
+    <div class="sidebars ">
+        <div class="logo_details">
+            <div class="image-content">
+                <img src="../../assets/img/logo.png"  alt="profile">
+            </div>
+            <div class="name-job">
+                <div class="profile-VNPT">
+                    Công Nghệ Thông Tin
+                </div>
+            </div>
+            <!-- <i class="fa fa-vk" aria-hidden="true"></i> -->
+            <!-- <span class="logo_name">VNPT</span> -->
+        </div>
+        <div class="nav-links">
+            <li>
+                <a href="">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    <span class="link_name"> Dashboard</span>
+                </a>
+                
+            </li>
+            <li>
+                <div class="icon_links">
+                    <a href="">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="link_name">  Điều hành giảm hủy </span>
+                    </a>
+                    <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li>
+                        <a class="link_name" href="" >
+                            Điều hành giảm hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Biểu đồ TK giảm hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Các chỉ số giảm hủy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            CSKH và thu cước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Phối hợp địa bàn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Gia hạn trả trước
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Trả sau - Trả trước
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="" >
+                            Hết hạn trả trước (Quý)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Không phát sinh lưu lượng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Lý do chạm CSKH
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <div class="icon_links">
+                    <a href="">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="link_name"> Chỉ số kinh doanh </span>
+                    </a>
+                    <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li>
+                        <a class="link_name" href="" >
+                            Chỉ số kinh doanh
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            Chỉ số kinh doanh
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            CSKD theo ô địa bàn
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="icon_links">
+                    <a href="">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="link_name"> Theo dõi PTM </span>
+                    </a>
+                    <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
+                </div>
+                <ul class="sub-menu">
+                    <li>
+                        <a class="link_name" href="" >
+                            Theo dõi PTM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            PTM Fiber & MyTv
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            BC chương trình hành động
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="icon_links">
+                    <a href="/#/vdds/doccomments">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="link_name"> Doc comments</span>
+                    </a>
+                    <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
+                </div>
+               
+            </li>
+            <li>
+                <div class="icon_links">
+                    <a href="/#/auth/login">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="link_name"> Login</span>
+                    </a>
+                    <!-- <i class="fa fa-angle-down arrow" aria-hidden="true"></i> -->
+                </div>
+               
+            </li>
+            <li>
+                <div class="profile-details">
+                    
+                    <div class="profile-content">
+                        <img src="../../assets/img/bg4.jpg"  alt="profile">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile-name">
+                            Tạ Văn Hoàng Hên
+                        </div>
+                        <div class="job">
+                            Version 1.0.1
+                        </div>
+                    </div>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </div>
+            </li>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name:"Sidebar",
+    mounted() {
+        this.changEventArrowMenu();
+        this.changEventMenu();
+    },
+    methods: {
+        changEventArrowMenu() {
+        let arrow = document.querySelectorAll(".arrow");
+        for(var i = 0; i< arrow.length; i++){
+                arrow[i].addEventListener("click",(e)=>{
+                    let arrowParent = e.target.parentElement.parentElement;
+                    arrowParent.classList.toggle("showMenu")
+                })
+        }
+        },
+        changEventMenu(){
+            let sidebars = document.querySelector(".sidebars")
+            let sidebarsBars = document.querySelector(".fa-bars")
+            sidebarsBars.addEventListener("click", () => {
+                sidebars.classList.toggle("closed")
+            })
+        },
+    },
+}
+</script>
