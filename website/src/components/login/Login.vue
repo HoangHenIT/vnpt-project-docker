@@ -6,23 +6,21 @@
         <div class="form" >
             <div class="form-group">
                 <div class="input-icon">
-                    <input type="text" placeholder="Tên đăng nhập" class="form-control" v-model="request.username">
+                    <input type="text" placeholder="Tên đăng nhập" class="form-control" v-model="users.username">
                     <i class="fa fa-user icon " aria-hidden="true"></i>
                 </div>
             </div>
             <div class="form-group mart15">
                 <div class="input-icon -show">
-                    <input type="password" placeholder="Mật khẩu" class="form-control" id="myPass" v-model="request.password">
+                    <input type="password" placeholder="Mật khẩu" class="form-control" v-model="users.password">
                     <i class="fa fa-lock icon " aria-hidden="true"></i>
                     <span @click="showPass()"><i class=" icon-show" v-bind:class="[isActive ? 'fa fa-eye-slash' : 'fa fa-eye']" aria-hidden="true"></i></span>
                     <!-- <i class=" icon-show" aria-hidden="true"></i> -->
                 </div>
             </div>
             <div class="actions">
-                <button class="btn btn-main"   :disabled="disableButton">
-                    <i class="fa fa-spinner fa-spin ic-loading"></i>
+                <button class="btn btn-main" >
                     Đăng nhập
-                    
                 </button>
             </div>
             <!-- <div class="form-group mart10 marb0">
@@ -56,7 +54,7 @@ name:"Login",
 data(){
     return{
         isActive: false,
-        request:{
+        users:{
             username:'',
             password:''
         },

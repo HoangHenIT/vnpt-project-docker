@@ -5,10 +5,10 @@ const baseUrl = process.env.API;
 const TOKEN_KEY = 'web_token'
 axios.defaults.baseURL = baseUrl;
 let token = document.head.querySelector('meta[name="csrf-token"]');
-axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+// axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 axios.defaults.headers = {
   "Content-Type": "application/json",
-  "X-CSRF-TOKEN" : token.content
+  // "X-CSRF-TOKEN" : token.content
 };
 
 // doing something with the request
