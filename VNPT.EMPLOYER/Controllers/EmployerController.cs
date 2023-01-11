@@ -2,6 +2,7 @@
 using ClassLibrary.respond;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using VNPT.EMPLOYER.services;
 
 namespace VNPT.EMPLOYER.Controllers
@@ -78,12 +79,20 @@ namespace VNPT.EMPLOYER.Controllers
             {
                 var empl =  m_employer.getById(employer.employer_id);
                 empl.full_name = employer.full_name;
+                empl.name_profile = employer.name_profile;
+                empl.job_name = employer.job_name;
+                empl.company = employer.company;
                 empl.email = employer.email;
                 empl.number_phone = employer.number_phone;
+                empl.mobile= employer.mobile;
                 empl.email = employer.email;
                 empl.password = employer.password;
                 empl.active = employer.active;
                 empl.role_id = employer.role_id;
+                empl.address = employer.address;
+                empl.link_website = employer.link_website;
+                empl.link_git= employer.link_git;
+                empl.link_facebook= employer.link_facebook;
 
                 if (m_employer.checkeEmployer(empl))
                 {

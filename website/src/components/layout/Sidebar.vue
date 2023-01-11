@@ -24,62 +24,22 @@
                 <div class="icon_links">
                     <a href="">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="link_name">  Điều hành giảm hủy </span>
+                        <span class="link_name">  My User </span>
                     </a>
                     <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
                 </div>
                 <ul class="sub-menu">
                     <li>
                         <a class="link_name" href="" >
-                            Điều hành giảm hủy
+                            My User
                         </a>
                     </li>
                     <li>
-                        <a href="" >
-                            Biểu đồ TK giảm hủy
+                        <a href="/User/Profile">
+                            Profile User
                         </a>
                     </li>
-                    <li>
-                        <a href="" >
-                            Các chỉ số giảm hủy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            CSKH và thu cước
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            Phối hợp địa bàn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            Gia hạn trả trước
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            Trả sau - Trả trước
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="" >
-                            Hết hạn trả trước (Quý)
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            Không phát sinh lưu lượng
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            Lý do chạm CSKH
-                        </a>
-                    </li>
+                
                     
                 </ul>
             </li>
@@ -147,7 +107,7 @@
             </li>
             <li>
                 <div class="icon_links">
-                    <a href="/#/auth/login">
+                    <a href="/auth/login">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span class="link_name"> Login</span>
                     </a>

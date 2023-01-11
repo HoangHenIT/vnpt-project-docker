@@ -310,7 +310,7 @@
 
 .home-section .page-content {
     position: absolute;
-    top: 62px;
+    top: 105px;
     padding: 8px 16px 16px 16px;
     left: 0px;
     right: 0px;
@@ -358,7 +358,7 @@
 }
 .color-switcher .switcher-btn {
     position: absolute;
-    top: 0;
+    top: 30;
     left: -42px;
     color: black;
     background-color: rgb(246, 244, 244);

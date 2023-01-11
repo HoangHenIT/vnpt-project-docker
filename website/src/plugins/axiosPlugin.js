@@ -2,16 +2,16 @@ import axios from "axios"
 
 // default
 const baseUrl = process.env.API;
-const TOKEN_KEY = 'web_token'
+const TOKEN_KEY = 'WebClient-Token'
+
 axios.defaults.baseURL = baseUrl;
-let token = document.head.querySelector('meta[name="csrf-token"]');
-// axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 axios.defaults.headers = {
   "Content-Type": "application/json",
-  // "X-CSRF-TOKEN" : token.content
+  "Token-id": "97388db0-6ce9-11ea-bc55-0242ac130003",
+  "Mac-address": "WEB"
 };
-
 // doing something with the request
+
 axios.interceptors.request.use(
   (request) => {
     var config = {}
@@ -20,54 +20,36 @@ axios.interceptors.request.use(
     }
     config.start = Date.now()
     request.config = config
-    var token = getCookie(TOKEN_KEY);
-    if (token) {
-      var access_token = strToObj(token);
-      request.headers.Authorization = `Bearer ${access_token.token}`;
-      
-    }
-    
-    return request
 
+  //var token = store.getters['user/accessToken']
+  var token =  localStorage.getItem("WebClient-Token") ? localStorage.getItem("WebClient-Token") : null
+   if (token) {
+     let access_token = JSON.parse(localStorage.getItem(TOKEN_KEY))
+        request.headers.Authorization = `Bearer ${access_token.access_token}`;
+        // request.headers.SelectedMenuId = menu.getCurrentMenuItemID();
+        // request.headers.SelectedPath = menu.getCurrentPath();
+       }
+  return request;
 });
-function getCookie(cname) {//get cookie from local
-  var name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie).split(';')
-  for (var i = 0; i < decodedCookie.length; i++) {
-    let cookie = decodedCookie[i].trim();
-    const index=cookie.indexOf(name)
-    if(index>-1){
-      return cookie.substring(name.length, cookie.length)
-    }
-  }
-  return null
-}
-function strToObj(str) {//convert string to object
-  var obj = {};
-  if (str && typeof str === "string") {
-    var objStr = str.match(/\{(.)+\}/g);
-    eval("obj =" + objStr);
-  }
-  return obj;
-}
-
 
 // doing something with the response
 axios.interceptors.response.use(
   response => {
     const now = Date.now();
-    // console.info(
-    //   `Api Call ${response.config.url} took ${now -
-    //     response.config.config.start}ms`
-    // );
+    console.info(
+      `Api Call ${response.config.url} took ${now -
+        response.config.config.start}ms`
+    );
     // all 2xx/3xx responses will end here
     return response;
   },
   error => {
     // all 4xx/5xx responses will end here
+    console.log(error);
     //return Promise.reject(error);
-    return Promise.reject(error);
+    return Promise.reject(error.response);
   }
+
 );
 
 export default axios;

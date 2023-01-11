@@ -1,18 +1,18 @@
-
+// import jwtdecode from "jwt-decode";
 export default {
   data: {
-    TOKEN_KEY: "web_token",
+    TOKEN_KEY: "WebClient-Token",
   },
   setToken: function (token) {
     try {
-        document.cookie = this.data.TOKEN_KEY+ "=" +  JSON.stringify(token);
-        return true;
+      localStorage.setItem(this.data.TOKEN_KEY, JSON.stringify(token));
+      return true;
     } catch (error) {
-        return false;
+      return false;
     }
   },
   getTokenFromStorage(){
-    return JSON.parse(this.getCookie(this.data.TOKEN_KEY));
+    return JSON.parse(localStorage.getItem(this.data.TOKEN_KEY));
   },
   getAuthorization: function (){
     let tt = this.getTokenType();
@@ -38,6 +38,14 @@ export default {
       return null;
     }
   },
+  getTokenExpired: function () {
+    try {
+      let t = this.getTokenFromStorage();
+      return t.expires_in;
+    } catch (error) {
+      return null;
+    }
+  },
   getClaims: function () {
     try {
       var token = this.getToken();
@@ -50,41 +58,11 @@ export default {
       return null;
     }
   },
-  getProperty: function (name) {
-    var obj = this.getClaims();
-    if (obj !== null) {
-      return obj[name];
-    } else {
-      return null;
-    }
-  },
-  getUserName: function () {
-    try {
-      var obj = this.getProperty("user_name");
-      if (obj !== null) {
-        return obj;
-      } else {
-        return null;
-      }
-    } catch (error) {
-      return null;
-    }
-  },
-  getNguoiDungID: function () {
-    try {
-      var obj = this.getProperty("nguoidung_id");
-      if (obj !== null) {
-        return obj;
-      } else {
-        return -1;
-      }
-    } catch (error) {
-      return -1;
-    }
-  },
   destroy: function(){
     try {
       localStorage.removeItem(this.data.TOKEN_KEY);
+      sessionStorage.removeItem("ttip");
+      sessionStorage.removeItem("ttnd");
       return true;
     } catch (error) {
       return false;

@@ -21,7 +21,7 @@ namespace VNPT.EMPLOYER.services.impl
                 email = n.email,
                 number_phone = n.number_phone,
                 username = n.username,
-                password = n.password,
+                //password = n.password,
                 role_id = n.role_id,
                 active = n.active,
             }).ToList();
