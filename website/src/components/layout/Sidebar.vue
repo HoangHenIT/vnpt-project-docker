@@ -129,7 +129,7 @@
                             Version 1.0.1
                         </div>
                     </div>
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <i class="fa fa-sign-out" aria-hidden="true" title="Đăng xuất" @click="logOut"></i>
                 </div>
             </li>
         </div>
@@ -160,6 +160,10 @@ export default {
                 sidebars.classList.toggle("closed")
             })
         },
+        logOut(){
+            this.$root.context.logOut()
+             this.$router.push({ name: "Login" })
+        }
     },
 }
 </script>

@@ -28,6 +28,14 @@ create table employer(
 	link_facebook nvarchar(200),
 	foreign key (role_id) references roles(role_id)
 )
+create table historylogins(
+	history_id int not null identity(1,1) primary key,
+	employer_id int,
+	datetime_login datetime,
+	system_login nvarchar(100),
+	username nvarchar(100),
+	foreign key (employer_id) references employers(employer_id)
+)
 
 
 drop table employer

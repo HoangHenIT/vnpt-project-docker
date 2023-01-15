@@ -12,7 +12,7 @@ var AuthPlugin = {
   },
   destroy: function () {
     token.destroy();
-    localStorage.clear();
+    // localStorage.clear();
   },
   setToken: function (stringToken) {
     token.setToken(stringToken);
@@ -22,6 +22,12 @@ var AuthPlugin = {
   },
   getClaims: function () {
     return token.getClaims();
+  },
+  getEmployerToken: function(){
+    return token.getEmployerToken();
+  },
+  getEmployerId: function(){
+    return token.getEmployerId();
   },
   
   saveClientInfoToStorage: function (clientInfo) {

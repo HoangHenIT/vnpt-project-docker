@@ -100,10 +100,10 @@ export default {
                     this.$root.context.configApplication(token) // Save token in Local Storage
                     this.redirectToHome()
                 }else{
-                    this.$root.toastError(response.data.message)
+                    // this.$root.toastError(response.data.message)
                 }
             }catch(error){
-                this.$root.toastError(error.message)
+                // this.$root.toastError(error.message.toString())
             }
         },
         redirectToHome() {

@@ -60,6 +60,23 @@ namespace VNPT.AUTH.services.auth.impl
         {
             return getAll().FirstOrDefault(m => m.username == username);
         }
+        public DataRespond insertHistoryLogin(Employers employers)
+        {
+            DataRespond data = new DataRespond();
+            try
+            {
+                var employer = findByLogin(employers.username);
+                data.success = true;
+
+            }
+            catch(Exception e)
+            {
+                data.success = false;
+                data.error = e;
+                data.message = e.Message;
+            }
+            return data;
+        }
 
         public dynamic genToken(Employers employers)
         {
@@ -100,8 +117,8 @@ namespace VNPT.AUTH.services.auth.impl
             var responseJson = new
             {
                 access_token = encodedJwt,
-                //expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
-                expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
+                expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
+                //expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
             };
 
             return responseJson;

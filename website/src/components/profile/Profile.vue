@@ -3,7 +3,7 @@
     <div class="list-actions-top">
       <ul class="list">
         <li>
-          <a href="javascript:void(0)" v-on:click="onclickCreate">
+          <a href="javascript:void(0)" v-on:click="showModal">
             <span class="icon one-file-attach"></span> Nhập mới
           </a>
         </li>
@@ -22,7 +22,7 @@
     <div class="page-content">
         <ProfileInfo/>
     </div>
-    <PopCreateEmployer ref="PopCreateEmployer"/>
+    <PopCreateEmployer ref="popupCreateEmployer"/>
   </section>
 </template>
 
@@ -37,9 +37,10 @@ export default {
       }
     },
     methods:{
-        onclickCreate(){
-          this.$refs["PopCreateEmployer"].show()
+        showModal() {
+            this.$refs.popupCreateEmployer.showModal()
         },
+        
     },
     components:{
       ProfileInfo,
@@ -49,4 +50,5 @@ export default {
 </script>
 
 <style>
+  @import url("./profile.css");
 </style>

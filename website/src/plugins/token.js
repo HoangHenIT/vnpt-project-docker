@@ -1,3 +1,5 @@
+import { emit } from "node-notifier";
+
 // import jwtdecode from "jwt-decode";
 export default {
   data: {
@@ -61,11 +63,27 @@ export default {
   destroy: function(){
     try {
       localStorage.removeItem(this.data.TOKEN_KEY);
-      sessionStorage.removeItem("ttip");
-      sessionStorage.removeItem("ttnd");
       return true;
     } catch (error) {
-      return false;
+       this.$root.context.logOut();
+    }
+  },
+  getEmployerToken: function(){
+    try {
+      let t = this.getTokenFromStorage(); 
+      return t.data.employer
+    } catch (error)
+    {
+      this.destroy();
+    }
+  },
+  getEmployerId: function(){
+    try {
+      let t = this.getTokenFromStorage(); 
+      return t.data.employer.employer_id
+    } catch (error)
+    {
+      this.destroy();
     }
   }
 }

@@ -14,6 +14,7 @@ namespace ClassLibrary.connectdb
         //public DbSet<TableDatabase> Tablegen { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Employers> Employers { get; set; }
+        public DbSet<HistoryLogins> HistoryLogins { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

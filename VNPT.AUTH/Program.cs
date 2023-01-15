@@ -50,6 +50,7 @@ builder.Services.AddDbContext<DataContext>(option =>
 
 builder.Services.AddTransient<IRoler, RolerImpl>();
 builder.Services.AddTransient<IAuth, AuthImpl>();
+builder.Services.AddTransient<IHistoryLogins, HistoryLoginsImpl>();
 builder.Services.Configure<Audience>(configuration.GetSection("Audience"));
 var app = builder.Build();
 

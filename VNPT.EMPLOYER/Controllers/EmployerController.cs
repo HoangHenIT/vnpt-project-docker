@@ -42,23 +42,31 @@ namespace VNPT.EMPLOYER.Controllers
             DataRespond data = new DataRespond();
             try
             {
-                Employers employers = new Employers();
-                employers.full_name = employer.full_name;
-                employers.email = employer.email;
-                employers.number_phone = employer.number_phone;
-                employers.email= employer.email;
-                employers.password = employer.password;
-                employers.active = true;
-                employers.role_id = employer.role_id;
-                if (m_employer.checkeEmployer(employers))
+                Employers empl = new Employers();
+                empl.full_name = employer.full_name;
+                empl.name_profile = employer.name_profile;
+                empl.job_name = employer.job_name;
+                empl.company = employer.company;
+                empl.email = employer.email;
+                empl.number_phone = employer.number_phone;
+                empl.mobile = employer.mobile;
+                empl.email = employer.email;
+                empl.password = employer.password;
+                empl.active = employer.active;
+                empl.role_id = employer.role_id;
+                empl.address = employer.address;
+                empl.link_website = employer.link_website;
+                empl.link_git = employer.link_git;
+                empl.link_facebook = employer.link_facebook;
+                if (m_employer.checkeEmployer(empl))
                 {
-                    m_employer.insert(employers);
+                    m_employer.insert(empl);
                     data.success = true;
-                    data.message = "Insert Employer '" + employers.full_name + "' success";
+                    data.message = "Insert Employer '" + empl.full_name + "' success";
                 }else
                 {
                     data.success = false;
-                    data.message = "Employer '" + employers.email + "' already exists!!! ";
+                    data.message = "Employer '" + empl.email + "' already exists!!! ";
                 }
             }
             catch (Exception e)

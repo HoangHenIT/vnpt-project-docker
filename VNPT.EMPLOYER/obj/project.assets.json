@@ -3818,25 +3818,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hoang\\.nuget\\packages\\": {},
+    "C:\\Users\\HoangHenIT\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\vnpt-project-docker\\VNPT.EMPLOYER\\VNPT.EMPLOYER.csproj",
+      "projectUniqueName": "D:\\Soruce khongxoa\\vnpt-project-docker\\VNPT.EMPLOYER\\VNPT.EMPLOYER.csproj",
       "projectName": "VNPT.EMPLOYER",
-      "projectPath": "E:\\vnpt-project-docker\\VNPT.EMPLOYER\\VNPT.EMPLOYER.csproj",
-      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "E:\\vnpt-project-docker\\VNPT.EMPLOYER\\obj\\",
+      "projectPath": "D:\\Soruce khongxoa\\vnpt-project-docker\\VNPT.EMPLOYER\\VNPT.EMPLOYER.csproj",
+      "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
+      "outputPath": "D:\\Soruce khongxoa\\vnpt-project-docker\\VNPT.EMPLOYER\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HoangHenIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3852,8 +3852,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
+            "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }

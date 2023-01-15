@@ -8,5 +8,6 @@ namespace VNPT.AUTH.services.auth
     public interface IAuth: IResponsetory<Employers>
     {
         DataRespond login(Employers employers);
+        Employers findByLogin(string username);
     }
 }

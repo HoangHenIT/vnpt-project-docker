@@ -7,28 +7,23 @@ const TOKEN_KEY = 'WebClient-Token'
 axios.defaults.baseURL = baseUrl;
 axios.defaults.headers = {
   "Content-Type": "application/json",
-  "Token-id": "97388db0-6ce9-11ea-bc55-0242ac130003",
+  // "Token-id": "97388db0-6ce9-11ea-bc55-0242ac130003",
   "Mac-address": "WEB"
 };
 // doing something with the request
-
 axios.interceptors.request.use(
   (request) => {
     var config = {}
     if (request.config) {
-      config = request.config
+        config = request.config
     }
     config.start = Date.now()
     request.config = config
-
-  //var token = store.getters['user/accessToken']
-  var token =  localStorage.getItem("WebClient-Token") ? localStorage.getItem("WebClient-Token") : null
+    var token =  localStorage.getItem("WebClient-Token") ? localStorage.getItem("WebClient-Token") : null
    if (token) {
-     let access_token = JSON.parse(localStorage.getItem(TOKEN_KEY))
-        request.headers.Authorization = `Bearer ${access_token.access_token}`;
-        // request.headers.SelectedMenuId = menu.getCurrentMenuItemID();
-        // request.headers.SelectedPath = menu.getCurrentPath();
-       }
+        let access_token = JSON.parse(localStorage.getItem(TOKEN_KEY))
+        request.headers.Authorization = `Bearer ${access_token.data.token.access_token}`;
+    }
   return request;
 });
 
