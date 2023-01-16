@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {}
+    "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {}
   },
   "projects": {
-    "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
+    "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
+        "projectUniqueName": "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
         "projectName": "ClassLibrary",
-        "projectPath": "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
-        "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
-        "outputPath": "D:\\Soruce khongxoa\\vnpt-project-docker\\ClassLibrary\\obj\\",
+        "projectPath": "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
+        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+        "outputPath": "E:\\vnpt-project-docker\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\HoangHenIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

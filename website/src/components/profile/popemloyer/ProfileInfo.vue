@@ -11,9 +11,9 @@
                 width="150"
               />
               <div class="mt-3 txt-tf">
-                <h4>{{this.employer.name_profile}}</h4>
-                <p class="text-secondary mb-1 ">{{this.employer.job_name}}</p>
-                <p class="text-muted font-size-sm "> {{this.employer.company}} </p>
+                <h4>{{this.employer.name_profile == null?" (Không tìm thấy) ": this.employer.name_profile}}</h4>
+                <p class="text-secondary mb-1 ">{{this.employer.job_name == null?" (Không tìm thấy) ": this.employer.job_name}}</p>
+                <p class="text-muted font-size-sm "> {{this.employer.company == null?" (Không tìm thấy) ":  this.employer.company}} </p>
                 <!-- <button class="btn btn-primary">Follow</button>
                      <button class="btn btn-outline-primary">Message</button> -->
               </div>
@@ -27,19 +27,19 @@
                 <i class="fa fa-internet-explorer f24" aria-hidden="true"></i>
                 Website
               </h6>
-              <span class="text-secondary">{{this.employer.link_website}}</span>
+              <span class="text-secondary">{{this.employer.link_website == null?" (Không tìm thấy) ": this.employer.link_website }}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <h6 class="mb-0">
                 <i class="fa fa-github f24" aria-hidden="true"></i> Github
               </h6>
-              <span class="text-secondary">{{this.employer.link_git}}</span>
+              <span class="text-secondary">{{this.employer.link_git == null?" (Không tìm thấy) ": this.employer.link_git}}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <h6 class="mb-0">
                 <i class="fa fa-facebook f24" aria-hidden="true"></i> Facebook
               </h6>
-              <span class="text-secondary">{{this.employer.link_facebook}}</span>
+              <span class="text-secondary">{{this.employer.link_facebook == null?" (Không tìm thấy) ": this.employer.link_facebook}}</span>
             </li>
           </ul>
         </div>
@@ -51,28 +51,28 @@
               <div class="col-sm-3">
                 <h6 class="mb-0">Full Name</h6>
               </div>
-              <div class="col-sm-9 text-secondary txt-tf">{{this.employer.full_name}}</div>
+              <div class="col-sm-9 text-secondary txt-tf">{{this.employer.full_name == null?" (Không tìm thấy) ": this.employer.full_name}}</div>
             </div>
             <hr />
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Email</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{this.employer.email}}</div>
+              <div class="col-sm-9 text-secondary">{{this.employer.email == null?" (Không tìm thấy) ": this.employer.email}}</div>
             </div>
             <hr />
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Phone</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{this.employer.number_phone}}</div>
+              <div class="col-sm-9 text-secondary">{{this.employer.number_phone == null?" (Không tìm thấy) ": this.employer.number_phone}}</div>
             </div>
             <hr />
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Mobile</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{this.employer.mobile}}</div>
+              <div class="col-sm-9 text-secondary">{{this.employer.mobile == null?" (Không tìm thấy) ": this.employer.mobile}}</div>
             </div>
             <hr />
             <div class="row">
@@ -80,7 +80,7 @@
                 <h6 class="mb-0">Address</h6>
               </div>
               <div class="col-sm-9 text-secondary txt-tf">
-                {{this.employer.address}}
+                {{this.employer.address == null?" (Không tìm thấy) ": this.employer.address}}
               </div>
             </div>
             <hr />
@@ -97,16 +97,11 @@
             <div class="box-form">
               <div class="legend-title">Lịch sử đăng nhập</div>
               <div class="box-col">
-                <KDataGrid
+                <KTable
                   :columns="columnsHistory"
-                  :dataSource="dataSourcesGan"
-                  :showColumnCheckbox="true"
-                  :enable-paging-server="false"
-                  :allowPaging="true"
-                  :showFilter="true"
-                  ref="gridDaGan"
-                  :enabledSelectFirstRow="false"
-                  panelDataHeight="160px"/>
+                  :dataSources="dataSourcesGan"
+                  :allowFilter="true"
+                  />
               </div>
             </div>
             <!-- <div class="card h-100">
@@ -174,7 +169,7 @@
 
 <script>
 import ProfileApi from '../ProfileApi'
-import KDataGrid from '@/components/hentvh_components/KDataGrid'
+import KTable from '../../hentvh_components/KTable.vue'
 export default {
     name:"ProfileInfo",
     data(){
@@ -183,35 +178,26 @@ export default {
         listHistory: [],
         columnsHistory:[
                 {
-                    fieldName:'full_name',
-                    headerText:'Họ và Tên',
-                    allowFiltering:true,
-                    width:100
+                  field:'full_name',
+                  label:'Họ và Tên',
+                  allowFilter: true
                 },
                 {
-                    fieldName:'username',
-                    headerText:'Mã đăng nhập',
-                    allowFiltering:true,
-                    width:100
+                  field:'username',
+                  label:'Mã đăng nhập',
+                  allowFilter: true
                 },
                  {
-                    fieldName:'system_login',
-                    headerText:'Tên máy tính',
-                    allowFiltering:true,
-                    width:100
+                  field:'system_login',
+                  label:'Tên máy tính',
+                  allowFilter: true
                 },
                 {
-                    fieldName:'datetime_login',
-                    headerText:'Ngày giờ đăng nhập',
-                    allowFiltering:true,
-                    width:100
-                },
-                {
-                    fieldName:'ten_dv',
-                    headerText:'Đơn vị',
-                    allowFiltering:true,
-                    width:100
+                  field:'datetime_login',
+                  label:'Ngày giờ đăng nhập',
+                  allowFilter: true
                 }
+                
             ],
             dataSourcesGan:[],
       }
@@ -239,7 +225,7 @@ export default {
         }
     },
     components:{
-      KDataGrid
+      KTable
     }
 }
 </script>

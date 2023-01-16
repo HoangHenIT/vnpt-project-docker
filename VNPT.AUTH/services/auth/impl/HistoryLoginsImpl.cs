@@ -28,7 +28,7 @@ namespace VNPT.AUTH.services.auth.impl
                            full_name = employer.full_name,
                            username = employer.username,
                            system_login = hislogin.system_login,
-                           datetime_login = hislogin.datetime_login
+                           datetime_login = hislogin.datetime_login.ToString("dd/MM/yyyy HH:mm:ss"),
                        }).ToList();
             return res;
         }

@@ -18,16 +18,19 @@ const router = new Router({
       component: MainLayout,
       children:[
         {
-          path: '/User/Profile',
-          name: 'Profile',
-          component: Profile,
-          children:[
-            {
-              path: '/User/Profile/CreateEmployer',
-              name: 'CreateEmployer',
-              component: CreateEmployer,
-            },
-          ]
+          path: '',
+          name: 'Home',
+          component: ()=>import('@/components/home/Home.vue')//Home
+          // path: '/User/Profile',
+          // name: 'Profile',
+          // component: Profile,
+          // children:[
+          //   {
+          //     path: '/User/Profile/CreateEmployer',
+          //     name: 'CreateEmployer',
+          //     component: CreateEmployer,
+          //   },
+          // ]
         },
       ]
     },
