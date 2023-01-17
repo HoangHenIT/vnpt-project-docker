@@ -1,5 +1,5 @@
 <template>
-    <div class="home-content">
+    <div class="main-content">
         <i class="fa fa-bars" aria-hidden="true"></i>
         <span class="text-bars">Phân tích tổng TB hiện có</span>
 

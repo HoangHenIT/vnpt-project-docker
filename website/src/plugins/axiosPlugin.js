@@ -5,12 +5,6 @@ const baseUrl = process.env.API;
 const TOKEN_KEY = 'WebClient-Token'
 
 axios.defaults.baseURL = baseUrl;
-axios.defaults.headers = {
-  "Content-Type": "application/json",
-  // "Token-id": "97388db0-6ce9-11ea-bc55-0242ac130003",
-  "Mac-address": "WEB"
-};
-// doing something with the request
 axios.interceptors.request.use(
   (request) => {
     var config = {}

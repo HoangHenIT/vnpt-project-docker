@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="table-content" :style="{height:tableHeight==0?'auto':(tableHeight+'px')}">
-      <table class="table-result table-gachle" >
+      <table id="resizeMe" class="table-result table-gachle" >
         <thead class="center">
           <tr>
-            <th class="w20"></th>
-            <th class="w20" v-if="allowCheckBox&&labelCheckColumn">Chọn</th>
+            <th></th>
+            <th v-if="allowCheckBox&&labelCheckColumn">Chọn</th>
 
-            <th v-if="allowCheckBox&&!labelCheckColumn" class="w20">
+            <th v-if="allowCheckBox&&!labelCheckColumn">
               <div class="check-action">
                 <input type="checkbox" class="check" v-model="allCheckbox" @change="allChangeCheckbox($event)"/>
                 <span class="name"></span>
@@ -17,9 +17,9 @@
             <th v-for="item in columns" :key="item.field" :class="{w40: item.field.toLowerCase()=='stt'}">{{item.label}}</th>
           </tr>
           <tr v-if="allowFilter">
-            <th class="w20"></th>
+            <th ></th>
 
-            <th v-if="allowCheckBox" class="w20">
+            <th v-if="allowCheckBox">
               <div class="check-action">
                 <input type="checkbox" v-if="!labelCheckColumn" :disabled="true" class="check" />
                 <input type="checkbox" v-else v-model="allCheckbox" @change="allChangeCheckbox($event)" class="check" />
@@ -39,10 +39,10 @@
 
         <tbody>
           <tr v-for="(item, index) in pagerData"  :key="index" @click="onSelectedRow(fromIndexPage+index+1, item)" @dblclick="doubleClickRow(fromIndexPage+index+1, item)" :class="{highlight: rowSelected==fromIndexPage+index+1}">
-            <td class="w20 center" :class="{highlight1: (rowSelected==fromIndexPage+index+1)}">
+            <td :class="{highlight1: (rowSelected==fromIndexPage+index+1)}">
                 <span class="fa fa-play text-main" v-if="rowSelected==fromIndexPage+index+1"></span>
             </td>
-            <td v-if="allowCheckBox" class="w20 center" :class="{highlight1: (rowSelected==fromIndexPage+index+1)}">
+            <td v-if="allowCheckBox" :class="{highlight1: (rowSelected==fromIndexPage+index+1)}">
               <div class="check-action">
                 <input type="checkbox" class="check" v-model="item.checked" @change="onRowCheckChange($event, item)"/>
                 <span class="name"></span>
@@ -197,7 +197,8 @@ export default {
            }
            this.allCheckbox=false
            this.$emit('dataCheckeds',this.dataChecks)
-        }
+        },
+     
         
     },
     watch: { 
@@ -230,8 +231,40 @@ export default {
           if(this.allowCheckBox)
             return total+1
           return total
-      }
+      },
+      // funRes(){
+      //     debugger
+      //     const table = document.getElementById('resizeMe');
+      //     const cols = table.querySelectorAll('th');
+      //     [].forEach.call(cols, function (col) {
+      //         const resizer = document.createElement('div');
+      //         resizer.classList.add('resizer');
+      //         resizer.style.height = `${table.offsetHeight}px`;
+      //         col.appendChild(resizer);
+      //         let x = 0;
+      //         let w = 0;
+      //         const mouseDownHandler = function (e) {
+      //           x = e.clientX;
+      //           const styles = window.getComputedStyle(col);
+      //           w = parseInt(styles.width, 10);
+      //           document.addEventListener('mousemove', mouseMoveHandler);
+      //           document.addEventListener('mouseup', mouseUpHandler);
+      //         }
+      //         const mouseMoveHandler = function (e) {
+      //           const dx = e.clientX - x;
+      //           col.style.width = `${w + dx}px`;
+      //         };
+      //         const mouseUpHandler = function () {
+      //             document.removeEventListener('mousemove', mouseMoveHandler);
+      //             document.removeEventListener('mouseup', mouseUpHandler);
+      //         };
+      //         resizer.addEventListener('mousedown', mouseDownHandler);
+      //     });
+      //   },
 
+    },
+    mounted(){
+      // this.funRes();
     },
     components:{
         BssPagination

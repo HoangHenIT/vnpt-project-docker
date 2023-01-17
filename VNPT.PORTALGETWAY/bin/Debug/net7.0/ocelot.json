@@ -10,6 +10,7 @@
           "Port": 9001
         }
       ],
+      
       "DownstreamPathTemplate": "/api/auth/{catchAll}"
     },
     {
@@ -22,6 +23,7 @@
           "Port": 9002
         }
       ],
+      
       "DownstreamPathTemplate": "/api/employer/{catchAll}"
     }
 

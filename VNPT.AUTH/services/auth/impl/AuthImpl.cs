@@ -117,8 +117,8 @@ namespace VNPT.AUTH.services.auth.impl
             var responseJson = new
             {
                 access_token = encodedJwt,
-                expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
-                //expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
+                //expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
+                expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
             };
 
             return responseJson;

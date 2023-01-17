@@ -19,7 +19,7 @@
         </li>
       </ul>
     </div>
-    <div class="page-content">
+    <div class="page-content" style="top:105px">
         <ProfileInfo/>
     </div>
     <PopCreateEmployer ref="popupCreateEmployer"/>

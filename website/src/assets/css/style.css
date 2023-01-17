@@ -9030,3 +9030,16 @@
 .popup-body {
   padding: 10px 15px;
 }
+#resizeMe.resizer,
+#resizeMe.resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  cursor: col-resize;
+  user-select: none;
+}
+#resizeMe .resizer:hover,
+#resizeMe .resizing {
+    border-right: 2px solid blue;
+}

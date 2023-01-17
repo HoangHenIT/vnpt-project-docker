@@ -1,20 +1,35 @@
 <template>
-  <section>
-    <div class="">
-      <div class="bgs" ></div>
-    </div>
-    <!-- <div class="page-content">
-      <div class="login-wrapper">
-        <div class="bg" ></div>
+    <section>
+      <div class="page-content">
+        <div class="image-home"></div>
       </div>
-    </div> -->
-  </section>
+    </section>
   
 </template>
 
 <script>
 export default {
     name:"Home",
+    data(){
+      return{
+
+      }
+    },
+    created: async function(){
+        // let s = false
+        // let [startUpInfo] = await Promise.all([]);
+        // if (!(startUpInfo.data == null || startUpInfo.data == undefined)) {
+        //     this.$root.context.configApplication(
+        //       startUpInfo.
+        //     )
+        // }
+        // if (!s) {
+        //   if (this.$route.name != "Login") this.$router.push({ name: "Login" });
+        // }
+    },
+    methods:{
+
+    }
 }
 </script>
 
