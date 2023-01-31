@@ -15,17 +15,11 @@ export default {
 
       }
     },
-    created: async function(){
-        // let s = false
-        // let [startUpInfo] = await Promise.all([]);
-        // if (!(startUpInfo.data == null || startUpInfo.data == undefined)) {
-        //     this.$root.context.configApplication(
-        //       startUpInfo.
-        //     )
-        // }
-        // if (!s) {
-        //   if (this.$route.name != "Login") this.$router.push({ name: "Login" });
-        // }
+    mounted(){
+      debugger
+        if(this.$auth.getClientInfoFromStorage()){
+          this.$root.context.logOut()
+        }
     },
     methods:{
 

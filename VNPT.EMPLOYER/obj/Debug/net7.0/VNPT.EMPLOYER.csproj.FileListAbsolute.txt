@@ -144,3 +144,5 @@ D:\Soruce khongxoa\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\refint\VNP
 D:\Soruce khongxoa\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.pdb
 D:\Soruce khongxoa\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.genruntimeconfig.cache
 D:\Soruce khongxoa\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\ref\VNPT.EMPLOYER.dll
+E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\Dapper.dll
+E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\Oracle.ManagedDataAccess.dll

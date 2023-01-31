@@ -72,8 +72,10 @@ router.beforeEach((to, from, next) => {
   debugger
   if (to.meta.requiresAuth == undefined || to.meta.requiresAuth == null || to.meta.requiresAuth == true){
       if(Vue.auth.isAuthenticated()){
+        debugger
         next()
       }else{
+        debugger
         next({ name: 'Login' });
       }
   } else{

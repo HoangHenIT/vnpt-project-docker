@@ -8,11 +8,12 @@ var AuthPlugin = {
   },
   
   isAuthenticated: function(){
+    debugger
     return token.getTokenFromStorage() != null;
   },
   destroy: function () {
     token.destroy();
-    // localStorage.clear();
+    localStorage.clear();
   },
   setToken: function (stringToken) {
     token.setToken(stringToken);
