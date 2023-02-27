@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import MainLayout from '../layouts/MainLayout.vue'
 import Home from '../components/home/Home.vue'
 
-import Profile from '../components/profile/Profile.vue'
-import CreateEmployer from '../components/profile/popemloyer/CreateEmployer.vue'
+import Admin from '@/modules/admin/Router.js'
+
+// import Profile from '../components/profile/Profile.vue'
+// import CreateEmployer from '../components/profile/popemloyer/CreateEmployer.vue'
 
 import LoginLayout from '../layouts/LoginLayout.vue'
 import Login from '../components/login/Login.vue'
@@ -23,22 +25,7 @@ const router = new Router({
           path: '',
           name: 'Home',
           component: Home,
-          
-          
-        },{
-          path: '/User/Profile',
-          name: 'Profile',
-          component: Profile,
-          
-          children:[
-            {
-              path: '/User/Profile/CreateEmployer',
-              name: 'CreateEmployer',
-              component: CreateEmployer,
-              
-            },
-          ]
-        }
+        },
       ]
     },
     {
@@ -56,6 +43,7 @@ const router = new Router({
         }
       }]
     },
+    ...Admin,
   ]
 })
 

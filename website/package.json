@@ -16,6 +16,7 @@
     "axios": "^1.2.2",
     "bootstrap": "^5.0.1",
     "bootstrap-vue": "^2.23.1",
+    "v-select2-component": "^0.4.7",
     "vue": "^2.5.2",
     "vue-axios": "^3.5.2",
     "vue-router": "^3.0.1",

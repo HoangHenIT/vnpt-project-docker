@@ -400,4 +400,45 @@
 hr.horizontal.dark {
     background-image: linear-gradient(90deg,transparent,rgba(0,0,0,.4),transparent);
 }
+.select2-selection { overflow: hidden !important; }
+.select2-container .select2-selection--single .select2-selection__rendered {
+  white-space: normal !important;
+  word-break: break-all !important;
+}
+/* asset css select2 form */
+.select2-container {
+  width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single {
+  border-color: #E0E0E0;
+  outline: none;
+}
+
+.select2-dropdown {
+  border: 1px solid #E0E0E0;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  font-family: "FontAwesome";
+  border: 0px;
+  top: 5px;
+  height: 1.638rem;
+  bottom: 0px;
+  line-height: 1.638rem;
+  left: 5px;
+  margin: auto;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b:before {
+  content: "";
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border: 0px;
+  outline: none;
+}
+.select2-container .select2-selection--single {
+    white-space: initial;
+    height: 32px;
+  }
 

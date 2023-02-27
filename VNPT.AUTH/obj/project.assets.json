@@ -8145,25 +8145,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hoang\\.nuget\\packages\\": {},
+    "C:\\Users\\HoangHenIT\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
+      "projectUniqueName": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
       "projectName": "VNPT.AUTH",
-      "projectPath": "E:\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
-      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "E:\\vnpt-project-docker\\VNPT.AUTH\\obj\\",
+      "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
+      "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
+      "outputPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.AUTH\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HoangHenIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8179,8 +8179,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "E:\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
+            "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }
@@ -8247,7 +8247,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },

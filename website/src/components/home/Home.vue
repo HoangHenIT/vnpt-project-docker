@@ -17,7 +17,7 @@ export default {
     },
     mounted(){
         if(this.$auth.getClientInfoFromStorage()){
-          this.$root.context.logOut()
+          // this.$root.context.logOut()
         }
     },
     methods:{

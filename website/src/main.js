@@ -6,7 +6,7 @@ import router from './router'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import toastPlugin from "./plugins/toastPlugin"
 import BootstrapVue from 'bootstrap-vue'
-
+import Select2 from 'v-select2-component';
 
 // axios
 import VueAxios from "vue-axios"
@@ -17,6 +17,7 @@ Vue.use(BootstrapVue)
 Vue.use(VueAxios, axiosPlugin)
 Vue.use(toastPlugin)
 Vue.use(Auth)
+Vue.component('select2', Select2);
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */

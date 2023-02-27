@@ -1,0 +1,313 @@
+
+.txt-tf{
+  text-transform: capitalize;
+}
+.tab-content, .box-form {
+  background: #FFFFFF;
+  padding: 16px 12px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  box-shadow: 0px 4px 4px rgba(177, 177, 177, 0.15);
+}
+
+.legend-title {
+  font-weight: 600;
+  padding-bottom: 5px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #0176FF;
+}
+.legend-title .actions .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #0176FF;
+  color: #0176FF;
+  line-height: 36px;
+  text-align: center;
+}
+.legend-title .actions .act {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 5px;
+}
+.legend-title .actions .act:hover .icon {
+  background-color: #0176FF;
+  color: #fff;
+}
+.legend-title .arrow {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  background-color: #BAE7FF;
+  color: #0176FF;
+  margin-right: 5px;
+  font-family: ap;
+  font-size: 12px;
+  display: inline-block;
+  margin-right: 5px;
+}
+.legend-title .arrow:before {
+  content: "";
+}
+.legend-title > .icon, .legend-title > .pull-left > .icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  background-color: #BAE7FF;
+  color: #0176FF;
+  margin-right: 5px;
+  font-size: 12px;
+  display: inline-block;
+}
+.table-content {
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.table-content .bootstrap-table {
+  margin-bottom: 0px;
+}
+
+.bootstrap-table .fixed-table-container .fixed-table-body {
+  height: auto;
+}
+
+.bootstrap-table .fixed-table-container.fixed-height .fixed-table-body {
+  height: 100%;
+}
+.table-result {
+  width: 100%;
+  font-size: 14px;
+  background: #fff;
+  white-space: nowrap;
+}
+.table-result td, .table-result th {
+  padding: 5px 7px;
+  border: 1px solid #E0E0E0;
+  height: 32px;
+}
+.table-result td.selected, .table-result th.selected {
+  border-left: 2px solid #035FCC;
+}
+.table-result td.selected1, .table-result th.selected1 {
+  border-right: 2px solid #035FCC;
+}
+.table-result th {
+  background-color: #BAE7FF;
+  border: 1px solid #FFFFFF;
+  white-space: nowrap;
+}
+.table-result th.selected {
+  border-left: 2px solid #035FCC;
+}
+.table-result th.selected1 {
+  border-right: 2px solid #035FCC;
+}
+.table-result th {
+  font-weight: 600;
+}
+.table-result tbody tr:nth-child(2n+2) {
+  background: #F1F8FF;
+}
+.table-result .form-control {
+  height: 28px;
+  min-width: 40px;
+}
+.table-result .highlight {
+  background-color: #FFF9EB !important;
+}
+.table-result .highlight1 {
+  background-color: #F9E1A9 !important;
+}
+.table-result .highlight4 {
+  background-color: #FFF0C8 !important;
+}
+.table-result .highlight2 {
+  background-color: #BAE7FF !important;
+}
+.table-result .highlight3 {
+  background: #99D7F8 !important;
+}
+.table-result .fa-play {
+  font-size: 12px;
+}
+.table-result .td-input {
+  position: relative;
+  cursor: pointer;
+}
+.table-result .td-input .form-control {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  height: auto;
+  border: 0px;
+  border-radius: 0px;
+  background-color: none;
+  display: none;
+}
+.table-result .td-input.showinput .form-control {
+  display: block;
+}
+.table-result thead .filter th, .table-result thead .filter td {
+  padding: 5px;
+}
+.table-result tfoot, .table-result .tfoot {
+  background-color: #F5F5F5 !important;
+  margin-top: 10px;
+}
+.table-result tfoot td, .table-result .tfoot td {
+  padding: 7px 2px;
+  border-color: transparent;
+}
+.table-result .act {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0px 5px;
+  color: #666;
+  font-size: 16px;
+}
+.table-result .act:hover {
+  color: #035FCC;
+}
+.table-result .btn {
+  padding: 2px 5px;
+}
+.table-result .btn-remove {
+  background: #CF1322;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0px;
+  border-radius: 4px;
+  text-align: center;
+}
+.table-result .btn-remove:hover {
+  background: #a00f1a;
+}
+.table-result tr:hover {
+  background-color: #FFF9EB !important;
+}
+.table-result.table-border-none th, .table-result.table-border-none td {
+  border: 0px;
+}
+.table-result .check-action .name {
+  min-height: 16px;
+  padding-left: 16px;
+}
+.table-result .check-action .name:before {
+  width: 16px;
+  height: 16px;
+  line-height: 14px;
+}
+.table-result .check-action input:checked + .name:before {
+  font-size: 12px;
+}
+.table-result .check-action input[type=radio]:checked + .name:after {
+  width: 8px;
+  height: 8px;
+}
+.table-result tbody tr:nth-child(2n+2){
+  background: #F1F8FF!important;
+}
+
+/* phan trang */
+.tc-pagination .btn {
+  width: 24px;
+  padding: 0px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: rgba(186, 231, 255, 0.4);
+  border-radius: 4px;
+  color: #035FCC;
+  font-size: 14px;
+  display: inline-block;
+}
+.tc-pagination .btn:hover {
+  background-color: #035FCC;
+  color: #fff;
+}
+.tc-pagination .text {
+  font-size: 12px;
+  display: inline-block;
+}
+.tc-pagination .select-custom {
+  display: inline-block;
+}
+.tc-pagination .form-control {
+  height: 30px;
+  font-size: 12px;
+}
+.tc-pagination .dropdown .input-number {
+  height: 30px;
+  font-size: 12px;
+  border: 1px solid #C3C8D2;
+  border-radius: 4px;
+  padding: 0px 5px;
+  padding-right: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  width: 90px;
+}
+.tc-pagination .dropdown .input-number:before, .tc-pagination .dropdown .input-number:after {
+  height: 10px;
+  width: 17px;
+  background-color: #fff;
+  content: "";
+  position: absolute;
+  right: 5px;
+  font-family: ap;
+  pointer-events: none;
+  line-height: 10px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: normal;
+}
+.tc-pagination .dropdown .input-number:before {
+  content: "";
+  top: 6px;
+}
+.tc-pagination .dropdown .input-number:after {
+  bottom: 6px;
+  content: "";
+}
+.input-icon-right {
+  position: relative;
+}
+.input-icon-right .form-control {
+  padding-right: 30px;
+}
+.input-icon-right .icon {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  bottom: 0px;
+  color: #666;
+  margin: auto;
+  opacity: 0.3;
+}
+.nc-icon-outline {
+  display: inline-block;
+  font-family:'Nucleo Outline';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

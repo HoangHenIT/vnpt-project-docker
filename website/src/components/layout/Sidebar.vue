@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/User/Profile">
+                        <a href="admin/profile">
                             Profile User
                         </a>
                     </li>

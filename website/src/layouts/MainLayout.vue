@@ -14,10 +14,9 @@
 <script>
     import "../assets/bootstrap/css/bootstrap.min.css";
     import "../assets/lib/font-awesome/css/font-awesome.css";
-    
     import "../assets/css/style.css"
     import '../assets/lib/jquery/jquery-3.6.0.min.js';
-    import '../components/layout/style.css';
+
     import Header from '../components/layout/Header.vue';
     import Sidebar from '../components/layout/Sidebar.vue';
     import SettingColor from '../components/layout/Setting.vue'
@@ -28,10 +27,18 @@ export default{
         }
     },
     created(){
-        
+        // dùng xóa tabindex sử dụng cho select2
+        this.$root.$on("bv::modal::shown", (bvEvent, modalId) => {
+            for(let i =0; i< document.getElementsByClassName("modal-content").length; i++){
+                document.getElementsByClassName("modal-content")[i].removeAttribute("tabindex");
+            }
+        });
     },
-    mounted(){
-        
+    mounted: function () {
+        this.addCssFile("/static/vendor/font-awesome/css/font-awesome.min.css");
+        this.addCssFile("/static/vendor/bootstrap/css/bootstrap.min.css");
+        this.addCssFile("/static/css/style.css");
+        this.addCssFile("../components/layout/Style.css");
     },
     components:{
         Header,
@@ -39,32 +46,17 @@ export default{
         SettingColor,
     },
     methods:{
-        
+        addCssFile: function (path) {
+            let style = document.createElement("link");
+            style.type = "text/css";
+            style.rel = "stylesheet";
+            style.href = path;
+            document.head.appendChild(style);
+        },
     }
 }
 </script>
-<style  scoped>
+<style  >
     @import url(../components/layout/Style.css);
-    .loader-border{
-        position: fixed !important;
-    }
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
-    }
-    
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #0061f2; 
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #0061f2; 
-    }
-    
+    @import url(../assets/css/style.css);
 </style>
