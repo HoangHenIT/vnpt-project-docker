@@ -17,33 +17,25 @@ const router = new Router({
       path: '/',
       name: 'MainLayout',
       component: MainLayout,
-      meta: {
-        requiresAuth: false
-      },
+     
       children:[
         {
           path: '',
           name: 'Home',
           component: Home,
-          meta: {
-            requiresAuth: false
-          },
+          
           
         },{
           path: '/User/Profile',
           name: 'Profile',
           component: Profile,
-          meta: {
-            requiresAuth: false
-          },
+          
           children:[
             {
               path: '/User/Profile/CreateEmployer',
               name: 'CreateEmployer',
               component: CreateEmployer,
-              meta: {
-                requiresAuth: false
-              },
+              
             },
           ]
         }
@@ -69,13 +61,10 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   // kiểm tra chưa có token trả về Login
-  debugger
   if (to.meta.requiresAuth == undefined || to.meta.requiresAuth == null || to.meta.requiresAuth == true){
       if(Vue.auth.isAuthenticated()){
-        debugger
         next()
       }else{
-        debugger
         next({ name: 'Login' });
       }
   } else{

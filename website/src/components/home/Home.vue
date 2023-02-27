@@ -16,7 +16,6 @@ export default {
       }
     },
     mounted(){
-      debugger
         if(this.$auth.getClientInfoFromStorage()){
           this.$root.context.logOut()
         }

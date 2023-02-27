@@ -8,7 +8,6 @@ var AuthPlugin = {
   },
   
   isAuthenticated: function(){
-    debugger
     return token.getTokenFromStorage() != null;
   },
   destroy: function () {
