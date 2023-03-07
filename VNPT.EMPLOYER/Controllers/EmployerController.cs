@@ -1,4 +1,5 @@
-﻿using ClassLibrary.model;
+﻿using ClassLibrary.auth.hashpass;
+using ClassLibrary.model;
 using ClassLibrary.respond;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,11 @@ namespace VNPT.EMPLOYER.Controllers
     public class EmployerController : ControllerBase
     {
         private readonly IEmployer m_employer;
-
-        public EmployerController(IEmployer _employer)
+        private IHashPass m_hashPass;
+        public EmployerController(IEmployer _employer, IHashPass _hashPass)
         {
             m_employer = _employer;
+            m_hashPass = _hashPass;
         }
         [HttpGet("getAllEmployer")]
         public DataRespond getAllEmployer()
@@ -36,8 +38,9 @@ namespace VNPT.EMPLOYER.Controllers
             return data;
         }
         //insert new Employer
+        [AllowAnonymous]
         [HttpPost("InsertEmployer")]
-        public DataRespond InsertEmployer([FromForm] Employers employer)
+        public DataRespond InsertEmployer([FromBody] Employers employer)
         {
             DataRespond data = new DataRespond();
             try
@@ -51,7 +54,7 @@ namespace VNPT.EMPLOYER.Controllers
                 empl.number_phone = employer.number_phone;
                 empl.mobile = employer.mobile;
                 empl.email = employer.email;
-                empl.password = employer.password;
+                empl.password = m_hashPass.hashPass(employer.password);
                 empl.active = employer.active;
                 empl.role_id = employer.role_id;
                 empl.address = employer.address;
@@ -94,7 +97,7 @@ namespace VNPT.EMPLOYER.Controllers
                 empl.number_phone = employer.number_phone;
                 empl.mobile= employer.mobile;
                 empl.email = employer.email;
-                empl.password = employer.password;
+                empl.password = m_hashPass.hashPass(employer.password);
                 empl.active = employer.active;
                 empl.role_id = employer.role_id;
                 empl.address = employer.address;

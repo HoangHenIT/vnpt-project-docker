@@ -1,11 +1,11 @@
 ﻿using ClassLibrary.auth;
+using ClassLibrary.auth.hashpass;
 using ClassLibrary.connectdb;
 using ClassLibrary.model;
 using ClassLibrary.respond;
 using ClassLibrary.responsitory;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic.FileIO;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -14,9 +14,11 @@ namespace VNPT.AUTH.services.auth.impl
 {
     public class AuthImpl : Responsetory<Employers>, IAuth
     {
+        private IHashPass m_hashPass;
         private IOptions<Audience> m_audience;
-        public AuthImpl(DataContext context, IOptions<Audience> _audience) : base(context)
+        public AuthImpl(DataContext context, IHashPass hashPass, IOptions<Audience> _audience) : base(context)
         {
+            m_hashPass = hashPass;
             m_audience = _audience;
         }
 
@@ -50,7 +52,7 @@ namespace VNPT.AUTH.services.auth.impl
             {
                 return false;
             }
-            else if(employers.password == employer.password)
+            else if(m_hashPass.checkPass(employer.password, employers.password))
             {
                 return true;
             }
@@ -96,7 +98,7 @@ namespace VNPT.AUTH.services.auth.impl
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = signingKey,
                 ValidateIssuer = true,
-                ValidIssuer = m_audience.Value.Issuer,
+                ValidIssuer = m_audience.Value.Iss,
                 ValidateAudience = true,
                 ValidAudience = m_audience.Value.Aud,
                 ValidateLifetime = true,
@@ -106,7 +108,7 @@ namespace VNPT.AUTH.services.auth.impl
             };
 
             var jwt = new JwtSecurityToken(
-                issuer: m_audience.Value.Issuer,
+                issuer: m_audience.Value.Iss,
                 audience: m_audience.Value.Aud,
                 claims: claims,
                 notBefore: now,
@@ -117,8 +119,8 @@ namespace VNPT.AUTH.services.auth.impl
             var responseJson = new
             {
                 access_token = encodedJwt,
-                //expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
-                expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
+                expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
+                //expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
             };
 
             return responseJson;

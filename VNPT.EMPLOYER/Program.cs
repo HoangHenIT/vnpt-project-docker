@@ -1,3 +1,4 @@
+using ClassLibrary.auth.hashpass;
 using ClassLibrary.connectdb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,7 @@ var tokenValidationParameters = new TokenValidationParameters
     ValidateIssuerSigningKey = true,
     IssuerSigningKey = signingKey,
     ValidateIssuer = true,
-    ValidIssuer = audienceConfig["Issuer"],
+    ValidIssuer = audienceConfig["Iss"],
     ValidateAudience = true,
     ValidAudience = audienceConfig["Aud"],
     ValidateLifetime = true,
@@ -29,9 +30,9 @@ var tokenValidationParameters = new TokenValidationParameters
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = "KeyAuthenticate";
+    options.DefaultAuthenticateScheme = "TestKey";
 })
- .AddJwtBearer("KeyAuthenticate", x =>
+ .AddJwtBearer("TestKey", x =>
  {
      x.RequireHttpsMetadata = false;
      x.TokenValidationParameters = tokenValidationParameters;
@@ -51,6 +52,7 @@ builder.Services.AddDbContext<DataContext>(option =>
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<IEmployer, EmployerImpl>();
+builder.Services.AddTransient<IHashPass, HashPassImpl>();
 
 var app = builder.Build();
 

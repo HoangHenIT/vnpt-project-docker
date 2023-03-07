@@ -10,7 +10,6 @@
           "Port": 9001
         }
       ],
-      
       "DownstreamPathTemplate": "/api/auth/{catchAll}"
     },
     {
@@ -23,10 +22,19 @@
           "Port": 9002
         }
       ],
-      
-      "DownstreamPathTemplate": "/api/employer/{catchAll}"
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "DownstreamPathTemplate": "/api/employer/{catchAll}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 10
+      }
     }
-
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:8080"

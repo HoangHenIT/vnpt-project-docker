@@ -34,7 +34,7 @@ axios.interceptors.response.use(
   },
   error => {
     // all 4xx/5xx responses will end here
-    console.log(error)
+    console.log(error.AxiosError)
     //return Promise.reject(error);
     
     return Promise.reject(error)

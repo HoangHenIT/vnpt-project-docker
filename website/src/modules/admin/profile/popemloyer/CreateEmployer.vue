@@ -3,14 +3,14 @@
     <div class="modal-content popup-box">
         <div class="popup-header">
             <div class="title"><span class="icon one-notepad"></span> Thêm mới người dùng</div>
-            <div class="close -ap fa fa-times" aria-hidden="true" data-dismiss="modal" @click="$refs['PopCreateEmployer'].hide()">
+            <div class="close -ap fa fa-times" aria-hidden="true" data-dismiss="modal" @click="hideModal()">
             </div>
         </div>
         <div class="list-actions-top">
             <ul class="list">
-                <li>
-                    <a href="#">
-                        <span class="icon one-save"></span>Ghi lại
+                <li >
+                    <a v-on:click="insertEmployer">
+                        <span class="icon one-save" ></span>Ghi lại
                     </a>
                 </li>
                 <li>
@@ -40,7 +40,7 @@
                                     <div class="key w150">Tên người dùng</div>
                                     <div class="value">
                                         <div class="select-custom">
-                                            <input type="text" class="form-control">
+                                            <input type="text" ref="inputFullName" class="form-control" v-model="user.full_name">
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="info-row">
                                     <div class="key w150">Tên Profile</div>
                                     <div class="value">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" v-model="user.name_profile">
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                     <div class="key w150">Số điện thoại 1</div>
                                     <div class="value">
                                         <div class="select-custom">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control"  v-model="user.mobile">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="info-row">
                                     <div class="key w150">Email</div>
                                     <div class="value">
-                                        <input type="text" disabled class="form-control">
+                                        <input type="text" ref="inputEmail" class="form-control" v-model="user.email">
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     <div class="key w150">Số điện thoại 2</div>
                                     <div class="value">
                                         <div class="select-custom">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" v-model="user.number_phone">
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                 <div class="info-row">
                                     <div class="key w150">Tài khoản</div>
                                     <div class="value">
-                                        <input type="text" class="form-control">
+                                        <input type="text" ref="inputUsername" class="form-control" v-model="user.username">
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                                     <div class="key w150">Mật khẩu</div>
                                     <div class="value">
                                         <div class="select-custom">
-                                            <input type="text" class="form-control">
+                                            <input type="password" class="form-control" v-model="user.password">
                                         </div>
                                     </div>
                                 </div>
@@ -113,19 +113,11 @@
                                     <div class="key bold red nowrap">Quyền</div>
                                     <div class="value">
                                         <div class="select-custom" >
-                                            <select2
+                                            <select2 v-model="user.role_id"
                                                 :options="listbox.map(e=> ({id: e.id, text: e.text}))" >
                                             </select2>
                                         </div>
                                             
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6  col-md-6 col-12">
-                                <div class="info-row">
-                                    <div class="key w150">Trạng thái</div>
-                                    <div class="value">
-                                        <input type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -135,31 +127,31 @@
                         <div class="info-row">
                             <div class="key w100">Tên công ty</div>
                             <div class="value">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  v-model="user.company">
                             </div>
                         </div>
                         <div class="info-row">
                             <div class="key w100">Địa chỉ</div>
                             <div class="value">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" v-model="user.address">
                             </div>
                         </div>
                         <div class="info-row">
                             <div class="key w100">Link Facebook</div>
                             <div class="value">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  v-model="user.link_facebook">
                             </div>
                         </div>
                         <div class="info-row">
                             <div class="key w100">Link GitHub</div>
                             <div class="value">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  v-model="user.link_git">
                             </div>
                         </div>
                         <div class="info-row">
                             <div class="key w100">Link Website</div>
                             <div class="value">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"  v-model="user.link_website">
                             </div>
                         </div>
                     </div>
@@ -172,6 +164,7 @@
 </template>
 
 <script>
+import ProfileApi from '../ProfileApi';
 export default {
   name: "CreateEmployer",
   data() {
@@ -182,27 +175,98 @@ export default {
         },{
             id:"2",
             text: "Username"
-        }]
+        }],
+        user:{
+            employer_id: "",
+            full_name: "",
+            name_profile: "",
+            job_name: "",
+            company: "",
+            email: "",
+            number_phone: "",
+            mobile: "",
+            username: "",
+            password: "",
+            role_id: "",
+            active: "",
+            address: "",
+            link_website: "",
+            link_git: "",
+            link_facebook: "",
+        }
     };
   },
-//   created(){
-//     this.$root.$on("bv::modal::shown", (bvEvent, modalId) => {
-//         for(let i =0; i< document.getElementsByClassName("modal-content").length; i++){
-//             document.getElementsByClassName("modal-content")[i].removeAttribute("tabindex");
-//         }
-//         // document.getElementsByClassName("modal-content")[0].removeAttribute("tabindex");
-//         // document.getElementsByClassName("modal-content")[1].removeAttribute("tabindex");
-//         // document.getElementsByClassName("modal-content").forEach(function (v) {
-//         //     v.removeAttribute("tabindex");
-//         // });
-//     });
-//   },
   methods: {
     showModal() {
       this.$refs["PopCreateEmployer"].show();
     },
     hideModal() {
       this.$refs["PopCreateEmployer"].hide();
+    },
+    // nối chuỗi email thêm đuôi
+     validateEmail(email){
+        var data = "";
+        if(!email.endsWith('@gmail.com')){
+            data = email + "@gmail.com"
+        }else{
+            data = email
+        }
+        return data;
+        
+    },
+    async insertEmployer(){
+        
+        if(this.user.full_name.trim() == ""){
+            this.$toast.warning("Bạn chưa nhập Họ và Tên!");
+            this.$refs.inputFullName.focus()
+            return
+        }
+        if(this.user.email.trim() == ""){
+            this.$toast.warning("Bạn chưa nhập Email!");
+            this.$refs.inputEmail.focus()
+            return
+        }else{
+            var email = this.validateEmail(this.user.email)
+        }
+        if(this.user.username.trim() == ""){
+            this.$toast.warning("Bạn chưa nhập Tài khoảng đăng nhập!");
+            this.$refs.inputUsername.focus()
+            return
+        }
+        var data= {
+            full_name: this.user.full_name,
+            name_profile: this.user.name_profile,
+            job_name: this.user.job_name,
+            company: this.user.company,
+            email: this.validateEmail(this.user.email),
+            number_phone: this.user.number_phone,
+            mobile: this.user.mobile,
+            username: this.user.username,
+            password: this.user.password == "" ? "Vnpt@2023": this.user.password,
+            role_id: this.user.role_id,
+            active: 0,
+            address: this.user.address,
+            link_website: this.user.link_website,
+            link_git: this.user.link_git,
+            link_facebook: this.user.link_facebook,
+        }
+        console.log(data)
+        
+        debugger
+        let response = await ProfileApi.insertEmployer(this.axios, data)
+        try{
+            if(response.data.success){
+                this.user = response.data.data
+                this.$root.toastSuccess(response.data.message)
+            }
+            else{
+                this.$root.toastError(message.toString())
+                this.$root.toastError("ádsada",response.data)
+            }
+        }catch(error){
+            console.log("loii", error.message)
+            this.$root.toastError(error.message.toString())
+        }
     },
     
   },

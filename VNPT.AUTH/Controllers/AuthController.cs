@@ -1,8 +1,10 @@
-﻿using ClassLibrary.model;
+﻿using ClassLibrary.auth.hashpass;
+using ClassLibrary.model;
 using ClassLibrary.respond;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 using VNPT.AUTH.services.auth;
 
 namespace VNPT.AUTH.Controllers
@@ -26,6 +28,7 @@ namespace VNPT.AUTH.Controllers
             DataRespond data = new DataRespond();
             try
             {
+
                 data.success = true;
                 data.data = m_auth.login(employers);
                 insertHistoryLogin(employers.username);
