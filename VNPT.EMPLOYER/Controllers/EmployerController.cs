@@ -38,9 +38,8 @@ namespace VNPT.EMPLOYER.Controllers
             return data;
         }
         //insert new Employer
-        [AllowAnonymous]
         [HttpPost("InsertEmployer")]
-        public DataRespond InsertEmployer([FromBody] Employers employer)
+        public DataRespond InsertEmployer( Employers employer)
         {
             DataRespond data = new DataRespond();
             try

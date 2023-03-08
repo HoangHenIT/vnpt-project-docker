@@ -49,7 +49,6 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   // kiểm tra chưa có token trả về Login
-  debugger
   if (to.meta.requiresAuth == undefined || to.meta.requiresAuth == null || to.meta.requiresAuth == true){
       if(Vue.auth.isAuthenticated()){
         next()

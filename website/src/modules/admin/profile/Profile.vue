@@ -40,7 +40,6 @@ export default {
         showModal() {
             this.$refs.popupCreateEmployer.showModal()
         },
-        
     },
     components:{
       ProfileInfo,

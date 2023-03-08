@@ -113,9 +113,7 @@
                                     <div class="key bold red nowrap">Quyền</div>
                                     <div class="value">
                                         <div class="select-custom" >
-                                            <select2 v-model="user.role_id"
-                                                :options="listbox.map(e=> ({id: e.id, text: e.text}))" >
-                                            </select2>
+                                            <select2 v-model="user.role_id" :options="listRolers" ></select2>
                                         </div>
                                             
                                     </div>
@@ -169,13 +167,7 @@ export default {
   name: "CreateEmployer",
   data() {
     return {
-        listbox:[{
-            id:"1",
-            text: "Admin"
-        },{
-            id:"2",
-            text: "Username"
-        }],
+        listRolers:[],
         user:{
             employer_id: "",
             full_name: "",
@@ -196,6 +188,9 @@ export default {
         }
     };
   },
+  mounted(){
+    this.getAllRoler()
+  },
   methods: {
     showModal() {
       this.$refs["PopCreateEmployer"].show();
@@ -213,6 +208,24 @@ export default {
         }
         return data;
         
+    },
+    async getAllRoler(){
+        try{
+            let response = await ProfileApi.getAllRoler(this.axios)
+            if(response.data.success){
+                let data = response.data.data;
+                this.listRolers = data.map(e=> ({id: e.role_id, text: e.role_name}))
+                if(this.listRolers.length > 0){
+                    this.user.role_id = this.listRolers[0].id
+                }
+                else{
+                    this.$toast.error(response.data.message);
+                }
+            }
+
+        }catch(e){
+
+        }
     },
     async insertEmployer(){
         
@@ -250,9 +263,6 @@ export default {
             link_git: this.user.link_git,
             link_facebook: this.user.link_facebook,
         }
-        console.log(data)
-        
-        debugger
         let response = await ProfileApi.insertEmployer(this.axios, data)
         try{
             if(response.data.success){
