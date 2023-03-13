@@ -1,3 +1,10 @@
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.csproj.AssemblyReference.cache
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.GeneratedMSBuildEditorConfig.editorconfig
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.AssemblyInfoInputs.cache
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.AssemblyInfo.cs
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.csproj.CoreCompileInputs.cache
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.MvcApplicationPartsAssemblyInfo.cs
+E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.MvcApplicationPartsAssemblyInfo.cache
 E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\appsettings.Development.json
 E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\appsettings.json
 E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\VNPT.EMPLOYER.exe
@@ -54,13 +61,6 @@ E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\runtimes\win\lib\net7.0\Sy
 E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\ClassLibrary.dll
 E:\vnpt-project-docker\VNPT.EMPLOYER\bin\Debug\net7.0\ClassLibrary.pdb
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.csproj.AssemblyReference.cache
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.GeneratedMSBuildEditorConfig.editorconfig
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.AssemblyInfoInputs.cache
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.AssemblyInfo.cs
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.csproj.CoreCompileInputs.cache
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.MvcApplicationPartsAssemblyInfo.cs
-E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\VNPT.EMPLOYER.MvcApplicationPartsAssemblyInfo.cache
 E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\staticwebassets\msbuild.VNPT.EMPLOYER.Microsoft.AspNetCore.StaticWebAssets.props
 E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\staticwebassets\msbuild.build.VNPT.EMPLOYER.props
 E:\vnpt-project-docker\VNPT.EMPLOYER\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.VNPT.EMPLOYER.props

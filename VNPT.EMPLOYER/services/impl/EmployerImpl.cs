@@ -36,5 +36,32 @@ namespace VNPT.EMPLOYER.services.impl
             return false;
         }
 
+        public dynamic getEmployer()
+        {
+            var res = (from employer in m_context.Employers
+                       join role in m_context.Roles
+            on employer.role_id equals role.role_id
+                       select new
+                       {
+                           employer_id = employer.employer_id,
+                           full_name = employer.full_name,
+                           name_profile = employer.name_profile,
+                           job_name = employer.job_name,
+                           company = employer.company,
+                           email = employer.email,
+                           number_phone = employer.number_phone,
+                           mobile = employer.mobile,
+                           username = employer.username,
+                           password = employer.password,
+                           role_id = employer.role_id,
+                           role_name = role.role_name,
+                           active = employer.active,
+                           address = employer.address,
+                           link_website = employer.link_website,
+                           link_git = employer.link_git,
+                           link_facebook = employer.link_facebook,
+                       }).ToList();
+            return res;
+        }
     }
 }

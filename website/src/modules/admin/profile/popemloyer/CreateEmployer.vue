@@ -169,7 +169,6 @@ export default {
     return {
         listRolers:[],
         user:{
-            employer_id: "",
             full_name: "",
             name_profile: "",
             job_name: "",
@@ -223,58 +222,55 @@ export default {
                 }
             }
 
-        }catch(e){
-
+        }catch(error){
+            this.$root.toastError(error.message.toString())
         }
     },
     async insertEmployer(){
-        
-        if(this.user.full_name.trim() == ""){
-            this.$toast.warning("Bạn chưa nhập Họ và Tên!");
-            this.$refs.inputFullName.focus()
-            return
-        }
-        if(this.user.email.trim() == ""){
-            this.$toast.warning("Bạn chưa nhập Email!");
-            this.$refs.inputEmail.focus()
-            return
-        }else{
-            var email = this.validateEmail(this.user.email)
-        }
-        if(this.user.username.trim() == ""){
-            this.$toast.warning("Bạn chưa nhập Tài khoảng đăng nhập!");
-            this.$refs.inputUsername.focus()
-            return
-        }
-        var data= {
-            full_name: this.user.full_name,
-            name_profile: this.user.name_profile,
-            job_name: this.user.job_name,
-            company: this.user.company,
-            email: this.validateEmail(this.user.email),
-            number_phone: this.user.number_phone,
-            mobile: this.user.mobile,
-            username: this.user.username,
-            password: this.user.password == "" ? "Vnpt@2023": this.user.password,
-            role_id: this.user.role_id,
-            active: 0,
-            address: this.user.address,
-            link_website: this.user.link_website,
-            link_git: this.user.link_git,
-            link_facebook: this.user.link_facebook,
-        }
-        let response = await ProfileApi.insertEmployer(this.axios, data)
         try{
+            if(this.user.full_name.trim() == ""){
+                this.$toast.warning("Bạn chưa nhập Họ và Tên!");
+                this.$refs.inputFullName.focus()
+                return
+            }
+            if(this.user.email.trim() == ""){
+                this.$toast.warning("Bạn chưa nhập Email!");
+                this.$refs.inputEmail.focus()
+                return
+            }else{
+                let email = this.validateEmail(this.user.email)
+            }
+            if(this.user.username.trim() == ""){
+                this.$toast.warning("Bạn chưa nhập Tài khoảng đăng nhập!");
+                this.$refs.inputUsername.focus()
+                return
+            }
+            let data = {
+                full_name: this.user.full_name,
+                name_profile: this.user.name_profile,
+                job_name: this.user.job_name,
+                company: this.user.company,
+                email: this.validateEmail(this.user.email),
+                number_phone: this.user.number_phone,
+                mobile: this.user.mobile,
+                username: this.user.username,
+                password: this.user.password == "" ? "Vnpt@2023": this.user.password,
+                role_id: this.user.role_id,
+                active: true,
+                address: this.user.address,
+                link_website: this.user.link_website,
+                link_git: this.user.link_git,
+                link_facebook: this.user.link_facebook,
+            }
+            let response = await ProfileApi.insertEmployers(this.axios, data)
             if(response.data.success){
                 this.user = response.data.data
                 this.$root.toastSuccess(response.data.message)
             }
             else{
-                this.$root.toastError(message.toString())
-                this.$root.toastError("ádsada",response.data)
+                this.$root.toastError(response.data.message.toString())
             }
         }catch(error){
-            console.log("loii", error.message)
             this.$root.toastError(error.message.toString())
         }
     },

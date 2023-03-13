@@ -26,8 +26,9 @@ namespace VNPT.EMPLOYER.Controllers
             DataRespond data = new DataRespond();
             try
             {
+
                 data.success = true;
-                data.data = m_employer.getAll();
+                data.data = m_employer.getEmployer();
                 data.message = "Get all Employer";
             }catch(Exception e)
             {
