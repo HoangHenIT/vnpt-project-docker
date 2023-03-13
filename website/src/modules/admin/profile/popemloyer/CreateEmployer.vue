@@ -24,7 +24,7 @@
         <div class="popup-body">
             <div class="box-form">
                 <div class="legend-title">Thông tin người dùng</div>
-                <div class="row">
+                <div class="row p-3">
                     <div class="col-sm-6 col-12">
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-12">
@@ -264,7 +264,7 @@ export default {
             }
             let response = await ProfileApi.insertEmployers(this.axios, data)
             if(response.data.success){
-                this.user = response.data.data
+                this.user = response.data.message
                 this.$root.toastSuccess(response.data.message)
             }
             else{

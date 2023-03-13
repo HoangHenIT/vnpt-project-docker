@@ -13,8 +13,9 @@
               <span class="icon one-file-plus"></span>Lấy danh sách
             </a>
           </li>
-          <li>
-            <a href="javascript:void(0)">
+          <!-- @click="$emit('onActionClick', item)" : bat su kien data cuar cpn con-->
+          <li  :class="{disabled: !isEnable.deleteEmployer}">
+            <a href="javascript:void(0)" :class="{disabled_color: !isEnable.deleteEmployer}">
               <span class="icon one-trash"></span>Xoá
             </a>
           </li>
@@ -22,7 +23,7 @@
       </div>
       <div class="page-content" style="top:105px">
           <ProfileInfo v-if="isActive == 0"/>
-          <ListEmployer v-if="isActive == 1"/>
+          <ListEmployer @onSelectedRowEmployer="onSelectedRowEmployer" v-if="isActive == 1"/>
       </div>
       <PopCreateEmployer ref="popupCreateEmployer"/>
     
@@ -32,15 +33,23 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import ProfileInfo from './popemloyer/ProfileInfo.vue'
 import PopCreateEmployer from './popemloyer/CreateEmployer.vue'
 import ListEmployer from './popemloyer/ListEmployer.vue';
+import { DialogUtility } from '@syncfusion/ej2-popups'
+Vue.use(DialogUtility)
+let DialogObj = undefined
+import ProfileApi from './ProfileApi';
 export default {
     name:"Profile",
     data(){
       return{
         isActive: 0,
-        tab:0
+        tab:0,
+        isEnable: {
+          deleteEmployer: false
+        },
       }
     },
     mounted(){
@@ -59,6 +68,30 @@ export default {
           }else{
             this.isActive = 0
           }
+        },
+        async onSelectedRowEmployer(item){
+          try{
+            this.isEnable.deleteEmployer = true;
+            DialogObj = DialogUtility.confirm({
+                title: 'Thông báo',
+                content: "<div style='padding:10px'>Bạn có chắc chắn muốn xóa người dùng không?</div>",
+                okButton: {  text: 'Đồng ý', click: this.confirmDeleteEmployer },
+                cancelButton: {  text: 'Hủy', click: function(){ DialogObj.hide(); return false}},
+                showCloseIcon: true,
+                closeOnEscape: true,
+                animationSettings: { effect: 'Zoom' }
+            });
+          }catch(error){
+            
+          }
+          // 
+          // let response = await ProfileApi.deleteEmployer()
+          // if(response.data.success){
+
+          // }
+        },
+        confirmDeleteEmployer(){
+
         }
     },
     components:{

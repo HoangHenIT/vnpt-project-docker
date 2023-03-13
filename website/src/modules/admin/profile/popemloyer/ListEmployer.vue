@@ -10,6 +10,7 @@
                         :columns="columnsHistory"
                         :dataSources="dataSources"
                         :allowFilter="true"
+                        @onSelectedRow="onSelectedRowEmployer"
                         />
                     </div>
                     </div>
@@ -108,7 +109,8 @@ export default {
                   allowFilter: true
                 }
             ],
-            dataSources:[]
+            dataSources:[],
+            employer:null
         }
     },
     mounted(){
@@ -136,7 +138,11 @@ export default {
             }catch(error){
                 this.$root.toastError(error.message.toString())
             }
-        },
+      },
+      onSelectedRowEmployer(item){
+        this.employer = Object.assign({}, item);
+        this.$emit('onSelectedRowEmployer', this.employer)
+      },
     },
     components:{
         KTableVue
