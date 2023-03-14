@@ -36,7 +36,23 @@ create table historylogins(
 	username nvarchar(100),
 	foreign key (employer_id) references employers(employer_id)
 )
-
+create table categorymenu(
+	category_id int not null identity(1,1) primary key,
+	category_name nvarchar(200),
+	category_level int, --0 menu char, 1 - menu lv1
+	category_link nvarchar(500),
+	category_icon nvarchar(500),
+	category_note nvarchar(500),
+	category_active bit, 
+	craeteday datetime,
+)
+create table grouppermission(
+	role_id int,
+	category_id int,
+	craeteday datetime,
+	foreign key (role_id) references Roles(role_id),
+	foreign key (category_id) references categorymenu(category_id)
+)
 
 drop table employer
 drop table roles

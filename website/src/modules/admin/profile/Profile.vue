@@ -14,8 +14,8 @@
             </a>
           </li>
           <!-- @click="$emit('onActionClick', item)" : bat su kien data cuar cpn con-->
-          <li  :class="{disabled: !isEnable.deleteEmployer}">
-            <a href="javascript:void(0)" :class="{disabled_color: !isEnable.deleteEmployer}">
+          <li  :class="{disabled: !isEnable.deleteEmployer}" >
+            <a href="javascript:void(0)" :class="{disabled_color: !isEnable.deleteEmployer}" @click="confirmDeleteEmployer()">
               <span class="icon one-trash"></span>Xoá
             </a>
           </li>
@@ -37,10 +37,9 @@ import Vue from 'vue'
 import ProfileInfo from './popemloyer/ProfileInfo.vue'
 import PopCreateEmployer from './popemloyer/CreateEmployer.vue'
 import ListEmployer from './popemloyer/ListEmployer.vue';
-import { DialogUtility } from '@syncfusion/ej2-popups'
-Vue.use(DialogUtility)
-let DialogObj = undefined
 import ProfileApi from './ProfileApi';
+import bootbox from "bootbox";
+Vue.use(bootbox);
 export default {
     name:"Profile",
     data(){
@@ -50,6 +49,7 @@ export default {
         isEnable: {
           deleteEmployer: false
         },
+        listItem:[]
       }
     },
     mounted(){
@@ -72,26 +72,26 @@ export default {
         async onSelectedRowEmployer(item){
           try{
             this.isEnable.deleteEmployer = true;
-            DialogObj = DialogUtility.confirm({
-                title: 'Thông báo',
-                content: "<div style='padding:10px'>Bạn có chắc chắn muốn xóa người dùng không?</div>",
-                okButton: {  text: 'Đồng ý', click: this.confirmDeleteEmployer },
-                cancelButton: {  text: 'Hủy', click: function(){ DialogObj.hide(); return false}},
-                showCloseIcon: true,
-                closeOnEscape: true,
-                animationSettings: { effect: 'Zoom' }
-            });
+            this.listItem = item
+            
           }catch(error){
             
           }
-          // 
-          // let response = await ProfileApi.deleteEmployer()
-          // if(response.data.success){
-
-          // }
         },
-        confirmDeleteEmployer(){
+        async confirmDeleteEmployer(){
+          try{
+            let data = this.listItem.employer_id
+            console.log(data)
+            let response = await ProfileApi.deleteEmployer(this.axios, this.listItem.employer_id)
+            if(response.data.success){
+              this.$toast.success(response.data.message)
+            }else{
+              this.$toast.success(response.data.message)
+            }
+          } catch(error){
 
+          }
+          
         }
     },
     components:{

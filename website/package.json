@@ -15,6 +15,7 @@
   "dependencies": {
     "@syncfusion/ej2-popups": "^20.4.53",
     "axios": "^1.2.2",
+    "bootbox": "^6.0.0",
     "bootstrap": "^5.0.1",
     "bootstrap-vue": "^2.23.1",
     "v-select2-component": "^0.4.7",
