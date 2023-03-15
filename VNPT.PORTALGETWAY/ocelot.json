@@ -34,6 +34,29 @@
         "PeriodTimespan": 1,
         "Limit": 10
       }
+    },
+    {
+      "UpstreamPathTemplate": "/api/permission/{catchAll}",
+      "UpstreamHttpMethod": [ "Options", "Get", "Post", "Put", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9003
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "DownstreamPathTemplate": "/api/permission/{catchAll}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 10
+      }
     }
   ],
   "GlobalConfiguration": {

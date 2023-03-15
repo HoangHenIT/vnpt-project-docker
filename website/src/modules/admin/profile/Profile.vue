@@ -80,8 +80,6 @@ export default {
         },
         async confirmDeleteEmployer(){
           try{
-            let data = this.listItem.employer_id
-            console.log(data)
             let response = await ProfileApi.deleteEmployer(this.axios, this.listItem.employer_id)
             if(response.data.success){
               this.$toast.success(response.data.message)

@@ -39,32 +39,25 @@
                             Profile User
                         </a>
                     </li>
-                
-                    
                 </ul>
             </li>
             <li>
                 <div class="icon_links">
                     <a href="">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="link_name"> Chỉ số kinh doanh </span>
+                        <span class="link_name"> Danh mục Menu </span>
                     </a>
                     <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
                 </div>
                 <ul class="sub-menu">
                     <li>
                         <a class="link_name" href="" >
-                            Chỉ số kinh doanh
+                            Danh mục Menu
                         </a>
                     </li>
                     <li>
-                        <a href="" >
-                            Chỉ số kinh doanh
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" >
-                            CSKD theo ô địa bàn
+                        <a href="/admin/categorymenu">
+                            Danh mục Menu
                         </a>
                     </li>
                 </ul>

@@ -128,7 +128,7 @@ namespace VNPT.EMPLOYER.Controllers
             }
             return data;
         }
-        [HttpDelete("deleteEmployer")]
+        [HttpDelete("deleteEmployercmd ")]
         public DataRespond deleteEmployer(int employer_id)
         {
             DataRespond data = new DataRespond();

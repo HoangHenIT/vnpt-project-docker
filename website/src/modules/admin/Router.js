@@ -1,5 +1,6 @@
 import LayoutMain from '@/layouts/MainLayout.vue'
 import Profile from '../admin/profile/Profile.vue'
+import CategoryMenu from '../admin/categorymenu/CategoryMenu.vue'
 
 
 export default [
@@ -25,6 +26,15 @@ export default [
             title: 'Người dùng'
           }
         },
+        {
+          path: 'categorymenu',
+          name: 'CategoryMenu',
+          component: CategoryMenu,
+          meta: {
+            title: 'Danh mục menu'
+          }
+        },
+        
       ]
     }
   ]

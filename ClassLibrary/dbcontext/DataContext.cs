@@ -1,4 +1,5 @@
 ﻿using ClassLibrary.model;
+using ClassLibrary.model.permission;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace ClassLibrary.connectdb
         public DbSet<Employers> Employers { get; set; }
         public DbSet<HistoryLogins> HistoryLogins { get; set; }
 
+        public DbSet<CategoryMenus> CategoryMenu { get; set; }
+        public DbSet<GroupPermission> GroupPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

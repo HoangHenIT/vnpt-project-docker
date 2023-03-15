@@ -12,15 +12,18 @@ import Select2 from 'v-select2-component';
 import VueAxios from "vue-axios"
 import axiosPlugin from "./plugins/axiosPlugin"
 import Auth from './plugins/auth'
+import moment from 'moment'
 
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axiosPlugin)
 Vue.use(toastPlugin)
 Vue.use(Auth)
+Vue.use(moment)
 Vue.component('select2', Select2)
 // Vue.use(VueConfirmDialog)
 
 Vue.config.productionTip = false
+Vue.prototype.moment = moment
 /* eslint-disable no-new */
 
 
