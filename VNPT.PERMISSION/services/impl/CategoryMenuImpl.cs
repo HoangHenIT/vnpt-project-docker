@@ -16,6 +16,7 @@ namespace VNPT.PERMISSION.services.impl
 
         public dynamic getCategoryFath()
         {
+            //string[] menucha = { "0", "Menu Cha", "0", "", "", "true", "0", "0" };
             var res = (from category in m_context.CategoryMenu.Where(m => m.category_active == true)
                        select new
                        {

@@ -60,6 +60,11 @@
                             Danh mục Menu
                         </a>
                     </li>
+                    <li>
+                        <a href="/admin/permission">
+                            Phân quyền
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li>

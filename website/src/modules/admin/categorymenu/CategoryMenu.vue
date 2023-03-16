@@ -18,8 +18,8 @@
                     <span class="icon one-file-attach"></span> Chỉnh sửa
                 </a>
             </li>
-            <li :class="{disabled: !isEnable.updateBtn}">
-                <a href="javascript:void(0)" :class="{disabled_color: !isEnable.updateBtn}">
+            <li :class="{disabled: !isEnable.deletetBtn}" v-on:click="confimDeleteCategory">
+                <a href="javascript:void(0)" :class="{disabled_color: !isEnable.deletetBtn}">
                     <span class="icon one-file-attach"></span> Xóa
                 </a>
             </li>
@@ -31,7 +31,7 @@
                 <InstallCategoryMenu v-if="isTab ==  0"/>
             </div>
             <div class="col-lg-8 col-sm-8 col-12">
-                <ListCategoryMenu  v-if="isTab == 0"/>
+                <ListCategoryMenus @onSelectedCategory="onSelectedCategory" v-if="isTab == 0"  />
             </div>
         </div>
           
@@ -43,7 +43,8 @@
 
 <script>
 import InstallCategoryMenu from './categorymenucpn/InstallCategoryMenu.vue'
-import ListCategoryMenu from './categorymenucpn/ListCategoryMenu.vue'
+import ListCategoryMenus from './categorymenucpn/ListCategoryMenu.vue'
+import CategoryAPI from './CategoryAPI'
 export default {
     name:"CategoryMenu",
     data(){
@@ -54,6 +55,7 @@ export default {
                 updateBtn: false,
                 deletetBtn: false
             },
+            ListCategory:[]
         }
     },
     mounted(){
@@ -67,10 +69,32 @@ export default {
             else{
                 this.isTab = 0
             }
-        }
+        },
+        onSelectedCategory(item){
+            try{
+                this.isEnable.deletetBtn = true;
+                this.ListCategory = item
+                
+            }catch(error){
+                this.$root.toastError(error.message.toString())
+            }
+        },
+        async confimDeleteCategory(){
+            try{
+                let category_id = this.ListCategory.category_id
+                let response = await CategoryAPI.DeleteCategory(this.axios, category_id)
+                if(response.data.success){
+                    this.$root.toastSuccess(response.data.message)
+                    this.$emit('child-event');
+                }
+            }catch(error){
+                this.$root.toastError(error.message.toString())
+            }
+        },
+        
     },
     components:{
-        ListCategoryMenu,
+        ListCategoryMenus,
         InstallCategoryMenu
     }
 }

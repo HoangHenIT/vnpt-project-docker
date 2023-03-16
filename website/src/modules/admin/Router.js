@@ -1,6 +1,7 @@
 import LayoutMain from '@/layouts/MainLayout.vue'
 import Profile from '../admin/profile/Profile.vue'
 import CategoryMenu from '../admin/categorymenu/CategoryMenu.vue'
+import PermissionIndex from '../admin/permission/PermissionIndex.vue'
 
 
 export default [
@@ -32,6 +33,14 @@ export default [
           component: CategoryMenu,
           meta: {
             title: 'Danh mục menu'
+          }
+        },
+        {
+          path: 'permission',
+          name: 'PermissionIndex',
+          component: PermissionIndex,
+          meta: {
+            title: 'Phân quyền'
           }
         },
         

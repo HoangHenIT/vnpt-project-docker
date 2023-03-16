@@ -10,6 +10,7 @@
                         :columns="columnsCategory"
                         :dataSources="listCategory"
                         :allowFilter="true"
+                        @onSelectedRow="onSelectedCategory"
                         />
                     </div>
                     </div>
@@ -24,6 +25,12 @@ import KTableVue from '../../../../share/tablecpn/KTable.vue'
 import CategoryAPI from '../CategoryAPI';
 export default {
     name:"ListCategoryMenu",
+    props: {
+        loadDataCategory: {
+            type: Function,
+            required: true
+        }
+    },
     data(){
         return{
             columnsCategory:[
@@ -80,7 +87,8 @@ export default {
                 }
             ],
             listCategory:[],
-            listMenu:[]
+            listMenu:[],
+            sentRowCategory:[]
         }
     },
     mounted(){
@@ -114,9 +122,17 @@ export default {
                 this.$root.toastError(error.message.toString())
             }
         },
+        loadDataCategory(){
+            this.getAllCategory();
+        },
         sentListMenu(){
             this.listMenu = Object.assign({}, this.listCategory);
         },
+        onSelectedCategory(item){
+            this.sentRowCategory = Object.assign({}, item);
+            this.$emit('onSelectedCategory', this.sentRowCategory)
+        },
+        
     },
     components:{
         KTableVue

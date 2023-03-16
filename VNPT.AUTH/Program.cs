@@ -46,7 +46,7 @@ builder.Services.AddDbContext<DataContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("defaultconnectionSQLServer"));
 });
 
-builder.Services.AddTransient<IRoler, RolerImpl>();
+
 builder.Services.AddTransient<IAuth, AuthImpl>();
 builder.Services.AddTransient<IHistoryLogins, HistoryLoginsImpl>();
 builder.Services.AddTransient<IHashPass, HashPassImpl>();

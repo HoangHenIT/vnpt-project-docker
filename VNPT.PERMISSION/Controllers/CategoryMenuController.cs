@@ -1,4 +1,5 @@
 ﻿using ClassLibrary.auth.hashpass;
+using ClassLibrary.model;
 using ClassLibrary.model.permission;
 using ClassLibrary.respond;
 using Microsoft.AspNetCore.Authorization;
@@ -74,7 +75,26 @@ namespace VNPT.PERMISSION.Controllers
                 m_category.insert(category);
                 getAllCategory();
                 data.success = true;
-                data.message = "Insert menu "+ category.category_name + " success";
+                data.message = "Insert menu " + category.category_name + " success";
+            }
+            catch (Exception e)
+            {
+                data.success = false;
+                data.error = e;
+                data.message = e.Message;
+            }
+            return data;
+        }
+        [HttpDelete("DeleteCategory")]
+        public DataRespond DeleteCategory(int category_id)
+        {
+            DataRespond data = new DataRespond();
+            try
+            {
+                CategoryMenus category = m_category.getById(category_id);
+                data.success = true;
+                 m_category.delete(category.category_id);
+                data.message = "Delete Roler '" + category.category_name + "' success";
             }
             catch (Exception e)
             {
@@ -85,4 +105,5 @@ namespace VNPT.PERMISSION.Controllers
             return data;
         }
     }
+
 }

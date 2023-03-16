@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using VNPT.AUTH.services.roles;
 
-namespace VNPT.AUTH.Controllers
+namespace VNPT.PERMISSION.Controllers
 {
-    [Route("api/auth/[controller]")]
+    [Route("api/permission/[controller]")]
     [ApiController]
     [Authorize]
     public class RolesController : Controller
