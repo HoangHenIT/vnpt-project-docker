@@ -271,7 +271,7 @@
 }
 .home-section{
     position: relative;
-    background: #E4E9F7;
+    background: #FAFAFA;
     height: 100vh;
     left: 280px;
     width: calc(100% - 280px);
@@ -286,7 +286,7 @@
     display: flex;
     align-items: center;
     background: var(--bgTheme);
-    box-shadow: 0px .5px 0px 0px #ccc;
+    box-shadow: 0px .5px 0px 0px #FAFAFA;
     z-index: 5;
     
 }
@@ -322,7 +322,7 @@
     overflow: auto;
     overflow-x: hidden;
     /* background: var(--bgTheme); */
-    background: #dee1e6
+    background: #FAFAFA
 }
 .main-content .Breadcrumb{
     width: 100%;

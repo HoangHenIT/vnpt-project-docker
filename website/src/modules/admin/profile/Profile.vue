@@ -22,8 +22,8 @@
         </ul>
       </div>
       <div class="page-content" style="top:105px">
-          <ProfileInfo v-if="isActive == 0"/>
-          <ListEmployer @onSelectedRowEmployer="onSelectedRowEmployer" v-if="isActive == 1"/>
+          <ProfileInfo  v-if="isActive == 0"/>
+          <ListEmployer ref="refDataEmployer" @onSelectedRowEmployer="onSelectedRowEmployer" v-if="isActive == 1"/>
       </div>
       <PopCreateEmployer ref="popupCreateEmployer"/>
     

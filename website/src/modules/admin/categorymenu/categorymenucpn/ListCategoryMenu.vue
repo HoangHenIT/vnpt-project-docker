@@ -23,14 +23,10 @@
 <script>
 import KTableVue from '../../../../share/tablecpn/KTable.vue'
 import CategoryAPI from '../CategoryAPI';
+import InstallCategoryMenu from './InstallCategoryMenu.vue';
 export default {
     name:"ListCategoryMenu",
-    props: {
-        loadDataCategory: {
-            type: Function,
-            required: true
-        }
-    },
+   
     data(){
         return{
             columnsCategory:[
@@ -97,6 +93,7 @@ export default {
     methods:{
         async getAllCategory(){
             try{
+                this.listCategory = []
                 let response = await CategoryAPI.getAllCategory(this.axios)
                 if(response.data.success){
                     response.data.data.forEach(element => {
@@ -113,6 +110,8 @@ export default {
                             position: element.position
                         }
                         this.listCategory.push(item)
+                        // sent data to cpn InstallCategoryMenu
+                        this.$parent.$refs.sentdataDataCategory.setDataCategory(this.listCategory)
                     });
                 }
                 else{

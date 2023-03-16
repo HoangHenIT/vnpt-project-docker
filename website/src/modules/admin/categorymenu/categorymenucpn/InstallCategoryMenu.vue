@@ -1,7 +1,7 @@
 <template>
-    <div class="row">
+    <div class="row h-100">
         <div class="col-12">
-            <div class="box-form">
+            <div class="box-form h-100">
                 <div class="legend-title">Nhập thông tin menu</div>
                 <div class="list-actions-top">
                         <ul class="list">
@@ -159,28 +159,39 @@ export default {
                 }
                 let response = await CategoryAPI.InsertCategory(this.axios, data)
                 if(response.data.success){
-
                     this.$root.toastSuccess(response.data.message)
+                    // call cpn to cpn
+                    this.$parent.$refs.loadDataCategory.getAllCategory()
                 }
             }catch(error){
                 this.$root.toastError(error.message.toString())
             }
         },
-        async getCategoryFath(){
-            try{
-                let response = await CategoryAPI.getCategoryFath(this.axios)
-                if(response.data.success){
-                    let menuChinh = [{id: "0", text:"0 - Menu Cha" }]
-                    let data = response.data.data.map(e=> ({id: e.category_id, text:  e.category_id +" - "+ e.category_name}))
-                    this.listMenuCha = menuChinh.concat(data)
-                    if(this.listMenuCha.length > 0){
-                        this.categorymenu.category_cha_id = this.listMenuCha[0].id
-                    }
-                }
-            }catch(error){
-                this.$root.toastError(error.message.toString())
+        async setDataCategory(item){
+            let menuChinh = [{id: "0", text:"0 - Menu Cha" }]
+            let data = item.map(e=> ({id: e.category_id, text:  e.category_id +" - "+ e.category_name}))
+            this.listMenuCha = menuChinh.concat(data)
+            if(this.listMenuCha.length > 0){
+                this.categorymenu.category_cha_id = this.listMenuCha[0].id
+            }else{
+                this.$root.toastError("Dữ liệu chưa có!")
             }
-        }
+        },
+        // async getCategoryFath(){
+        //     try{
+        //         let response = await CategoryAPI.getCategoryFath(this.axios)
+        //         if(response.data.success){
+        //             let menuChinh = [{id: "0", text:"0 - Menu Cha" }]
+        //             let data = response.data.data.map(e=> ({id: e.category_id, text:  e.category_id +" - "+ e.category_name}))
+        //             this.listMenuCha = menuChinh.concat(data)
+        //             if(this.listMenuCha.length > 0){
+        //                 this.categorymenu.category_cha_id = this.listMenuCha[0].id
+        //             }
+        //         }
+        //     }catch(error){
+        //         this.$root.toastError(error.message.toString())
+        //     }
+        // }
          
     },
     components:{

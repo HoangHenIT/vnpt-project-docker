@@ -25,13 +25,13 @@
             </li>
         </ul>
       </div>
-      <div class="page-content" style="top:105px">
+      <div class="page-content h-100" style="top:105px">
         <div class="row">
             <div class="col-lg-4 col-sm-4 col-12">
-                <InstallCategoryMenu v-if="isTab ==  0"/>
+                <InstallCategoryMenu ref="sentdataDataCategory" v-if="isTab ==  0"/>
             </div>
             <div class="col-lg-8 col-sm-8 col-12">
-                <ListCategoryMenus @onSelectedCategory="onSelectedCategory" v-if="isTab == 0"  />
+                <ListCategoryMenus ref="loadDataCategory" @onSelectedCategory="onSelectedCategory" v-if="isTab == 0"   />
             </div>
         </div>
           
@@ -85,7 +85,8 @@ export default {
                 let response = await CategoryAPI.DeleteCategory(this.axios, category_id)
                 if(response.data.success){
                     this.$root.toastSuccess(response.data.message)
-                    this.$emit('child-event');
+                    // call function to cpnIndex to cpnList
+                    this.$refs.loadDataCategory.getAllCategory()
                 }
             }catch(error){
                 this.$root.toastError(error.message.toString())

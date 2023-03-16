@@ -266,6 +266,7 @@ export default {
             if(response.data.success){
                 this.user = response.data.message
                 this.$root.toastSuccess(response.data.message)
+                this.$parent.$refs.refDataEmployer.getAllEmployer()
             }
             else{
                 this.$root.toastError(response.data.message.toString())
