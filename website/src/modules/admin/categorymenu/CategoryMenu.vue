@@ -26,8 +26,16 @@
         </ul>
       </div>
       <div class="page-content" style="top:105px">
-          <ListCategoryMenu v-if="isTab == 0"/>
-          <InstallCategoryMenu v-if="isTab == 1"/>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-12">
+                <InstallCategoryMenu v-if="isTab ==  0"/>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-12">
+                <ListCategoryMenu  v-if="isTab == 0"/>
+            </div>
+        </div>
+          
+          
       </div>
     </section>
   </div>

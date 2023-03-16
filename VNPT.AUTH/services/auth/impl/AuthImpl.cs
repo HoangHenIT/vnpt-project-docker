@@ -24,7 +24,7 @@ namespace VNPT.AUTH.services.auth.impl
 
         public DataRespond login(Employers employers)
         {
-            DataRespond data= new DataRespond();
+            DataRespond data = new DataRespond();
             try
             {
                 if (checkEmployers(employers))

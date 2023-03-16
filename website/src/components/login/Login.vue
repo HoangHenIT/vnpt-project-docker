@@ -80,30 +80,31 @@ export default {
         },
         // Đăng nhập
         async btnLogin(){
-            // check don't input
-            if(this.auth.username.trim() == ""){
-                this.$root.toastInfo("Bạn chưa nhập tài khoản đăng nhập")
-                return;
-            }
-            if(this.auth.password.trim() == ""){
-                this.$root.toastInfo("Bạn chưa mật khẩu đăng nhập")
-                return;
-            }
+            
             try{
+                // check don't input
+                if(this.auth.username.trim() == ""){
+                    this.$root.toastInfo("Bạn chưa nhập tài khoản đăng nhập")
+                    return;
+                }
+                if(this.auth.password.trim() == ""){
+                    this.$root.toastInfo("Bạn chưa mật khẩu đăng nhập")
+                    return;
+                }
                 let data = {
                     'username': this.auth.username,
                     'password': this.auth.password
                 }
                 let response = await AuthApi.login(this.axios, data)
-                if(response.data.success){
+                if(response.data.data.success == true){
                     let token = response.data.data
                     this.$root.context.configApplication(token) // Save token in Local Storage
                     this.redirectToHome()
                 }else{
-                    // this.$root.toastError(response.data.message)
+                    this.$root.toastError(response.data.data.message)
                 }
             }catch(error){
-                // this.$root.toastError(error.message.toString())
+                this.$root.toastError(error.message.toString())
             }
         },
         redirectToHome() {

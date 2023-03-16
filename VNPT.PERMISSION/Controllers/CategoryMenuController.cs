@@ -36,6 +36,25 @@ namespace VNPT.PERMISSION.Controllers
             }
             return data;
         }
+        [HttpGet("getCategoryFath")]
+        public DataRespond getCategoryFath()
+        {
+            DataRespond data = new DataRespond();
+            try
+            {
+
+                data.success = true;
+                data.data = m_category.getCategoryFath();
+                data.message = "Get all Catagory success";
+            }
+            catch (Exception e)
+            {
+                data.success = false;
+                data.error = e;
+                data.message = e.Message;
+            }
+            return data;
+        }
         [HttpPost("InsertCategory")]
         public DataRespond InsertCategory(CategoryMenus categoryMenus)
         {

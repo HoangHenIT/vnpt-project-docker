@@ -79,7 +79,8 @@ export default {
                     allowFilter: true
                 }
             ],
-            listCategory:[]
+            listCategory:[],
+            listMenu:[]
         }
     },
     mounted(){
@@ -112,7 +113,10 @@ export default {
             }catch(error){
                 this.$root.toastError(error.message.toString())
             }
-        }
+        },
+        sentListMenu(){
+            this.listMenu = Object.assign({}, this.listCategory);
+        },
     },
     components:{
         KTableVue

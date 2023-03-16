@@ -1,7 +1,7 @@
 export default {
     getAllCategory: (axios) => axios.get('/api/permission/CategoryMenu/getAllCategory'),
-    // getAllEmployer: (axios) => axios.get('/api/employer/getAllEmployer'),
-    // insertEmployers: (axios, data) => axios.post('/api/employer/InsertEmployer', data),
+    getCategoryFath: (axios) => axios.get('/api/permission/CategoryMenu/getCategoryFath'),
+    InsertCategory: (axios, data) => axios.post('/api/permission/CategoryMenu/InsertCategory', data),
     // deleteEmployer: (axios, data) => axios.delete('/api/employer/deleteEmployer', data)
 }
   

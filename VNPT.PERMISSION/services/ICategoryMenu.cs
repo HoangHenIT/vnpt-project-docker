@@ -6,6 +6,6 @@ namespace VNPT.PERMISSION.services
 {
     public interface ICategoryMenu : IResponsetory<CategoryMenus>
     {
-        //public dynamic getAllCategory();
+        public dynamic getCategoryFath();
     }
 }

@@ -31,9 +31,10 @@ namespace VNPT.AUTH.Controllers
 
                 data.success = true;
                 data.data = m_auth.login(employers);
-                insertHistoryLogin(employers.username);
-
-
+                if(data.data.success == true)
+                {
+                    insertHistoryLogin(employers.username);
+                }
             }
             catch (Exception ex)
             {
