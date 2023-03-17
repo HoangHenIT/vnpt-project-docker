@@ -12,5 +12,7 @@ namespace ClassLibrary.model
         [Key]
         public int role_id { get; set; }
         public string? role_name { get; set; }
+        public Boolean active { get; set; }
+        public string? note { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 import LayoutMain from '@/layouts/MainLayout.vue'
 import Profile from '../admin/profile/Profile.vue'
 import CategoryMenu from '../admin/categorymenu/CategoryMenu.vue'
-import PermissionIndex from '../admin/permission/PermissionIndex.vue'
+import PermissionIndex from '../admin/permission/Permission.vue'
 
 
 export default [

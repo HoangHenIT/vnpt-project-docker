@@ -38,13 +38,15 @@ namespace VNPT.PERMISSION.Controllers
             return data;
         }
         [HttpPost("insertRoler")]
-        public DataRespond insertRoler([FromBody] Roles role)
+        public DataRespond insertRoler( Roles role)
         {
             DataRespond data = new DataRespond();
             try
             {
                 Roles roles = new Roles();
                 roles.role_name = role.role_name;
+                roles.active = true;
+                roles.note = role.note;
                 if (m_roler.checkRole(role))
                 {
                     m_roler.insert(roles);
@@ -78,7 +80,8 @@ namespace VNPT.PERMISSION.Controllers
                     //gán giá trị cập nhật
                     roles.role_id = role.role_id;
                     roles.role_name = role.role_name;
-
+                    roles.active = true;
+                    roles.note = role.note;
                     //kiểm tra có trùng hay không? 
                     if (m_roler.checkRole(roles))
                     {

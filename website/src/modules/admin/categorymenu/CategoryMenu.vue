@@ -5,7 +5,7 @@
         <ul class="list">
             <li @click="changeTab(0)">
                 <a href="javascript:void(0)">
-                    <span class="icon one-file-attach"></span> Danh sách menu
+                    <span class="icon one-file-attach"></span> Danh sách nhóm
                 </a>
             </li>
             <li  :class="{disabled: isEnable.installBtn}"  @click="changeTab(1)">

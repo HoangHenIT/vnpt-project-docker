@@ -133,7 +133,7 @@ export default {
     mounted(){
         this.listCapMenu = arrCapMenu
         this.categorymenu.category_level = this.listCapMenu[0].id
-        this.getCategoryFath()
+        // this.getCategoryFath()
     },
     methods:{
         async InsertCategory(){

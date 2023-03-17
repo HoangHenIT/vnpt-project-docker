@@ -7,8 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using VNPT.AUTH.services.auth;
 using VNPT.AUTH.services.auth.impl;
-using VNPT.AUTH.services.roles;
-using VNPT.AUTH.services.roles.impl;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
