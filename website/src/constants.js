@@ -15,3 +15,13 @@ export const arrCapMenu = [
         text: "Menu cấp 3"
     }
 ]
+export const arrActive = [
+    {
+        id: true,
+        text: "Hoạt động"
+    },
+    {
+        id: false,
+        text: "Khóa"
+    }
+]

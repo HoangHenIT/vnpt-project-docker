@@ -7,23 +7,29 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import toastPlugin from "./plugins/toastPlugin"
 import BootstrapVue from 'bootstrap-vue'
 import Select2 from 'v-select2-component';
-
+import 'jquery'
+const jquery = require('jquery')
 // axios
 import VueAxios from "vue-axios"
 import axiosPlugin from "./plugins/axiosPlugin"
 import Auth from './plugins/auth'
 import moment from 'moment'
+import bootbox from 'bootbox'
+import  './assets/js/bootbox.min.js'
 
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axiosPlugin)
 Vue.use(toastPlugin)
 Vue.use(Auth)
 Vue.use(moment)
+Vue.use(bootbox)
 Vue.component('select2', Select2)
 // Vue.use(VueConfirmDialog)
 
 Vue.config.productionTip = false
 Vue.prototype.moment = moment
+Vue.prototype.$box = bootbox;
+Vue.prototype.$ = jquery;
 /* eslint-disable no-new */
 
 

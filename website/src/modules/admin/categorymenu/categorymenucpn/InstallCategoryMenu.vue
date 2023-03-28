@@ -83,7 +83,6 @@
                                 <div class="select-custom" >
                                     <select2 v-model="categorymenu.category_cha_id" :options="this.listMenuCha" > </select2>
                                 </div>
-                                    
                             </div>
                         </div>
                     </div>  

@@ -45,7 +45,7 @@ namespace VNPT.PERMISSION.Controllers
             {
                 Roles roles = new Roles();
                 roles.role_name = role.role_name;
-                roles.active = true;
+                roles.active = role.active;
                 roles.note = role.note;
                 if (m_roler.checkRole(role))
                 {

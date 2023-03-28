@@ -3,7 +3,7 @@
     <section>
       <div class="list-actions-top">
         <ul class="list">
-          <li v-on:click="showRoles">
+          <li v-on:click="changeTab(0)">
             <a href="javascript:void(0)">
               <span class="icon one-file-attach" ></span> Nhóm quyền
             </a>
@@ -22,11 +22,10 @@
         </ul>
       </div>
       <div class="page-content" style="top:105px">
-          <!-- <ProfileInfo v-if="isActive == 0"/>
-          <ListEmployer @onSelectedRowEmployer="onSelectedRowEmployer" v-if="isActive == 1"/> -->
+        <RoleIndex ref="RolesIndex" v-show="activeTab === 0"/>
       </div>
       <!-- <PopCreateEmployer ref="popupCreateEmployer"/> -->
-      <RoleIndex ref="RolesIndex" />
+     
     </section>
   </div>
 </template>
@@ -37,15 +36,22 @@ export default {
     name:"PermissionIndex",
     data(){
         return{
-            isEnable: {
-                deleteEmployer: false
-            },
+          activeTab: 0,
+          isEnable: {
+              deleteEmployer: false
+          },
         }
     },
     methods:{
+      changeTab(index) {
+          this.activeTab = index;
+        },
       showRoles(){
         this.$refs.RolesIndex.showModal()
       }
+    },
+    mounted(){
+      this.changeTab(0)
     },
     components:{
       RoleIndex
