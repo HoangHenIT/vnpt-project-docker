@@ -19,7 +19,7 @@
                         </ul>
                     </div>
                 <div class="row">
-                    <div class="col-lg-6 col-sm-6 col-12">
+                    <div class="col-12">
                         <div class="info-row">
                             <div class="key w150">ID Menu</div>
                             <div class="value">
@@ -132,7 +132,6 @@ export default {
     mounted(){
         this.listCapMenu = arrCapMenu
         this.categorymenu.category_level = this.listCapMenu[0].id
-        // this.getCategoryFath()
     },
     methods:{
         async InsertCategory(){
@@ -176,21 +175,7 @@ export default {
                 this.$root.toastError("Dữ liệu chưa có!")
             }
         },
-        // async getCategoryFath(){
-        //     try{
-        //         let response = await CategoryAPI.getCategoryFath(this.axios)
-        //         if(response.data.success){
-        //             let menuChinh = [{id: "0", text:"0 - Menu Cha" }]
-        //             let data = response.data.data.map(e=> ({id: e.category_id, text:  e.category_id +" - "+ e.category_name}))
-        //             this.listMenuCha = menuChinh.concat(data)
-        //             if(this.listMenuCha.length > 0){
-        //                 this.categorymenu.category_cha_id = this.listMenuCha[0].id
-        //             }
-        //         }
-        //     }catch(error){
-        //         this.$root.toastError(error.message.toString())
-        //     }
-        // }
+       
          
     },
     components:{

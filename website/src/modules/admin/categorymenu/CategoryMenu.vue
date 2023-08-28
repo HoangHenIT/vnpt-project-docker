@@ -27,11 +27,13 @@
       </div>
       <div class="page-content h-100" style="top:105px">
         <div class="row">
-            <div class="col-lg-4 col-sm-4 col-12">
-                <InstallCategoryMenu ref="sentdataDataCategory" v-if="isTab ==  0"/>
+            <div class="col-12">
+
+                <CatetoryMenuList ref="sentdataDataCategory" v-if="isTab ==  0"/>
+                <!-- <InstallCategoryMenu ref="sentdataDataCategory" v-if="isTab ==  0"/> -->
             </div>
             <div class="col-lg-8 col-sm-8 col-12">
-                <ListCategoryMenus ref="loadDataCategory" @onSelectedCategory="onSelectedCategory" v-if="isTab == 0"   />
+                <!-- <ListCategoryMenus ref="loadDataCategory" @onSelectedCategory="onSelectedCategory" v-if="isTab == 0"   /> -->
             </div>
         </div>
           
@@ -44,6 +46,7 @@
 <script>
 import InstallCategoryMenu from './categorymenucpn/InstallCategoryMenu.vue'
 import ListCategoryMenus from './categorymenucpn/ListCategoryMenu.vue'
+import CatetoryMenuList from './categorymenu_v1/Categorymenu.vue'
 import CategoryAPI from './CategoryAPI'
 export default {
     name:"CategoryMenu",
@@ -55,7 +58,61 @@ export default {
                 updateBtn: false,
                 deletetBtn: false
             },
-            ListCategory:[]
+            ListCategory:[],
+            columnsCategory:[
+                {
+                    field:'category_id',
+                    label:'ID menu',
+                    allowFilter: true
+                },
+                {
+                    field:'category_name',
+                    label:'Tên menu',
+                    allowFilter: true
+                },
+                {
+                    field:'category_link',
+                    label:'Đường đẫn menu',
+                    allowFilter: true
+                },
+                {
+                    field:'category_icon',
+                    label:'Icon menu',
+                    allowFilter: true
+                },
+                {
+                    field:'category_note',
+                    label:'Ghi chú',
+                    allowFilter: true
+                },
+                {
+                    field:'position',
+                    label:'Vị trí menu',
+                    allowFilter: true
+                },
+                {
+                    field:'category_level',
+                    label:'Cấp menu',
+                    allowFilter: true
+                },
+                {
+                    field:'category_cha_id',
+                    label:'ID menu cha',
+                    allowFilter: true
+                },
+                {
+                    field:'createday',
+                    label:'Ngày tạo',
+                    allowFilter: true
+                }
+                ,
+                {
+                    field:'category_active',
+                    label:'Trạng thái',
+                    allowFilter: true
+                }
+            ],
+            listCategory:[],
         }
     },
     mounted(){
@@ -96,7 +153,8 @@ export default {
     },
     components:{
         ListCategoryMenus,
-        InstallCategoryMenu
+        InstallCategoryMenu,
+        CatetoryMenuList
     }
 }
 </script>

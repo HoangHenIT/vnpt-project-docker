@@ -69,7 +69,7 @@ namespace VNPT.PERMISSION.Controllers
                 category.category_icon = categoryMenus.category_icon;
                 category.category_note = categoryMenus.category_note;
                 category.category_cha_id = categoryMenus.category_cha_id;
-                category.category_active = true;
+                category.category_active = categoryMenus.category_active;
                 category.position = categoryMenus.position;
                 category.createday = DateTime.Now;
                 m_category.insert(category);

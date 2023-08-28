@@ -9511,4 +9511,47 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* split */
+.gutter {
+  width: 15px;
+  padding: 0px 5px;
+  display: block;
+  cursor: ew-resize;
+  z-index: 9;
+  background-image: url(../img/dot.svg);
+  background-size: 8px auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gutter-vertical {
+  background-image: url(../img/gutter.svg);
+  padding: 5px 0px;
+  height: 8px;
+  background-size: auto 8px;
+  display: block;
+  width: 100%;
+}
+
+.grid-stack-box {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+.grid-stack-box:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.grid-stack-box.clearboxform .box {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(177, 177, 177, 0.15);
+}
+.grid-stack-box.clearboxform .box-form {
+  border: 0px;
+  box-shadow: none;
+}
+
 
