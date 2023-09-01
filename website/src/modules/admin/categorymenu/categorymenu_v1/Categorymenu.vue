@@ -356,7 +356,7 @@
               this.categorymenu.category_link = data.category_link,
               this.categorymenu.category_icon = data.category_icon,
               this.categorymenu.category_note = data.category_note,
-              this.categorymenu.category_active = data.category_active == "Hoạt động"?true:
+              this.categorymenu.category_active = data.category_active == "Hoạt động"?true:false
               this.categorymenu.createday = this.moment(data.createday).format("DD-MM-YYYY"),
               this.categorymenu.category_cha_id = data.category_cha_id,
               this.categorymenu.position = data.position
@@ -395,21 +395,17 @@
                     category_note:this.categorymenu.category_note,
                     category_cha_id: this.categorymenu.category_cha_id,
                     position: this.categorymenu.position==""?"0":this.categorymenu.position,
-                    category_active: this.categorymenu.category_active
+                    category_active: Boolean(this.categorymenu.category_active)
                 }
-                console.log(data)
                 // is_insert = 1 thì insert = 0 update
                 let is_insert = this.actions[this.actions.findIndex(x=>x.id=='nhapmoi')].active?0:1 
                 
                 if(is_insert == 1){
-                    debugger
+                 
                   this.InsertCategory(data)
                 }else{
-                  this.$box.confirm('This is the default confirm!',
-                                function(result) {
-                                console.log('This was logged in the callback: ' + result);
-                                });
-                  this.updateRole(data)
+                  
+                  this.updateCategory(data)
                 }
                 
             }catch(error){
@@ -417,7 +413,6 @@
             }
         },
         async InsertCategory(data){
-            debugger
             try{
                 let response = await PermisionAPI.InsertCategory(this.axios, data)
                 if(response.data.success){
@@ -430,8 +425,22 @@
                 this.$root.toastError(error.message.toString())
             }
         },
+        async updateCategory(data){
+            
+            try{
+                let response = await PermisionAPI.UpdateCategory(this.axios, data)
+                if(response.data.success){
+                    this.$toast.success(response.data.message)
+                    this.getAllCategory()
+                    this.loading(false);
+                }else{
+                  this.$root.toastError(response.data.message.toString())
+                }
+            }catch(error){
+              this.$root.toastError(error.message.toString())
+            }
+        },
         clear(){
-            debugger
             this.categorymenu.category_id = 0,
             this.categorymenu.category_name = '',
             this.categorymenu.category_level = '',
@@ -443,63 +452,6 @@
             this.categorymenu.category_cha_id = '',
             this.categorymenu.position = ''
           },
-          // install role
-        //   async ghiDuLieu(){
-        //       try{
-        //           if(this.role_name.trim() == ''){
-        //               this.$toast.warning("Bạn chưa nhập nhóm quyền!");
-        //               this.$refs.inputName.focus()
-        //               return
-        //           }
-        //           let data = {
-        //               role_id: this.role_id,
-        //               role_name: this.role_name,
-        //               note: this.note,
-        //               active: this.active
-        //           }
-        //           // is_insert = 1 thì insert = 0 update
-        //           let is_insert = this.actions[this.actions.findIndex(x=>x.id=='nhapmoi')].active?0:1 
-                  
-        //           if(is_insert == 1){
-        //             this.insertRole(data)
-        //           }else{
-        //             this.$box.confirm('This is the default confirm!',
-        //                           function(result) {
-        //                           console.log('This was logged in the callback: ' + result);
-        //                           });
-        //             this.updateRole(data)
-        //           }
-                  
-        //       }catch(error){
-        //           this.$root.toastError(error.message.toString())
-        //       }
-        //   },
-        //   async insertRole(data){
-        //     try{
-        //         let response = await PermisionAPI.InsertRoles(this.axios, data)
-        //         if(response.data.success){
-        //             this.$toast.success(response.data.message)
-        //             this.getAllGroupRoles()
-        //         }else{
-        //           this.$root.toastError(response.data.message.toString())
-        //         }
-        //     }catch(error){
-        //       this.$root.toastError(error.message.toString())
-        //     }
-        //   },
-        //   async updateRole(data){
-        //     try{
-        //         let response = await PermisionAPI.updateRoler(this.axios, data)
-        //         if(response.data.success){
-        //             this.$toast.success(response.data.message)
-        //             this.getAllGroupRoles()
-        //         }else{
-        //           this.$root.toastError(response.data.message.toString())
-        //         }
-        //     }catch(error){
-        //       this.$root.toastError(error.message.toString())
-        //     }
-        //   }
       },
       mounted(){
         // Split(['#boxTop', '#boxBottom'], {

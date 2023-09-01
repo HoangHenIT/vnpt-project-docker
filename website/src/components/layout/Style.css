@@ -453,3 +453,53 @@ hr.horizontal.dark {
     color: gray !important;
 }
 
+/* loading */
+/* loading  */
+.overlay-common {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    display: none;
+  }
+  .overlay-common.show {
+    display: block;
+  }
+  .overlay-common {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+   .overlay-common.show {
+    display: flex;
+    justify-content: center;
+  }
+  
+   .overlay-common .loading {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+   .overlay-common .loading-panel {
+    display: flex;
+    text-align: center;
+    background-color: #FFF;
+    padding: 10px 15px;
+    align-items: center;
+    color: #035fcc;
+    border: 1px solid #035fcc;
+    border-radius: 7px;
+  }
+  
+   .overlay-common .loading-panel .loading-content {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+  
+  .overlay-common {
+    z-index: 9999;
+  }

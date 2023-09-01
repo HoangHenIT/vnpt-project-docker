@@ -3,6 +3,7 @@ using ClassLibrary.model;
 using ClassLibrary.model.permission;
 using ClassLibrary.responsitory;
 using Microsoft.AspNetCore.Http.HttpResults;
+using System.Data;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -13,7 +14,10 @@ namespace VNPT.PERMISSION.services.impl
         public CategoryMenuImpl(DataContext context) : base(context)
         {
         }
-
+        public CategoryMenus getCategory(CategoryMenus category)
+        {
+            return m_context.CategoryMenu.Where(m => m.category_name == category.category_name).FirstOrDefault();
+        }
         public dynamic getCategoryFath()
         {
             //string[] menucha = { "0", "Menu Cha", "0", "", "", "true", "0", "0" };
@@ -31,6 +35,17 @@ namespace VNPT.PERMISSION.services.impl
                        }).ToList();
             return res;
         }
-
+        public bool checkCategory(CategoryMenus category)
+        {
+            CategoryMenus categorys = getCategory(category);
+            if (categorys != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
                 <router-view />
             </transition>
         </div>
+        <Loader/>
         <SettingColor></SettingColor>
     </div>
 </template>
@@ -20,6 +21,7 @@
     import Header from '../components/layout/Header.vue';
     import Sidebar from '../components/layout/Sidebar.vue';
     import SettingColor from '../components/layout/Setting.vue'
+    import Loader from '../share/Loader.vue'
 export default{
     name: "LayoutMain",
     data(){
@@ -44,6 +46,7 @@ export default{
         Header,
         Sidebar,
         SettingColor,
+        Loader,
     },
     methods:{
         addCssFile: function (path) {

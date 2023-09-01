@@ -135,6 +135,7 @@ export default {
     },
     methods:{
         async InsertCategory(){
+            
             try{
                 if(this.categorymenu.category_name.trim() == ""){
                     this.$toast.warning("Bạn chưa nhập tên menu!");

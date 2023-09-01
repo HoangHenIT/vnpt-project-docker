@@ -32,7 +32,13 @@ Vue.prototype.$box = bootbox;
 Vue.prototype.$ = jquery;
 /* eslint-disable no-new */
 
-
+Vue.prototype.loading = function (type) {
+  if (type) {
+    jquery(".overlay-common").addClass("show")
+  } else {
+    jquery(".overlay-common").removeClass("show")
+  }
+};
 
 new Vue({
   el: '#app',
