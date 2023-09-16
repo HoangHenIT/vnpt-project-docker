@@ -9553,5 +9553,123 @@
   border: 0px;
   box-shadow: none;
 }
+.btn-main {
+  background: #0176FF;
+  color: #fff;
+}
+.btn-main:hover {
+  background: #035FCC;
+  color: #fff;
+}
+.box-move-select-table {
+  display: flex;
+  /* width: 100%; */
+}
+/* .box-move-select-table .box-col {
+  width: calc(100%/2 - 25px);
+  vertical-align: top;
+} */
+.box-move-select-table .actions {
+  width: 50px;
+  vertical-align: middle;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 0px 10px;
+  justify-content: center;
+}
+.box-move-select-table .actions .btn {
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgba(186, 231, 255, 0.4);
+  color: #0176FF;
+  margin: 5px 0px;
+  display: inline-block;
+  font-size: 16px;
+}
+.box-move-select-table .actions .btn:hover {
+  background-color: #035FCC;
+  color: #fff;
+}
+.box-move-select-table .actions .btn.sm {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+.box-move-select-table .actions .btn.btn-main {
+  background: #0176FF;
+  color: #fff;
+}
+.box-move-select-table .actions .btn.btn-main:hover {
+  background-color: #035FCC;
+  color: #fff;
+}
+.box-move-select-table .actions .btn.btn-third {
+  border-radius: 0px;
+  color: #666;
+  background: #f5f5f5;
+  padding: 2px;
+  border-color: #E0E0E0;
+}
+.box-move-select-table .actions .btn.btn-third span {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background: #fff;
+}
+.box-move-select-table .actions .btn.btn-third:hover {
+  color: #035FCC;
+  background-color: rgba(186, 231, 255, 0.4);
+}
+.box-move-select-table .actions.ontop {
+  align-items: start;
+  align-content: start;
+}
+.box-move-select-table.-onright .box-col {
+  width: calc(100% - 40px);
+}
+.info-row {
+  display: table;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.info-row .key, .info-row .value {
+  display: table-cell;
+  vertical-align: top;
+}
+.info-row .key {
+  padding-right: 2px;
+  padding-top: 7px;
+  width: 110px;
+}
+.info-row .key.w120 {
+  width: 120px;
+}
+.info-row .key.w130 {
+  width: 130px;
+}
+.info-row .key.w140 {
+  width: 140px;
+}
+.info-row .key.w150 {
+  width: 150px;
+}
+.info-row .key.w160 {
+  width: 160px;
+}
+.info-row .row {
+  margin: 0px -2px;
+}
+.info-row .row .col-12 {
+  padding: 0px 2px;
+}
+.info-row .value {
+  padding-left: 5px;
+}
 
 

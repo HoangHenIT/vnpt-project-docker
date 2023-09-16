@@ -178,7 +178,7 @@
 
         // Get other options
         var expandToMin = getOption(options, 'expandToMin', false);
-        var gutterSize = getOption(options, 'gutterSize', 10);
+        var gutterSize = getOption(options, 'gutterSize', 5);
         var gutterAlign = getOption(options, 'gutterAlign', 'center');
         var snapOffset = getOption(options, 'snapOffset', 30);
         var dragInterval = getOption(options, 'dragInterval', 1);

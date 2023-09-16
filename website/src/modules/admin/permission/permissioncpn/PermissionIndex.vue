@@ -1,31 +1,116 @@
 <template>
-    <div class="row">
-        <div class="col-12 pl-3 pr-3">
-            <div class="row gutters-sm">
-                <div class="col-sm-12 mb-6">
-                    <div class="box-form">
-                    <div class="legend-title">Danh sách menu</div>
-                    <div class="box-col">
-                        <KTableVue
-                        :columns="columnsCategory"
-                        :dataSources="listCategory"
-                        :allowFilter="true"
-                        @onSelectedRow="onSelectedCategory"
-                        ref="loadDataCategory"
-                        />
-                    </div>
+    <div class="main-wrapper">
+        <div class="box-form">
+            <div class="info-row marb0">
+                <div class="key w150">Nhóm người dùng</div>
+                <div class="value">
+                    <div class="select-custom" >
+                        <select2 v-model="listgroup.role_id" :options="this.listgroup" ></select2>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 marb10" >
+                <div class="grid-stack-box">
+                    <div class="box-col box-form marb0" id="boxLeft">
+                        <div class="legend-title">Nhóm menu chưa gán</div>
+                        <div class="form-control text h-auto">
+                            <div class="tree-plus" style="height: 740px;overflow:auto;">
+                                <div class="col-12">
+                                    <div class="info-row">
+                                        <div class="key w150">ID Menu</div>
+                                        <div class="value">
+                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-move-select-table">
+                        <div class="actions">
+                            <button class="btn btn-main">
+                                <span class="fa fa-plus"> </span>
+                            </button>
+                            <button class="btn btn-main">
+                                <span class="fa fa-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-col box-form marb0" id="boxRight">
+                        <div class="legend-title">Nhóm menu chưa gán</div>
+                        <div class="form-control text h-auto">
+                            <div class="tree-plus" style="height: 740px;overflow:auto;">
+                                <div class="col-12">
+                                    <div class="info-row">
+                                        <div class="key w150">ID Menu</div>
+                                        <div class="value">
+                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="col-xl-6 col-lg-6 col-12 padb2 " >
+                <div class="grid-stack-box">
+                    <div class="box-col box-form marb0" id="boxLeft1">
+                        <div class="legend-title">Nhân viên đã gán </div>
+                        <div class="form-control text h-auto">
+                            <div class="tree-plus" style="height: 740px;overflow:auto;">
+                                <div class="col-12">
+                                    <div class="info-row">
+                                        <div class="key w150">ID Menu</div>
+                                        <div class="value">
+                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-move-select-table">
+                        <div class="actions">
+                            <button class="btn btn-main">
+                                <span class="fa fa-plus"> </span>
+                            </button>
+                            <button class="btn btn-main">
+                                <span class="fa fa-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-col box-form marb0" id="boxRight1">
+                        <div class="legend-title">Nhân viên chưa gán</div>
+                        <div class="form-control text h-auto">
+                            <div class="tree-plus" style="height: 740px;overflow:auto;">
+                                <div class="col-12">
+                                    <div class="info-row">
+                                        <div class="key w150">ID Menu</div>
+                                        <div class="value">
+                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
     </div>
+    
 </template>
 
 <script>
+import '../../../../assets/lib/jquery/split'
 import KTableVue from '../../../../share/tablecpn/KTable.vue'
-import CategoryAPI from '../CategoryAPI';
+import PermisionAPI from '../PermissionAPI'
+// import CategoryAPI from '../CategoryAPI';
 export default {
-    name:"ListCategoryMenu",
+    name:"Permissions",
     data(){
         return{
             columnsCategory:[
@@ -83,49 +168,42 @@ export default {
             ],
             listCategory:[],
             listMenu:[],
-            sentRowCategory:[]
+            sentRowCategory:[],
+            listgroup:[],
         }
     },
     mounted(){
-        this.getAllCategory()
+        Split(['#boxLeft1',  '#boxRight1'], {
+            sizes: [50,  50],
+            gutterSize: 0,
+            onDragEnd: function (sizes) {
+            },
+        });
+        Split(['#boxLeft',  '#boxRight'], {
+            sizes: [50,  50],
+            gutterSize: 0,
+            onDragEnd: function (sizes) {
+            },
+        });
+        this.getAllGroupRoles()
     },
     methods:{
-        async getAllCategory(){
-            try{
-                let response = await CategoryAPI.getAllCategory(this.axios)
-                if(response.data.success){
-                    response.data.data.forEach(element => {
-                        let item ={
-                            category_id: element.category_id,
-                            category_name: element.category_name,
-                            category_level: element.category_level,
-                            category_link: element.category_link,
-                            category_icon: element.category_icon,
-                            category_note: element.category_note,
-                            category_active: element.category_active == true?"Hoạt động":"Khóa",
-                            createday: this.moment(element.createday).format("DD-MM-YYYY"),
-                            category_cha_id: element.category_cha_id,
-                            position: element.position
-                        }
-                        this.listCategory.push(item)
-                    });
-                }
-                else{
-                    this.$toast.success(response.data.message)
-                }
-            }catch(error){
-                this.$root.toastError(error.message.toString())
+        async getAllGroupRoles(){
+          try{
+            this.listgroup = []
+            let response =  await PermisionAPI.getAllGroupRoles(this.axios)
+            if(response.data.success){
+                  this.listgroup = response.data.data.map((x)=>Object.assign(x ,{
+                    id: x.role_id.toString(),
+                    text: x.role_name
+                  }))
+            }else{
+                this.$root.toastError(response.data.message.toString())
             }
+          }catch(error){
+            this.$root.toastError(error.message.toString())
+          }
         },
-       
-        sentListMenu(){
-            this.listMenu = Object.assign({}, this.listCategory);
-        },
-        onSelectedCategory(item){
-            this.sentRowCategory = Object.assign({}, item);
-            this.$emit('onSelectedCategory', this.sentRowCategory)
-        },
-        
     },
     components:{
         KTableVue
