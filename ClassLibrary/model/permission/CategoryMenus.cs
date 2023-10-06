@@ -21,6 +21,20 @@ namespace ClassLibrary.model.permission
         public Boolean? category_active { get; set; }
         public DateTime? createday { get; set; }
         public int? category_cha_id { get; set; }
-        public int position { get; set; }
+        public int? position { get; set; }
+    }
+    public class CategoryMenusRequest
+    {
+        
+        public int? category_id { get; set; }
+        public string? category_name { get; set; }
+        public int? category_level { get; set; }
+        public string? category_link { get; set; }
+        public string? category_icon { get; set; }
+        public string? category_note { get; set; }
+        public Boolean? category_active { get; set; }
+        public DateTime? createday { get; set; }
+        public int? category_cha_id { get; set; }
+        public int? position { get; set; }
     }
 }

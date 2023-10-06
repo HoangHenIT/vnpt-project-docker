@@ -1,5 +1,5 @@
-create database vnpt_auth
-use vnpt_auth
+create database vnptauth
+use vnptauth
 DROP DATABASE vnpt_auth
 
 drop table employer
@@ -9,7 +9,7 @@ create table roles(
 	role_name nvarchar(200)
 )
 
-create table employer(
+create table employers(
 	employer_id int not null identity(1,1) primary key,
 	full_name nvarchar(100),
 	name_profile nvarchar(100),
@@ -46,14 +46,21 @@ create table categorymenu(
 	category_active bit, 
 	craeteday datetime,
 )
-create table grouppermission(
+create table rolepermissions(
 	role_id int,
 	category_id int,
 	craeteday datetime,
 	foreign key (role_id) references Roles(role_id),
 	foreign key (category_id) references categorymenu(category_id)
 )
+create table employerpermissions(
+	role_id int,
+	employer_id int,
+	craeteday datetime,
+	foreign key (role_id) references Roles(role_id),
+	foreign key (employer_id) references employers(employer_id)
+)
 
-drop table employer
+drop table grouppermission
 drop table roles
 

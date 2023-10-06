@@ -16,14 +16,15 @@
     "@syncfusion/ej2-popups": "^20.4.53",
     "axios": "^1.2.2",
     "bootbox": "^5.5.2",
-    "jquery": "^3.6.0",
     "bootstrap-vue": "^2.21.2",
+    "jquery": "^3.6.0",
     "moment": "^2.29.4",
     "v-select2-component": "^0.4.7",
     "vue": "^2.5.2",
     "vue-axios": "^3.5.2",
     "vue-router": "^3.0.1",
     "vue-toastification": "^1.7.14",
+    "vuejs-tree": "^2.1.0",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

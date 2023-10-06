@@ -18,7 +18,8 @@ namespace ClassLibrary.connectdb
         public DbSet<HistoryLogins> HistoryLogins { get; set; }
 
         public DbSet<CategoryMenus> CategoryMenu { get; set; }
-        public DbSet<GroupPermission> GroupPermissions { get; set; }
+        public DbSet<RolePermissions> RolePermissions { get; set; }
+        public DbSet<EmployePermissions> EmployePermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

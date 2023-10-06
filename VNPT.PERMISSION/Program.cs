@@ -9,6 +9,8 @@ using VNPT.PERMISSION.services.impl;
 using VNPT.PERMISSION.services;
 using VNPT.AUTH.services.roles.impl;
 using VNPT.AUTH.services.roles;
+using VNPT.PERMISSION.services.permission;
+using VNPT.PERMISSION.services.permission.impl;
 
     var builder = WebApplication.CreateBuilder(args);
     var configuration = builder.Configuration;
@@ -56,6 +58,7 @@ using VNPT.AUTH.services.roles;
 
     builder.Services.AddTransient<ICategoryMenu, CategoryMenuImpl>();
     builder.Services.AddTransient<IRoler, RolerImpl>();
+    builder.Services.AddTransient<IRolePermission, RolePermisionImpl>();
 var app = builder.Build();
 
     // Configure the HTTP request pipeline.

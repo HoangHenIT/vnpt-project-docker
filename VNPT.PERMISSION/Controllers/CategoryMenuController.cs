@@ -47,7 +47,7 @@ namespace VNPT.PERMISSION.Controllers
             {
 
                 data.success = true;
-                data.data = m_category.getCategoryFath();
+                data.data = m_category.getAll();
                 data.message = "Get all Catagory success";
             }
             catch (Exception e)
