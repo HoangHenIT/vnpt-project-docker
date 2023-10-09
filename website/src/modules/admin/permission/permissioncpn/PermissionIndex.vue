@@ -34,7 +34,7 @@
                             <button class="btn btn-main" v-on:click="addRolePermission()">
                                 <span class="fa fa-plus"> </span>
                             </button>
-                            <button class="btn btn-main">
+                            <button class="btn btn-main" v-on:click="deleteRolePermission()">
                                 <span class="fa fa-minus"></span>
                             </button>
                         </div>
@@ -50,6 +50,7 @@
                                             :dataSources="DanhSachNhomMenuDaGan"
                                             :allowCheckBox="true"
                                             :allowFilter="true"
+                                            @dataCheckeds="onCheckNhomMenuDaGan"
                                         />
                                     </div>
                                 </div>    
@@ -183,6 +184,7 @@ export default {
             DanhSachNhomMenuChuaGan:[],
             DanhSachNhomMenuDaGan:[],
             DataCheckNhomMenuChuaGan:[],
+            
             role_id:''
         }
     },
@@ -276,6 +278,33 @@ export default {
                     listCheckNhomMenuChuaGan.push(item)
                 });
                 let response = await PermisionAPI.addRolePermission(this.axios, listCheckNhomMenuChuaGan)
+                if(response.data.success){
+                    this.$root.toastSuccess(response.data.message.toString())
+                    this.GetDanhSachNhomMenuChuaGan(this.listgroup.role_id)
+                    this.GetDanhSachNhomMenuDaGan(this.listgroup.role_id)
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+            }
+        },
+        async onCheckNhomMenuDaGan(data){
+            this.DataCheckNhomMenuDaGan = data
+            console.log( this.DataCheckNhomMenuDaGan)
+        },
+        async deleteRolePermission(){
+            let arrlistCheckNhomMenuDaGan = this.DataCheckNhomMenuDaGan
+            if(arrlistCheckNhomMenuDaGan.length == 0){
+                this.toastError("Bạn chưa chọn dữ liệu để gán")
+            }else{
+                arrlistCheckNhomMenuDaGan.forEach((element) => {
+                  let item ={
+                        role_id: this.listgroup.role_id,
+                        category_id: element.category_id
+                    }
+                    arrlistCheckNhomMenuDaGan.push(item)
+                });
+                debugger
+                let response = await PermisionAPI.removeRolePermission(this.axios, arrlistCheckNhomMenuDaGan)
                 if(response.data.success){
                     this.$root.toastSuccess(response.data.message.toString())
                     this.GetDanhSachNhomMenuChuaGan(this.listgroup.role_id)

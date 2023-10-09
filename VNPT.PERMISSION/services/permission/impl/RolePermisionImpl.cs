@@ -90,26 +90,6 @@ namespace VNPT.PERMISSION.services.permission.impl
                 }
                 conn.Close();
             }
-
-
-
-
-            //List<CategoryMenusRequest> result = new List<CategoryMenusRequest>();
-
-            //// Sử dụng phương thức GetConnection() để lấy kết nối
-            //using (IDbConnection conn = GetConnection())
-            //{
-            //    conn.Open();
-
-            //    // Sử dụng Dapper để thực hiện truy vấn
-            //    var parameters = new DynamicParameters();
-            //    parameters.Add("@p_role_id", rolePermissions.role_id, DbType.Int32, ParameterDirection.Input);
-            //    parameters.Add("@p_category_id", rolePermissions.category_id, DbType.Int32, ParameterDirection.Input);
-            //    //parameters.Add("@o_data", dbType: DbType.Int32, direction: ParameterDirection.Output);
-            //    result = conn.Query<CategoryMenusRequest>("insertRolePermission", parameters, commandType: CommandType.StoredProcedure).ToList();
-            //    conn.Close();
-            //}
-            //return result;
         }
         public dynamic removeRolePermission(RolePermissions rolePermissions)
         {
@@ -125,7 +105,7 @@ namespace VNPT.PERMISSION.services.permission.impl
                 parameters.Add("@p_role_id", rolePermissions.role_id, DbType.Int32, ParameterDirection.Input);
                 parameters.Add("@p_category_id", rolePermissions.category_id, DbType.Int32, ParameterDirection.Input);
                 //parameters.Add("@o_data", dbType: DbType.Int32, direction: ParameterDirection.Output);
-                result = conn.Query<CategoryMenus>("removeRolePermission", parameters, commandType: CommandType.StoredProcedure).ToList();
+                result = conn.Query<CategoryMenus>("deleteRolePermission", parameters, commandType: CommandType.StoredProcedure).ToList();
                 conn.Close();
             }
             return result;
