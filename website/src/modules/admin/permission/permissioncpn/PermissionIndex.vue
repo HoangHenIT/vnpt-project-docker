@@ -91,12 +91,12 @@
                         <div class="form-control text h-auto">
                             <div class="tree-plus" style="height: 740px;overflow:auto;">
                                 <div class="col-12">
-                                    <div class="info-row">
-                                        <div class="key w150">ID Menu</div>
-                                        <div class="value">
-                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
-                                        </div>
-                                    </div>
+                                    <KTable 
+                                        :columns="DanhSachNguoiDungChuaGanColums"
+                                        :dataSources="DanhSachNguoiDungChuaGan"
+                                        :allowCheckBox="true"
+                                        :allowFilter="true"
+                                    />
                                 </div>    
                             </div>
                         </div>
@@ -177,6 +177,13 @@ export default {
                     allowFilter: true
                 }
             ],
+            DanhSachNguoiDungChuaGanColums:[
+                {
+                    field:'full_name',
+                    label:'Tên người dùng',
+                    allowFilter: true
+                }
+            ],
             listCategory:[],
             listMenu:[],
             sentRowCategory:[],
@@ -184,6 +191,7 @@ export default {
             DanhSachNhomMenuChuaGan:[],
             DanhSachNhomMenuDaGan:[],
             DataCheckNhomMenuChuaGan:[],
+            DanhSachNguoiDungChuaGan:[],
             
             role_id:''
         }
@@ -203,7 +211,7 @@ export default {
         });
         this.getAllGroupRoles()
         setTimeout(() => {
-            this.changePermission()
+            this.changePermission(this.listgroup.role_id)
         }, 600);
     
         
@@ -228,10 +236,11 @@ export default {
             this.$root.toastError(error.message.toString())
           }
         },
-        async changePermission(){
-            let role_id = this.listgroup.role_id;
+        async changePermission(role_id){
+           
             this.GetDanhSachNhomMenuChuaGan(role_id)
             this.GetDanhSachNhomMenuDaGan(role_id)
+            this.getDanhSachNguoiDungChuaGan(role_id)
         },
 
         async GetDanhSachNhomMenuChuaGan(data){
@@ -289,9 +298,9 @@ export default {
         },
         async onCheckNhomMenuDaGan(data){
             this.DataCheckNhomMenuDaGan = data
-            console.log( this.DataCheckNhomMenuDaGan)
         },
         async deleteRolePermission(){
+             var listCheckNhomMenuDaGan=[];
             let arrlistCheckNhomMenuDaGan = this.DataCheckNhomMenuDaGan
             if(arrlistCheckNhomMenuDaGan.length == 0){
                 this.toastError("Bạn chưa chọn dữ liệu để gán")
@@ -301,10 +310,9 @@ export default {
                         role_id: this.listgroup.role_id,
                         category_id: element.category_id
                     }
-                    arrlistCheckNhomMenuDaGan.push(item)
+                    listCheckNhomMenuDaGan.push(item)
                 });
-                debugger
-                let response = await PermisionAPI.removeRolePermission(this.axios, arrlistCheckNhomMenuDaGan)
+                let response = await PermisionAPI.removeRolePermission(this.axios, listCheckNhomMenuDaGan)
                 if(response.data.success){
                     this.$root.toastSuccess(response.data.message.toString())
                     this.GetDanhSachNhomMenuChuaGan(this.listgroup.role_id)
@@ -313,7 +321,21 @@ export default {
                     this.$root.toastError(response.data.message.toString())
                 }
             }
-      },
+        },
+        async getDanhSachNguoiDungChuaGan(data){
+            debugger
+           try{
+                this.DanhSachNguoiDungChuaGan=[]
+                let response = await PermisionAPI.getDanhSachNguoiDungChuaGan(this.axios, data)
+                if(response.data.success){
+                    this.DanhSachNguoiDungChuaGan = response.data.data
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+           }catch(error){
+                this.$root.toastError(error.message.toString())
+            }
+        },
     },
     components:{
         KTable,

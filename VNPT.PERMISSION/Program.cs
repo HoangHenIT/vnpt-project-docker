@@ -59,6 +59,8 @@ using VNPT.PERMISSION.services.permission.impl;
     builder.Services.AddTransient<ICategoryMenu, CategoryMenuImpl>();
     builder.Services.AddTransient<IRoler, RolerImpl>();
     builder.Services.AddTransient<IRolePermission, RolePermisionImpl>();
+    builder.Services.AddTransient<IEmployPermission, EmployPermissionImpl>();
+
 var app = builder.Build();
 
     // Configure the HTTP request pipeline.
