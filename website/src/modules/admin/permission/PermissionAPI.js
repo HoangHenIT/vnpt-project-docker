@@ -9,4 +9,5 @@ export default {
     getDanhSachNguoiDungDaGan: (axios, data) => axios.get('/api/permission/EmployerPermission/getDanhSachNguoiDungDaGan?role_id=' + data),
     insertEmployPermission: (axios, data) => axios.post('/api/permission/EmployerPermission/insertEmployPermission', data),
     removeEmployPermission: (axios, data) => axios.post('/api/permission/EmployerPermission/deleteEmployPermission', data),
+    getDanhSachNguoiDungChuaGan: (axios, data) => axios.get('/api/permission/EmployerPermission/getDanhSachNguoiDungChuaGan?role_id=' + data),
 }

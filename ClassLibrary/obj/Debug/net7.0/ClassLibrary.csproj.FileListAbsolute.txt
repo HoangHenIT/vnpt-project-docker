@@ -1,27 +1,3 @@
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.deps.json
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.dll
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.pdb
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.AssemblyReference.cache
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfoInputs.cache
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfo.cs
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.CoreCompileInputs.cache
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.dll
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\refint\ClassLibrary.dll
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.pdb
-D:\Soruce khongxoa\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ref\ClassLibrary.dll
-E:\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.deps.json
-E:\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.dll
-E:\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.pdb
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.AssemblyReference.cache
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfoInputs.cache
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfo.cs
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.CoreCompileInputs.cache
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.dll
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\refint\ClassLibrary.dll
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.pdb
-E:\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ref\ClassLibrary.dll
 D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.deps.json
 D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.dll
 D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.pdb
@@ -34,15 +10,3 @@ D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrar
 D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\refint\ClassLibrary.dll
 D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.pdb
 D:\VNPT-HOANGHENIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ref\ClassLibrary.dll
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.deps.json
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.dll
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\bin\Debug\net7.0\ClassLibrary.pdb
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.AssemblyReference.cache
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfoInputs.cache
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.AssemblyInfo.cs
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.csproj.CoreCompileInputs.cache
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.dll
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\refint\ClassLibrary.dll
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ClassLibrary.pdb
-E:\HoangHenIT\vnpt-project-docker\ClassLibrary\obj\Debug\net7.0\ref\ClassLibrary.dll

@@ -215,7 +215,7 @@ export default {
         });
         this.getAllGroupRoles()
         setTimeout(() => {
-            this.changePermission()
+            this.changePermission(this.listgroup.role_id)
         }, 600);
     
         
@@ -306,7 +306,6 @@ export default {
         },
         async onCheckNhomMenuDaGan(data){
             this.DataCheckNhomMenuDaGan = data
-            console.log( this.DataCheckNhomMenuDaGan)
         },
         async deleteRolePermission(){
             let listCheckNhomMenuDaGan=[]
