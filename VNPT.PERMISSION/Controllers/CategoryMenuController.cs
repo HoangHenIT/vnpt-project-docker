@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using VNPT.AUTH.services.roles;
-using VNPT.PERMISSION.services;
+using VNPT.PERMISSION.services.impl;
 
 namespace VNPT.PERMISSION.Controllers
 {
@@ -19,6 +19,25 @@ namespace VNPT.PERMISSION.Controllers
         public CategoryMenuController(ICategoryMenu _category)
         {
             m_category = _category;
+        }
+        [HttpGet("getDanhSachMenuTheoNguoiDung")]
+        public DataRespond getDanhSachMenuTheoNguoiDung(int employid)
+        {
+            DataRespond data = new DataRespond();
+            try
+            {
+
+                data.success = true;
+                data.data = m_category.getDanhSachMenuTheoNguoiDung(employid);
+                data.message = "Get all Catagory success";
+            }
+            catch (Exception e)
+            {
+                data.success = false;
+                data.error = e;
+                data.message = e.Message;
+            }
+            return data;
         }
         [HttpGet("getAllCategory")]
         public DataRespond getAllCategory()

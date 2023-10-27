@@ -4,7 +4,9 @@ export default {
     GetDanhSachNhomMenuDaGan: (axios, data) => axios.get('/api/permission/RolePermission/getDanhSachMenuDaGan?role_id=' + data),
     addRolePermission: (axios, data) => axios.post('/api/permission/RolePermission/addRolePermission', data),
     removeRolePermission: (axios, data) => axios.post('/api/permission/RolePermission/removeRolePermission', data),
-   
-    // InsertCategory: (axios, data) => axios.post('/api/permission/CategoryMenu/InsertCategory', data),
-    // DeleteCategory: (axios, category_id) => axios.delete('/api/permission/CategoryMenu/DeleteCategory?category_id='+ category_id)
+
+    GetDanhSachNguoiDungChuaGan: (axios, data) => axios.get('/api/permission/EmployerPermission/getDanhSachNguoiDungChuaGan?role_id=' + data),
+    getDanhSachNguoiDungDaGan: (axios, data) => axios.get('/api/permission/EmployerPermission/getDanhSachNguoiDungDaGan?role_id=' + data),
+    insertEmployPermission: (axios, data) => axios.post('/api/permission/EmployerPermission/insertEmployPermission', data),
+    removeEmployPermission: (axios, data) => axios.post('/api/permission/EmployerPermission/deleteEmployPermission', data),
 }

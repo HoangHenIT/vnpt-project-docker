@@ -13,35 +13,31 @@
             <!-- <span class="logo_name">VNPT</span> -->
         </div>
         <div class="nav-links">
-            <li>
+            <!-- <li>
                 <a href="">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                     <span class="link_name"> Dashboard</span>
                 </a>
                 
-            </li>
-            <li>
+            </li> -->
+            <li v-for="category in ListCategory ">
                 <div class="icon_links">
-                    <a href="">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="link_name">  My User </span>
+                    <a :href = "category.category_link" :title="category.category_name">
+                        <i  v-bind:class= "category.category_icon" aria-hidden="true"></i>
+                        <span class="link_name">  {{ category.category_name }} </span>
                     </a>
-                    <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
+                    <!-- v-if="category.chilCategory.length !=0" -->
+                    <i class="fa fa-angle-down arrow" aria-hidden="true" v-on:click="changEventArrowMenu()"></i>
                 </div>
-                <ul class="sub-menu">
-                    <li>
-                        <a class="link_name" href="" >
-                            My User
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/profile">
-                            Profile User
+                <ul class="sub-menu" >
+                    <li v-for="chilCategorys in category.chilCategory ">
+                        <a class="link_name" :href = "chilCategorys.category_link" :title="chilCategorys.category_name" >
+                            <span class="link_name">  {{ chilCategorys.category_name }} </span>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li>
+            <li >
                 <div class="icon_links">
                     <a href="">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -67,7 +63,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <!-- <li>
                 <div class="icon_links">
                     <a href="">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -92,17 +88,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <div class="icon_links">
-                    <a href="/#/vdds/doccomments">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="link_name"> Doc comments</span>
-                    </a>
-                    <i class="fa fa-angle-down arrow" aria-hidden="true"></i>
-                </div>
-               
-            </li>
+            </li> -->
             <li>
                 <div class="icon_links">
                     <a href="/auth/login">
@@ -135,20 +121,86 @@
 </template>
 
 <script>
+import APISibar from './APISibar';
 export default {
     name:"Sidebar",
+    data(){
+        return{
+            ListCategory:[],
+            // category:{
+            //     category_id,
+            //     category_name,
+            //     category_level, 
+            //     category_cha_id, 
+            //     category_link, 
+            //     category_icon, 
+            //     position
+            // },
+            employer_id:0,
+        }
+    },
     mounted() {
+        this.getEmployerInfo()
         this.changEventArrowMenu();
         this.changEventMenu();
+        this.getDanhSachMenuTheoNguoiDung()
     },
     methods: {
+        getEmployerInfo(){
+          this.employer_id = this.$auth.getEmployerId();
+        },
+        async getDanhSachMenuTheoNguoiDung(){
+           try{
+                let employerid = this.employer_id
+                this.ListCategory=[]
+                let response = await APISibar.getDanhSachMenuTheoNguoiDung(this.axios, employerid)
+                if(response.data.success){
+                    let categoryMap = {};
+                    // Lặp qua dữ liệu và nhóm danh mục con vào danh mục cha
+                    response.data.data.forEach(item => {
+                    if (item.category_cha_id==0 && item.category_level == 0) {
+                        // Nếu không có danh mục cha, thêm danh mục gốc
+                        if (!categoryMap[item.category_id]) {
+                            categoryMap[item.category_id] = {
+                                category_id: item.category_id,
+                                category_name: item.category_name,
+                                category_level: item.category_level,
+                                category_cha_id: item.category_cha_id,
+                                category_icon: item.category_icon,
+                                category_link: item.category_link,
+                                chilCategory: [],
+                            };
+                        }
+                    } else {
+                        // Nếu có danh mục cha, tìm danh mục cha tương ứng và thêm danh mục con
+                        if (categoryMap[item.category_cha_id]) {
+                            categoryMap[item.category_cha_id].chilCategory.push({
+                                category_id: item.category_id,
+                                category_name: item.category_name,
+                                category_level: item.category_level,
+                                category_cha_id: item.category_cha_id,
+                                category_icon: item.category_icon,
+                                category_link: item.category_link,
+                            });
+                        }
+                    }
+                    });
+                    this.ListCategory = Object.values(categoryMap);
+                    // console.log(this.ListCategory) 
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+           }catch(error){
+                this.$root.toastError(error.message.toString())
+            }
+        },
         changEventArrowMenu() {
-        let arrow = document.querySelectorAll(".arrow");
-        for(var i = 0; i< arrow.length; i++){
-                arrow[i].addEventListener("click",(e)=>{
-                    let arrowParent = e.target.parentElement.parentElement;
-                    arrowParent.classList.toggle("showMenu")
-                })
+            let arrow = document.querySelectorAll(".arrow");
+            for(var i = 0; i< arrow.length; i++){
+                    arrow[i].addEventListener("click",(e)=>{
+                        let arrowParent = e.target.parentElement.parentElement;
+                        arrowParent.classList.toggle("showMenu")
+                    })
         }
         },
         changEventMenu(){
@@ -158,6 +210,7 @@ export default {
                 sidebars.classList.toggle("closed")
             })
         },
+
         logOut(){
             this.$root.context.logOut()
              this.$router.push({ name: "Login" })

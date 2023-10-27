@@ -23,6 +23,7 @@ namespace ClassLibrary.connectdb
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<EmployePermissions>().HasKey(i => new { i.role_id, i.employer_id });
         }
     }
 }

@@ -6,13 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.Configuration;
 using System.Text;
 using VNPT.PERMISSION.services.impl;
-using VNPT.PERMISSION.services;
 using VNPT.AUTH.services.roles.impl;
 using VNPT.AUTH.services.roles;
 using VNPT.PERMISSION.services.permission;
 using VNPT.PERMISSION.services.permission.impl;
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
     var configuration = builder.Configuration;
 
 
@@ -59,6 +58,8 @@ using VNPT.PERMISSION.services.permission.impl;
     builder.Services.AddTransient<ICategoryMenu, CategoryMenuImpl>();
     builder.Services.AddTransient<IRoler, RolerImpl>();
     builder.Services.AddTransient<IRolePermission, RolePermisionImpl>();
+    builder.Services.AddTransient<IEmployerPermission, EmployerPermissionImpl>();
+
 var app = builder.Build();
 
     // Configure the HTTP request pipeline.

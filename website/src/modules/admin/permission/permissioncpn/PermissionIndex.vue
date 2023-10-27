@@ -66,23 +66,24 @@
                         <div class="form-control text h-auto">
                             <div class="tree-plus" style="height: 740px;overflow:auto;">
                                 <div class="col-12">
-                                    <div class="info-row">
-                                        <div class="key w150">ID Menu</div>
-                                        <div class="value">
-                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
-                                        </div>
-                                    </div>
-                                </div>    
+                                    <KTable 
+                                        :columns="DanhSachNguoiDungColums"
+                                        :dataSources="DanhSachNguoiDungDaGan"
+                                        @dataCheckeds="onCheckNguoiDungDaGan"
+                                        :allowCheckBox="true"
+                                        :allowFilter="true"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="box-move-select-table">
                         <div class="actions">
-                            <button class="btn btn-main">
+                            <button class="btn btn-main" v-on:click="addEmployPermission()">
                                 <span class="fa fa-plus"> </span>
                             </button>
-                            <button class="btn btn-main">
-                                <span class="fa fa-plus"></span>
+                            <button class="btn btn-main" v-on:click="removeEmployPermission()">
+                                <span class="fa fa-minus"></span>
                             </button>
                         </div>
                     </div>
@@ -91,12 +92,13 @@
                         <div class="form-control text h-auto">
                             <div class="tree-plus" style="height: 740px;overflow:auto;">
                                 <div class="col-12">
-                                    <div class="info-row">
-                                        <div class="key w150">ID Menu</div>
-                                        <div class="value">
-                                            <!-- <input type="text" disabled v-model="categorymenu.category_id" class="form-control"> -->
-                                        </div>
-                                    </div>
+                                    <KTable 
+                                        :columns="DanhSachNguoiDungColums"
+                                        :dataSources="DanhSachNguoiDungChuaGan"
+                                        @dataCheckeds="onCheckNguoiDungChuaGan"
+                                        :allowCheckBox="true"
+                                        :allowFilter="true"
+                                    />
                                 </div>    
                             </div>
                         </div>
@@ -177,6 +179,13 @@ export default {
                     allowFilter: true
                 }
             ],
+            DanhSachNguoiDungColums:[
+                {
+                    field:'full_name',
+                    label:'Tên người dùng',
+                    allowFilter: true
+                }
+            ],
             listCategory:[],
             listMenu:[],
             sentRowCategory:[],
@@ -184,8 +193,11 @@ export default {
             DanhSachNhomMenuChuaGan:[],
             DanhSachNhomMenuDaGan:[],
             DataCheckNhomMenuChuaGan:[],
-            
-            role_id:''
+            DanhSachNguoiDungChuaGan:[],
+            DanhSachNguoiDungDaGan:[],
+            DataCheckNguoiChuaGan:[],
+            DataCheckNguoiDaGan:[],
+            role_id:0
         }
     },
     mounted(){
@@ -229,9 +241,14 @@ export default {
           }
         },
         async changePermission(){
-            let role_id = this.listgroup.role_id;
-            this.GetDanhSachNhomMenuChuaGan(role_id)
-            this.GetDanhSachNhomMenuDaGan(role_id)
+            setTimeout(() => {
+                let role_id = this.listgroup.role_id;
+                this.GetDanhSachNhomMenuChuaGan(role_id)
+                this.GetDanhSachNhomMenuDaGan(role_id)
+                this.getDanhSachNguoiDungChuaGan(role_id)
+                this.getDanhSachNguoiDungDaGan(role_id)
+            }, 500);
+            
         },
 
         async GetDanhSachNhomMenuChuaGan(data){
@@ -292,6 +309,7 @@ export default {
             console.log( this.DataCheckNhomMenuDaGan)
         },
         async deleteRolePermission(){
+            let listCheckNhomMenuDaGan=[]
             let arrlistCheckNhomMenuDaGan = this.DataCheckNhomMenuDaGan
             if(arrlistCheckNhomMenuDaGan.length == 0){
                 this.toastError("Bạn chưa chọn dữ liệu để gán")
@@ -301,10 +319,9 @@ export default {
                         role_id: this.listgroup.role_id,
                         category_id: element.category_id
                     }
-                    arrlistCheckNhomMenuDaGan.push(item)
+                    listCheckNhomMenuDaGan.push(item)
                 });
-                debugger
-                let response = await PermisionAPI.removeRolePermission(this.axios, arrlistCheckNhomMenuDaGan)
+                let response = await PermisionAPI.removeRolePermission(this.axios, listCheckNhomMenuDaGan)
                 if(response.data.success){
                     this.$root.toastSuccess(response.data.message.toString())
                     this.GetDanhSachNhomMenuChuaGan(this.listgroup.role_id)
@@ -313,7 +330,89 @@ export default {
                     this.$root.toastError(response.data.message.toString())
                 }
             }
-      },
+        },
+        async getDanhSachNguoiDungChuaGan(data){
+           try{
+                this.DanhSachNguoiDungChuaGan=[]
+                let response = await PermisionAPI.GetDanhSachNguoiDungChuaGan(this.axios, data)
+                if(response.data.success){
+                    this.DanhSachNguoiDungChuaGan = response.data.data
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+           }catch(error){
+                this.$root.toastError(error.message.toString())
+            }
+        },
+        async getDanhSachNguoiDungDaGan(data){
+           try{
+                this.DanhSachNguoiDungDaGan=[]
+                let response = await PermisionAPI.getDanhSachNguoiDungDaGan(this.axios, data)
+                if(response.data.success){
+                    this.DanhSachNguoiDungDaGan = response.data.data
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+           }catch(error){
+                this.$root.toastError(error.message.toString())
+            }
+        },
+
+        async onCheckNguoiDungChuaGan(data){
+            this.DataCheckNguoiChuaGan = data
+        },
+        async onCheckNguoiDungDaGan(data){
+            this.DataCheckNguoiDaGan = data
+        },
+
+        async addEmployPermission(){
+            var listNguoiDungChuaGan=[];
+   
+            var arrNguoiDungChuaGan = this.DataCheckNguoiChuaGan
+            if(arrNguoiDungChuaGan.length == 0){
+                this.$root.toastError("Bạn chưa chọn dữ liệu để gán")
+            }else{
+                arrNguoiDungChuaGan.forEach((element) => {
+                  let item ={
+                        role_id: parseFloat(this.listgroup.role_id),
+                        employer_id: element.employer_id
+                    }
+                    listNguoiDungChuaGan.push(item)
+                });
+                let response = await PermisionAPI.insertEmployPermission(this.axios, listNguoiDungChuaGan)
+                if(response.data.success){
+                    this.$root.toastSuccess(response.data.message.toString())
+                    this.getDanhSachNguoiDungChuaGan(this.listgroup.role_id)
+                    this.getDanhSachNguoiDungDaGan(this.listgroup.role_id)
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+            }
+        },
+        async removeEmployPermission(){
+            let listCheckNguoiDungDaGan=[]
+            let arrNguoiDungDaGan = this.DataCheckNguoiDaGan
+            let roleID = this.listgroup.role_id
+            if(arrNguoiDungDaGan.length == 0){
+                this.toastError("Bạn chưa chọn dữ liệu để gán")
+            }else{
+                arrNguoiDungDaGan.forEach((element) => {
+                  let item ={
+                        role_id: roleID,
+                        employer_id: element.employer_id
+                    }
+                    listCheckNguoiDungDaGan.push(item)
+                });
+                let response = await PermisionAPI.removeEmployPermission(this.axios, listCheckNguoiDungDaGan)
+                if(response.data.success){
+                    this.$root.toastSuccess(response.data.message.toString())
+                    this.getDanhSachNguoiDungChuaGan(roleID)
+                    this.getDanhSachNguoiDungDaGan(roleID)
+                }else{
+                    this.$root.toastError(response.data.message.toString())
+                }
+            }
+        },
     },
     components:{
         KTable,

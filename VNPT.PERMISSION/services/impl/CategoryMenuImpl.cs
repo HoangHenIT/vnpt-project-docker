@@ -1,8 +1,11 @@
 ﻿using ClassLibrary.connectdb;
+using ClassLibrary.dbcontext.connect;
 using ClassLibrary.model;
 using ClassLibrary.model.permission;
 using ClassLibrary.responsitory;
+using Dapper;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Xml.Linq;
@@ -13,6 +16,11 @@ namespace VNPT.PERMISSION.services.impl
     {
         public CategoryMenuImpl(DataContext context) : base(context)
         {
+        }
+        public IDbConnection GetConnection()
+        {
+            var conn = new SqlConnection(ConnectionStringImpl.defaultconnectionSQLServer);
+            return conn;
         }
         public CategoryMenus getCategory(CategoryMenus category)
         {
@@ -46,6 +54,23 @@ namespace VNPT.PERMISSION.services.impl
             {
                 return false;
             }
+        }
+
+        public dynamic getDanhSachMenuTheoNguoiDung(int employid)
+        {
+            List<CategoryMenus> result = new List<CategoryMenus>();
+            using (IDbConnection conn = GetConnection())
+            {
+                conn.Open();
+
+                // Sử dụng Dapper để thực hiện truy vấn
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_employer_id", employid, DbType.Int32, ParameterDirection.Input);
+                //parameters.Add("@o_data", dbType: DbType.Int32, direction: ParameterDirection.Output);
+                result = conn.Query<CategoryMenus>("layDanhSachMenu", parameters, commandType: CommandType.StoredProcedure).ToList();
+                conn.Close();
+            }
+            return result;
         }
     }
 }
