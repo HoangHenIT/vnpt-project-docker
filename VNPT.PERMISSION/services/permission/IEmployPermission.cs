@@ -3,7 +3,7 @@ using ClassLibrary.responsitory;
 
 namespace VNPT.PERMISSION.services.permission
 {
-    public interface IEmployPermission : IResponsetory<EmployePermissions>
+    public interface IEmployPermission : IOCOPResponsetory<EmployePermissions>
     {
         public dynamic getDanhSachNguoiDungChuaGan(int role_id);
     }

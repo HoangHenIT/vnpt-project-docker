@@ -39,6 +39,7 @@ namespace VNPT.PERMISSION.services.permission.impl
                 //parameters.Add("@o_data", dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 result = conn.Query<EmployersRequest>("danhSachNguoiDungChuaGan", parameters, commandType: CommandType.StoredProcedure).ToList();
+                conn.Close();
             }
 
             return result;

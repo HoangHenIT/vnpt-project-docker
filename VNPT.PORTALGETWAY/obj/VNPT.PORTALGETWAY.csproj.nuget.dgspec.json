@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj": {}
+    "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj": {}
   },
   "projects": {
-    "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj": {
+    "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj",
+        "projectUniqueName": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj",
         "projectName": "VNPT.PORTALGETWAY",
-        "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj",
+        "projectPath": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj",
         "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
-        "outputPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\obj\\",
+        "outputPath": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\HoangHenIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,6 @@
-﻿using ClassLibrary.model;
+﻿
+
+using ClassLibrary.model;
 using ClassLibrary.responsitory;
 
 namespace VNPT.EMPLOYER.services

@@ -57,6 +57,29 @@
         "PeriodTimespan": 1,
         "Limit": 10
       }
+    },
+    {
+      "UpstreamPathTemplate": "/api/ocop/{catchAll}",
+      "UpstreamHttpMethod": [ "Options", "Get", "Post", "Put", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9004
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "DownstreamPathTemplate": "/api/ocop/{catchAll}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 10
+      }
     }
   ],
   "GlobalConfiguration": {

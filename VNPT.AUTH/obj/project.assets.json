@@ -8827,21 +8827,19 @@
   },
   "packageFolders": {
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
+      "projectUniqueName": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
       "projectName": "VNPT.AUTH",
-      "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
+      "projectPath": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.AUTH\\VNPT.AUTH.csproj",
       "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
-      "outputPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.AUTH\\obj\\",
+      "outputPath": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.AUTH\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\HoangHenIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8860,8 +8858,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
+            "D:\\HoangHenIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "D:\\HoangHenIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }
@@ -8928,7 +8926,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },
