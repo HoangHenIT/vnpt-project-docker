@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NN1WGGmlc/9HrNdND7Y/zAyXt7jQgWIKFvuJLNRO+zAe2UZzMOnTxOMUM4D9AaRI2sCzH/VN35BELZwysvgzoQ==",
+  "dgSpecHash": "sGMOqisSf4Db0jvGn0k9iJj9DY6H3OUpdzmsy4nKJzUh/LdHBt+YTx3NK2mbbyv6Qm15D3VyGZ+PqLu3G9tEzg==",
   "success": true,
-  "projectFilePath": "D:\\HoangHenIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj",
+  "projectFilePath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PORTALGETWAY\\VNPT.PORTALGETWAY.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.1\\microsoft.aspnetcore.authentication.jwtbearer.7.0.1.nupkg.sha512",
@@ -25,7 +25,7 @@
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.15.1\\system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
-    "C:\\Users\\HoangHenIT\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

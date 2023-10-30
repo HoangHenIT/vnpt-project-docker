@@ -8,7 +8,7 @@ namespace ClassLibrary.dbcontext.connect
 {
     public class ConnectionStringImpl
     {
-        public static string defaultconnectionSQLServer = "data source=DESKTOP-H1NI31V;initial catalog=vnptauth;user id=sa;password=123456aA@;MultipleActiveResultSets=True;Encrypt=True;Connection Timeout=60;TrustServerCertificate=True;";
-        public static string defaultconnectionSQLServerOCOP = "data source=DESKTOP-H1NI31V;initial catalog=OCOPSERVER;user id=sa;password=123456aA@;MultipleActiveResultSets=True;Encrypt=True;Connection Timeout=60;TrustServerCertificate=True;";
+        public static string defaultconnectionSQLServer = "data source=HENTVH;initial catalog=vnptauth;user id=sa;password=123456aA@;MultipleActiveResultSets=True;Encrypt=True;Connection Timeout=60;TrustServerCertificate=True;";
+        public static string defaultconnectionSQLServerOCOP = "data source=HENTVH;initial catalog=OCOPSERVER;user id=sa;password=123456aA@;MultipleActiveResultSets=True;Encrypt=True;Connection Timeout=60;TrustServerCertificate=True;";
     }
 }

@@ -9,6 +9,8 @@ using System.Configuration;
 using System.Text;
 using VNPT.OCOPSERVICE.services.ocop;
 using VNPT.OCOPSERVICE.services.ocop.impl;
+using VNPT.PERMISSION.services.permission.impl;
+using VNPT.PERMISSION.services.permission;
 
 var builder = WebApplication.CreateBuilder(args);
     var configuration = builder.Configuration;
@@ -43,22 +45,11 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddControllers();
-    builder.Services.AddSingleton(ConnectionStringImpl.defaultconnectionSQLServerOCOP);
+    builder.Services.AddDbContext<DataContextOCOP>(options => {
+        options.UseSqlServer(ConnectionStringImpl.defaultconnectionSQLServerOCOP);
+    });
 
-builder.Services.AddDbContext<DataContext>(option =>
-{
-    option.UseSqlServer(builder.Configuration.GetConnectionString("defaultconnectionSQLServer"));
-});
-
-builder.Services.AddDbContext<DataContext>(options =>
-{
-    options.UseSqlServer(ConnectionStringImpl.defaultconnectionSQLServerOCOP);
-});
-// Add services to the container.
-builder.Services.AddControllers();
-
-
-    builder.Services.AddTransient<IOCOPSanPham, OCOPSanPhamImpl>();
+builder.Services.AddTransient<IOCOPSanPham, OCOPSanPhamImpl>();
     
 
 var app = builder.Build();

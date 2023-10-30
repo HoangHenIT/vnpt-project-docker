@@ -29,7 +29,7 @@ namespace VNPT.PERMISSION.Controllers
             {
 
                 data.success = true;
-                data.data = m_oCOPSanPham.getNhomSanPham();
+                data.data = m_oCOPSanPham.getAll();
                 data.message = "Lấy danh sách nhóm sản phẩm thành công";
             }
             catch (Exception e)

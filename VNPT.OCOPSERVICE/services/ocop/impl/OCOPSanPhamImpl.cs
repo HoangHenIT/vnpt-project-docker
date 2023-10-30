@@ -23,19 +23,8 @@ namespace VNPT.OCOPSERVICE.services.ocop.impl
 
         public dynamic getNhomSanPham()
         {
-            var res = (from nhom in m_context.Nhomsps 
-                       select new
-                       {
-                           nhom.ID,
-                           nhom.TEN,
-                           nhom.TRANG_THAI,
-                           nhom.MO_TA,
-                           nhom.IS_DELETE,
-                           nhom.CREATE_USER,
-                           nhom.CREATED_DATE
-                           
-                       }).ToList();
-            return res;
+            return m_context.Nhomsps.OrderByDescending(m => m.TEN).ToList();
+           
         }
     }
 }
