@@ -1,5 +1,6 @@
 ﻿using ClassLibrary.auth;
 using ClassLibrary.auth.hashpass;
+using ClassLibrary.auth.md5HashPass;
 using ClassLibrary.connectdb;
 using ClassLibrary.model;
 using ClassLibrary.respond;
@@ -27,6 +28,7 @@ namespace VNPT.AUTH.services.auth.impl
             DataRespond data = new DataRespond();
             try
             {
+                var userHash = HashPassMD5.DecryptString(employers.username);
                 if (checkEmployers(employers))
                 {
                     data.success = true;

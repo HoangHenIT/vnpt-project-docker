@@ -17,6 +17,7 @@
     "axios": "^1.2.2",
     "bootbox": "^5.5.2",
     "bootstrap-vue": "^2.21.2",
+    "crypto-js": "^4.2.0",
     "jquery": "^3.6.0",
     "moment": "^2.29.4",
     "v-select2-component": "^0.4.7",

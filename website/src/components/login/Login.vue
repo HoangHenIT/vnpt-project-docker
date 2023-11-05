@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import AuthApi from './LoginApi';
+import AuthApi from './LoginApi'
+import HasdPass from '../../plugins/hashPass'
 export default {
     name:"Login",
     data(){
@@ -92,9 +93,10 @@ export default {
                     return;
                 }
                 let data = {
-                    'username': this.auth.username,
-                    'password': this.auth.password
+                    'username': HasdPass.encrypt(this.auth.username),
+                    'password': HasdPass.encrypt(this.auth.password)
                 }
+                console.log(data)
                 let response = await AuthApi.login(this.axios, data)
                 if(response.data.data.success == true){
                     let token = response.data.data

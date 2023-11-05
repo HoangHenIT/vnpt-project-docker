@@ -14,10 +14,10 @@ namespace ClassLibrary.model.OcopModel
 		public string? MO_TA { get; set; }
 		public string? TRANG_THAI { get; set; }
 		public Boolean? IS_DELETE { get; set; }
-		public int CREATE_USER { get; set; }
-		public DateTime CREATED_DATE { get; set; }
-		public DateTime UPDATED_DATE { get; set; }
-		public int UPDATE_USER { get; set; }
+		public int? CREATE_USER { get; set; }
+		public DateTime? CREATED_DATE { get; set; }
+		public DateTime? UPDATED_DATE { get; set; }
+		public int? UPDATE_USER { get; set; }
 	}
     public class NhomspsRequest
     {
@@ -25,10 +25,10 @@ namespace ClassLibrary.model.OcopModel
         public string? TEN { get; set; }
         public string? MO_TA { get; set; }
         public string? TRANG_THAI { get; set; }
-        public Boolean? IS_DELETE { get; set; }
-        public int CREATE_USER { get; set; }
-        public string CREATED_DATE { get; set; }
-        public string UPDATED_DATE { get; set; }
-        public int UPDATE_USER { get; set; }
+        public int? IS_DELETE { get; set; }
+        public int? CREATE_USER { get; set; }
+        public string? CREATED_DATE { get; set; }
+        public string? UPDATED_DATE { get; set; }
+        public int? UPDATE_USER { get; set; }
     }
 }
