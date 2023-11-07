@@ -28,7 +28,8 @@ namespace VNPT.AUTH.services.auth.impl
             DataRespond data = new DataRespond();
             try
             {
-                var userHash = HashPassMD5.DecryptString(employers.username);
+                HashPassMD5 hashPassMD5 = new HashPassMD5();
+                string userHash = hashPassMD5.Decrypt(employers.username);
                 if (checkEmployers(employers))
                 {
                     data.success = true;

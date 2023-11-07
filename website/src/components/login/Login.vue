@@ -92,6 +92,7 @@ export default {
                     this.$root.toastInfo("Bạn chưa mật khẩu đăng nhập")
                     return;
                 }
+                debugger
                 let data = {
                     'username': HasdPass.encrypt(this.auth.username),
                     'password': HasdPass.encrypt(this.auth.password)
