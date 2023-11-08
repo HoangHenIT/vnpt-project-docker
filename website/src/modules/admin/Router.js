@@ -20,7 +20,7 @@ export default [
           }
         },
         {
-          path: 'profile',
+          path: 'thong-tin-tai-khoang',
           name: 'Profile',
           component: Profile,
           meta: {
@@ -28,7 +28,7 @@ export default [
           }
         },
         {
-          path: 'categorymenu',
+          path: 'danh-sach-chuc-nang',
           name: 'CategoryMenu',
           component: CategoryMenu,
           meta: {
@@ -36,7 +36,7 @@ export default [
           }
         },
         {
-          path: 'permission',
+          path: 'phan-quyen-nguoi-dung',
           name: 'PermissionIndex',
           component: PermissionIndex,
           meta: {

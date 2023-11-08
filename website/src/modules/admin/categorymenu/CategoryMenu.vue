@@ -1,7 +1,7 @@
 <template>
   <div class="main-wrapper">
     <section>
-      <div class="list-actions-top">
+      <!-- <div class="list-actions-top">
         <ul class="list">
             <li @click="changeTab(0)">
                 <a href="javascript:void(0)">
@@ -24,8 +24,8 @@
                 </a>
             </li>
         </ul>
-      </div>
-      <div class="page-content h-100" style="top:105px">
+      </div> -->
+      <div class="page-content h-100" style="top:60px">
         <div class="row">
             <div class="col-12">
 

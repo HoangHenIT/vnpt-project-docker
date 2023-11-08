@@ -80,5 +80,6 @@ new Vue({
     toastInfo: function (arg) {
       this.$toast.info(arg)
     }
-  }
+  },
+  
 })

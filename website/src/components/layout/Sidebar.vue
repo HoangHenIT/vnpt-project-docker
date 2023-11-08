@@ -21,23 +21,23 @@
                 
             </li> -->
             <li v-for="category in ListCategory ">
-                <div class="icon_links">
-                    <a :href = "category.category_link" :title="category.category_name">
+                <div class="icon_links" v-on:click="changEventArrowMenu()">
+                    <router-link :to = category.category_link :title="category.category_name">
                         <i  v-bind:class= "category.category_icon" aria-hidden="true"></i>
                         <span class="link_name">  {{ category.category_name }} </span>
-                    </a>
+                    </router-link>
                     <!-- v-if="category.chilCategory.length !=0" -->
-                    <i class="fa fa-angle-down arrow" aria-hidden="true" v-on:click="changEventArrowMenu()"></i>
+                    <i class="fa fa-angle-down arrow" aria-hidden="true" ></i>
                 </div>
                 <ul class="sub-menu" >
                     <li v-for="chilCategorys in category.chilCategory ">
-                        <a class="link_name" :href = "chilCategorys.category_link" :title="chilCategorys.category_name" >
+                        <router-link class="link_name" :to = chilCategorys.category_link :title="chilCategorys.category_name" >
                             <span class="link_name">  {{ chilCategorys.category_name }} </span>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
             </li>
-            <li >
+            <!-- <li >
                 <div class="icon_links">
                     <a href="">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <!-- <li>
                 <div class="icon_links">
                     <a href="">
@@ -139,59 +139,68 @@ export default {
             employer_id:0,
         }
     },
-    mounted() {
+    created(){
         this.getEmployerInfo()
-        this.changEventArrowMenu();
-        this.changEventMenu();
         this.getDanhSachMenuTheoNguoiDung()
+        setTimeout(() => {
+            this.changEventArrowMenu();
+            this.changEventMenu();
+        }, 1000);
+        
+    },
+    mounted() {
+        
     },
     methods: {
         getEmployerInfo(){
           this.employer_id = this.$auth.getEmployerId();
         },
-        async getDanhSachMenuTheoNguoiDung(){
-           try{
-                let employerid = this.employer_id
-                this.ListCategory=[]
-                let response = await APISibar.getDanhSachMenuTheoNguoiDung(this.axios, employerid)
-                if(response.data.success){
-                    let categoryMap = {};
-                    // Lặp qua dữ liệu và nhóm danh mục con vào danh mục cha
-                    response.data.data.forEach(item => {
-                    if (item.category_cha_id==0 && item.category_level == 0) {
-                        // Nếu không có danh mục cha, thêm danh mục gốc
-                        if (!categoryMap[item.category_id]) {
-                            categoryMap[item.category_id] = {
-                                category_id: item.category_id,
-                                category_name: item.category_name,
-                                category_level: item.category_level,
-                                category_cha_id: item.category_cha_id,
-                                category_icon: item.category_icon,
-                                category_link: item.category_link,
-                                chilCategory: [],
-                            };
-                        }
+        async getDanhSachMenuTheoNguoiDung() {
+            try {
+                let arrDsChucNang = localStorage.getItem("ds_chucnang") || null;
+                let employerid = 2;
+                
+                if (arrDsChucNang != null) {
+                    this.ListCategory = JSON.parse(arrDsChucNang);
+                } else {
+                    let response = await APISibar.getDanhSachMenuTheoNguoiDung(this.axios, employerid);
+                    if (response.data.success) {
+                        let categoryMap = {};
+                        
+                        response.data.data.forEach(item => {
+                            if (item.category_cha_id == 0 && item.category_level == 0) {
+                                if (!categoryMap[item.category_id]) {
+                                    categoryMap[item.category_id] = {
+                                        category_id: item.category_id,
+                                        category_name: item.category_name,
+                                        category_level: item.category_level,
+                                        category_cha_id: item.category_cha_id,
+                                        category_icon: item.category_icon,
+                                        category_link: item.category_link,
+                                        chilCategory: [],
+                                    };
+                                }
+                            } else {
+                                if (categoryMap[item.category_cha_id]) {
+                                    categoryMap[item.category_cha_id].chilCategory.push({
+                                        category_id: item.category_id,
+                                        category_name: item.category_name,
+                                        category_level: item.category_level,
+                                        category_cha_id: item.category_cha_id,
+                                        category_icon: item.category_icon,
+                                        category_link: item.category_link,
+                                    });
+                                }
+                            }
+                        });
+                        this.ListCategory = Object.values(categoryMap);
+                        localStorage.setItem("ds_chucnang", JSON.stringify(this.ListCategory));
                     } else {
-                        // Nếu có danh mục cha, tìm danh mục cha tương ứng và thêm danh mục con
-                        if (categoryMap[item.category_cha_id]) {
-                            categoryMap[item.category_cha_id].chilCategory.push({
-                                category_id: item.category_id,
-                                category_name: item.category_name,
-                                category_level: item.category_level,
-                                category_cha_id: item.category_cha_id,
-                                category_icon: item.category_icon,
-                                category_link: item.category_link,
-                            });
-                        }
+                        this.$root.toastError(response.data.message.toString());
                     }
-                    });
-                    this.ListCategory = Object.values(categoryMap);
-                    // console.log(this.ListCategory) 
-                }else{
-                    this.$root.toastError(response.data.message.toString())
                 }
-           }catch(error){
-                this.$root.toastError(error.message.toString())
+            } catch (error) {
+                this.$root.toastError(error.message.toString());
             }
         },
         changEventArrowMenu() {

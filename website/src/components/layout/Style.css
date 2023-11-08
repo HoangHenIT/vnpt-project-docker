@@ -195,12 +195,12 @@
 .sidebars .nav-links li .sub-menu a:hover{
     opacity: 1;
 }
-.sidebars .nav-links li .sub-menu .link_name{
+/* .sidebars .nav-links li .sub-menu .link_name{
     display: none;
 }
 .sidebars .nav-links li .sub-menu .link_name{
     display: none;
-}
+} */
 .sidebars.closed .nav-links li .sub-menu .link_name{
     display: none;
 }

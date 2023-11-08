@@ -14,6 +14,22 @@ var AuthPlugin = {
     token.destroy();
     localStorage.clear();
   },
+  ExpiresToken: function(){
+    let newday =  new Date().toString("dd/mm/yyyy HH24:MI:SS");
+    let expires = token.getTokenExpired();
+    if(expires == null){
+      return false
+    }else{
+      let e_expires = expires.toString("dd/mm/yyyy HH24:MI:SS")
+      if(e_expires <= newday){
+        return false
+        
+      }
+      token.destroy();
+      localStorage.clear();
+      return true
+    }
+  },
   setToken: function (stringToken) {
     token.setToken(stringToken);
   },

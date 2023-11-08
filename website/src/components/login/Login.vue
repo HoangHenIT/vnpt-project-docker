@@ -94,8 +94,10 @@ export default {
                 }
                 debugger
                 let data = {
-                    'username': HasdPass.encrypt(this.auth.username),
-                    'password': HasdPass.encrypt(this.auth.password)
+                    'username': this.auth.username,
+                    'password': this.auth.password
+                    // 'username': HasdPass.encrypt(this.auth.username),
+                    // 'password': HasdPass.encrypt(this.auth.password)
                 }
                 console.log(data)
                 let response = await AuthApi.login(this.axios, data)

@@ -1,4 +1,5 @@
 ﻿using ClassLibrary.connectdb;
+using ClassLibrary.dbcontext.connect;
 using ClassLibrary.model.permission;
 using ClassLibrary.responsitory;
 using Dapper;
@@ -21,10 +22,15 @@ namespace VNPT.PERMISSION.services.permission.impl
         {
             m_configuration = configuration;
         }
+        //public IDbConnection GetConnection()
+        //{
+        //    var connectionString = m_configuration.GetSection("connectionstrings").GetSection("defaultconnectionSQLServer").Value;
+        //    var conn = new SqlConnection(connectionString);
+        //    return conn;
+        //}
         public IDbConnection GetConnection()
         {
-            var connectionString = m_configuration.GetSection("connectionstrings").GetSection("defaultconnectionSQLServer").Value;
-            var conn = new SqlConnection(connectionString);
+            var conn = new SqlConnection(ConnectionStringImpl.defaultconnectionSQLServer);
             return conn;
         }
 

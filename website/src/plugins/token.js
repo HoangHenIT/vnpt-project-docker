@@ -27,7 +27,7 @@ export default {
   getToken: function () {
     try {
       let t = this.getTokenFromStorage();
-      return t.access_token;
+      return t.data.token.access_token;
     } catch (error) {
       return null;
     }
@@ -43,7 +43,7 @@ export default {
   getTokenExpired: function () {
     try {
       let t = this.getTokenFromStorage();
-      return t.expires_in;
+      return t.data.token.expires_in;
     } catch (error) {
       return null;
     }

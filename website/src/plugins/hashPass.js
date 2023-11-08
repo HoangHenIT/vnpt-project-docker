@@ -17,7 +17,6 @@ export default {
       return decryptedData.toString(CryptoJS.enc.Utf8);
     },
     encrypt(sender) {
-      debugger
       const data = CryptoJS.enc.Utf8.parse(sender);
       // const keys = CryptoJS.MD5(passphrase);//CryptoJS.MD5(passphrase).toString(CryptoJS.enc.Utf8);
       // const ks = CryptoJS.enc.Utf8.parse(keys);
