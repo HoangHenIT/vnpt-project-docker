@@ -4529,11 +4529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PERMISSION\\VNPT.PERMISSION.csproj",
+      "projectUniqueName": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\VNPT.PERMISSION\\VNPT.PERMISSION.csproj",
       "projectName": "VNPT.PERMISSION",
-      "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PERMISSION\\VNPT.PERMISSION.csproj",
+      "projectPath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\VNPT.PERMISSION\\VNPT.PERMISSION.csproj",
       "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
-      "outputPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PERMISSION\\obj\\",
+      "outputPath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\VNPT.PERMISSION\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -4556,8 +4556,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
+            "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj"
             }
           }
         }

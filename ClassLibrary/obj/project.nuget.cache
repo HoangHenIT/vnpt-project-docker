@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X1WqVprE3g32yNeOc7rhC9klHugSbhTOo5DKFNOo7uQwcsvNE5FPoq+s+0VXafSEdSDoGvbPvHSR6nAIi/HuIA==",
+  "dgSpecHash": "9vPEeARNdlrK8UFVINvJjVd8FU+1cd9q3qxVWV3Vj4s/okinPITCdvMnMMVM8f1BAKvXSRJ9e3XX3hvm/y8Kew==",
   "success": true,
-  "projectFilePath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
+  "projectFilePath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

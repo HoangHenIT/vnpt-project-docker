@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {}
+    "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {}
   },
   "projects": {
-    "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
+    "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
+        "projectUniqueName": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
         "projectName": "ClassLibrary",
-        "projectPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
+        "projectPath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\ClassLibrary.csproj",
         "packagesPath": "C:\\Users\\HoangHenIT\\.nuget\\packages\\",
-        "outputPath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\ClassLibrary\\obj\\",
+        "outputPath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

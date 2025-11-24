@@ -115,7 +115,7 @@ namespace VNPT.AUTH.services.auth.impl
                 audience: m_audience.Value.Aud,
                 claims: claims,
                 notBefore: now,
-                expires: now.Add(TimeSpan.FromMinutes(1)),
+                expires: now.Add(TimeSpan.FromHours(1)),
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
             );
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
@@ -123,9 +123,8 @@ namespace VNPT.AUTH.services.auth.impl
             {
                 access_token = encodedJwt,
                 //expires_in = (int)TimeSpan.FromDays(1).TotalSeconds
-                expires_in = DateTime.Now.AddMinutes(1),
-                //expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
-            };
+                 expires_in = DateTime.Now.AddMinutes(1).ToString("yyyyMMddHHmmss"),         //expires_in = (int)TimeSpan.FromMinutes(1).TotalSeconds
+        };
 
             return responseJson;
         }

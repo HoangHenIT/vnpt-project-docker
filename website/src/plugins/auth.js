@@ -14,21 +14,22 @@ var AuthPlugin = {
     token.destroy();
     localStorage.clear();
   },
-  ExpiresToken: function(){
-    let newday =  new Date().toString("dd/mm/yyyy HH24:MI:SS");
-    let expires = token.getTokenExpired();
-    if(expires == null){
-      return false
-    }else{
-      let e_expires = expires.toString("dd/mm/yyyy HH24:MI:SS")
-      if(e_expires <= newday){
-        return false
-        
+  ExpiresToken: function() {
+      const now = Date.now(); 
+      const getNow = formatYYYYMMDDHHMMSS(now);
+      const expires = token.getTokenExpired(); // giả sử trả về timestamp (ms) hoặc null
+      // Nếu không có expires → token chưa bao giờ được set hoặc đã bị xóa
+      if (!expires) {
+          return false;
       }
-      token.destroy();
-      localStorage.clear();
-      return true
-    }
+      // So sánh trực tiếp bằng timestamp (chuẩn và không lỗi múi giờ, định dạng)
+      if (getNow >= expires) {
+          // Token đã hết hạn → xóa
+          token.destroy();
+          localStorage.clear();
+          return true; // true = đã hết hạn và đã được xử lý
+      }
+      return false; // vẫn còn hạn
   },
   setToken: function (stringToken) {
     token.setToken(stringToken);
@@ -68,6 +69,19 @@ var AuthPlugin = {
       return null;
     }
   },
+  formatYYYYMMDDHHMMSS(timestamp = Date.now()) {
+    const date = new Date(timestamp);
+    const pad = (n) => String(n).padStart(2, '0');
+    
+    return (
+      date.getFullYear() +
+      pad(date.getMonth() + 1) +
+      pad(date.getDate()) +
+      pad(date.getHours()) +
+      pad(date.getMinutes()) +
+      pad(date.getSeconds())
+    );
+  }
 };
 
 export default function (Vue) {
@@ -80,3 +94,4 @@ export default function (Vue) {
     }
   });
 }
+

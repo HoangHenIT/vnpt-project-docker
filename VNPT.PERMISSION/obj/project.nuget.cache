@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eBPyDCfi0WpFtKIyuSnX1qLRljP+fMNlcMI4W9Zp0d/x4OoYfgDmzAAK70nxIqY3f/mCUerVBfr2bRrsc/ycEA==",
+  "dgSpecHash": "UFigMDXTb1QWiz9GpGErrPPUA/wlABmEs/nbhDj6zcGRZTqMsHm9KtJrQjPiba9L8cjeBGSaWn3xHbDwEIq7Dw==",
   "success": true,
-  "projectFilePath": "D:\\VNPT-HOANGHENIT\\vnpt-project-docker\\VNPT.PERMISSION\\VNPT.PERMISSION.csproj",
+  "projectFilePath": "D:\\CODE DA\\websitebanhang\\vnpt-project-docker\\VNPT.PERMISSION\\VNPT.PERMISSION.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\HoangHenIT\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

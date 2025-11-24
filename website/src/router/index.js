@@ -4,6 +4,7 @@ import MainLayout from '../layouts/MainLayout.vue'
 import Home from '../components/home/Home.vue'
 
 import Admin from '@/modules/admin/Router.js'
+import SanPham from '@/modules/sanpham/Router.js'
 
 // import Profile from '../components/profile/Profile.vue'
 // import CreateEmployer from '../components/profile/popemloyer/CreateEmployer.vue'
@@ -44,15 +45,17 @@ const router = new Router({
       }]
     },
     ...Admin,
+    ...SanPham,
   ]
 })
 
 router.beforeEach((to, from, next) => {
   // kiểm tra chưa có token trả về Login
   debugger
-  if(Vue.auth.ExpiresToken() == false){
-    next({ name: 'Login' });
-  }
+  // if(Vue.auth.ExpiresToken() == true){
+  //   next({ name: 'Login' });
+  //   return;
+  // }
   if (to.meta.requiresAuth == undefined || to.meta.requiresAuth == null || to.meta.requiresAuth == true){
     if(Vue.auth.isAuthenticated()){
       next()
