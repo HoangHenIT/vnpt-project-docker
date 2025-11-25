@@ -3,7 +3,7 @@ using ClassLibrary.responsitory;
 
 namespace VNPT.AUTH.services.auth
 {
-    public interface IHistoryLogins : IOCOPResponsetory<HistoryLogins>
+    public interface IHistoryLogins : IProductResponsetory<HistoryLogins>
     {
         dynamic getHistoryLoginInEmployer(HistoryLoginsRequest historyLoginsRequest);
     }

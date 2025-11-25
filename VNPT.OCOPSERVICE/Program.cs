@@ -45,11 +45,11 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddControllers();
-    builder.Services.AddDbContext<DataContextOCOP>(options => {
-        options.UseSqlServer(ConnectionStringImpl.defaultconnectionSQLServerOCOP);
+    builder.Services.AddDbContext<DataContextProduct>(options => {
+        options.UseSqlServer(ConnectionStringImpl.defaultconnectionSQLServerProduct);
     });
 
-builder.Services.AddTransient<IOCOPSanPham, OCOPSanPhamImpl>();
+builder.Services.AddTransient<IProduct, ProductImpl>();
     
 
 var app = builder.Build();

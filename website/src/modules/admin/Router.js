@@ -2,6 +2,7 @@ import LayoutMain from '@/layouts/MainLayout.vue'
 import Profile from '../admin/profile/Profile.vue'
 import CategoryMenu from '../admin/categorymenu/CategoryMenu.vue'
 import PermissionIndex from '../admin/permission/Permission.vue'
+import ProductList from './productlist/ProductList.vue'
 
 
 export default [
@@ -41,6 +42,14 @@ export default [
           component: PermissionIndex,
           meta: {
             title: 'Phân quyền'
+          }
+        },
+        {
+          path: 'quan-ly-san-pham',
+          name: 'ProductList',
+          component: ProductList,
+          meta: {
+            title: 'Danh sách sản phẩm'
           }
         },
         

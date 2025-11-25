@@ -4,7 +4,6 @@ import MainLayout from '../layouts/MainLayout.vue'
 import Home from '../components/home/Home.vue'
 
 import Admin from '@/modules/admin/Router.js'
-import SanPham from '@/modules/sanpham/Router.js'
 
 // import Profile from '../components/profile/Profile.vue'
 // import CreateEmployer from '../components/profile/popemloyer/CreateEmployer.vue'
@@ -45,7 +44,6 @@ const router = new Router({
       }]
     },
     ...Admin,
-    ...SanPham,
   ]
 })
 
